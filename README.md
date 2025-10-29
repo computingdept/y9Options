@@ -1,2 +1,2 @@
 # y9Options
-Year 9 options as et of 10 Lessons
+Year 9 options as set of 10 Lessons and index 
