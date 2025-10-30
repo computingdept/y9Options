@@ -1,0 +1,136 @@
+/* ===== Lesson Layout (RHSC-style) ===== */
+:root{
+  --bg: #ffffff;
+  --ink: #111111;
+  --muted: #667085;
+  --accent: #006e51;   /* Reepham green */
+  --ring: #99e2cf;
+  --radius: 16px;
+  --shadow: 0 6px 30px rgba(0,0,0,0.08);
+  --maxw: 1100px;
+
+  /* Accessibility-friendly sizing (larger baseline) */
+  --font-base: 20px;   /* ~20px body */
+  --font-h1: 1.8rem;   /* ~36px */
+  --font-h2: 1.25rem;  /* ~25px */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "SF Pro Text",
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
+               "Segoe UI Emoji";
+  font-size: var(--font-base);
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+header{
+  max-width: var(--maxw);
+  margin: 24px auto 8px;
+  padding: 0 16px;
+}
+h1{
+  font-size: var(--font-h1);
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Tabs (bottom nav) */
+.tabs{
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  gap: 8px;
+  max-width: var(--maxw);
+  margin: 10px auto 24px;
+  padding: 8px 16px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.tab-button{
+  flex: 1;
+  font: inherit;
+  font-weight: 600;
+  padding: 12px 14px;
+  border: 2px solid #e6e6e6;
+  border-radius: 999px;
+  background: #f8f9fa;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .05s ease;
+}
+.tab-button:hover{ border-color: #ddd; }
+.tab-button:active{ transform: translateY(1px); }
+.tab-button.active{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Tab panels */
+.tab-content{
+  display: none;
+  padding: 8px;
+}
+.tab-content.active{
+  display: block;
+}
+
+.tab-content h2{
+  font-size: var(--font-h2);
+  margin: 0 0 12px;
+}
+
+/* Do Now image only (no extra text) */
+#do-now h2{ display:none; } /* As requested: no text shown in Do Now */
+.do-now-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid #eee;
+}
+
+/* General media/text area (kept simple for parity with Lessons 2+) */
+#plenary h2{ display:none; } /* No text visible in Plenary per your spec */
+
+/* Focus visibility */
+:focus-visible{
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { transition: none !important; }
+}
+
+/* Small screens */
+@media (max-width: 640px){
+  :root{
+    --font-base: 18px;
+    --font-h1: 1.6rem;
+    --font-h2: 1.15rem;
+  }
+  .tabs{ gap: 6px; }
+  .tab-button{ padding: 10px 12px; }
+}
