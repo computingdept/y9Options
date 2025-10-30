@@ -122,4 +122,131 @@
       <div class="do-now-wrap">
         <div class="do-now-left">
           <!-- Referenced image (same folder) -->
-          <img src="lesson1.png" alt="Lesson 1 intr
+          <img src="lesson1.png" alt="Lesson 1 intro graphic with student thinking about Computer Science and IT">
+        </div>
+
+        <div class="do-now-right">
+          <p class="stem"><em>Match each statement to <strong>Computer Science</strong> or <strong>IT</strong>.</em></p>
+
+          <div class="q" data-answer="Computer Science">
+            <span class="num">1.</span>
+            <div>
+              <div>Designs and builds programs.</div>
+              <div class="answer badge">Answer: Computer Science</div>
+            </div>
+          </div>
+
+          <div class="q" data-answer="IT">
+            <span class="num">2.</span>
+            <div>
+              <div>Uses software to analyse business data.</div>
+              <div class="answer badge">Answer: IT</div>
+            </div>
+          </div>
+
+          <div class="q" data-answer="Computer Science">
+            <span class="num">3.</span>
+            <div>
+              <div>Understands algorithms and logic.</div>
+              <div class="answer badge">Answer: Computer Science</div>
+            </div>
+          </div>
+
+          <div class="q" data-answer="IT">
+            <span class="num">4.</span>
+            <div>
+              <div>Creates digital graphics or presentations.</div>
+              <div class="answer badge">Answer: IT</div>
+            </div>
+          </div>
+
+          <button class="reveal" id="reveal-all">Reveal all answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content" role="tabpanel">
+      <h2>What you'll learn</h2>
+      <ul>
+        <li>What Computer Science (CS) focuses on (algorithms, programming, data, hardware).</li>
+        <li>What Information Technology (IT) focuses on (using systems, productivity tools, digital content).</li>
+        <li>Where CS and IT overlap in school, work, and daily life.</li>
+      </ul>
+    </section>
+
+    <!-- How you'll know you've got it -->
+    <section id="know" class="tab-content" role="tabpanel">
+      <h2>How you'll know you’ve got it</h2>
+      <ul>
+        <li>You can correctly classify tasks as CS or IT and justify your choice.</li>
+        <li>You can explain an algorithm example (e.g., making a jam sandwich) and relate it to CS.</li>
+        <li>You can name two IT tasks you did today and two CS concepts from the lesson.</li>
+      </ul>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content" role="tabpanel">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Algorithm</dt><dd>A precise step-by-step method to solve a problem.</dd>
+        <dt>Program</dt><dd>A set of instructions a computer can execute.</dd>
+        <dt>Data</dt><dd>Symbols, numbers, text, images or sounds that a computer processes.</dd>
+        <dt>Hardware</dt><dd>The physical parts of a computer system.</dd>
+        <dt>Software</dt><dd>Programs and apps that run on hardware.</dd>
+        <dt>Productivity tools</dt><dd>IT applications like spreadsheets, word processors and slides.</dd>
+      </dl>
+    </section>
+
+    <!-- Activities -->
+    <section id="activities" class="tab-content" role="tabpanel">
+      <h2>Activities</h2>
+      <ol>
+        <li><strong>Classify Cards (CS vs IT):</strong> In pairs, sort 12 task cards into CS, IT or Overlap. Justify one tricky card.</li>
+        <li><strong>Mini-algorithm:</strong> Write 6 steps for an everyday task. Swap and “debug” with a partner.</li>
+        <li><strong>Exit sentence:</strong> “CS is mainly about …; IT is mainly about …; they overlap when …”.</li>
+      </ol>
+    </section>
+
+    <!-- Plenary -->
+    <section id="plenary" class="tab-content" role="tabpanel">
+      <h2>Plenary</h2>
+      <p>Cold-call: pick one task from today and explain whether it’s CS, IT, or overlap (with one reason).</p>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content" role="tabpanel">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF export.</p>
+      <script>
+        // When "Show All" tab is visible, clone in the other panels for a single long page
+        // (keeps things simple without modifying your shared script.js)
+        document.addEventListener('DOMContentLoaded', () => {
+          const all = document.getElementById('all');
+          if(!all) return;
+          const ids = ['do-now','learn','know','vocab','activities','plenary'];
+          ids.forEach(id=>{
+            const sec = document.getElementById(id);
+            if(sec){
+              const clone = sec.cloneNode(true);
+              clone.classList.add('active'); // ensure visible
+              all.appendChild(clone);
+            }
+          });
+        });
+      </script>
+    </section>
+  </main>
+
+  <!-- Page-local JS for Do Now answers -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('reveal-all');
+      if(!btn) return;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#do-now .answer').forEach(el => el.style.display = 'inline-block');
+      });
+    });
+  </script>
+</body>
+</html>
