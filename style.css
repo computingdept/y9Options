@@ -1,9 +1,9 @@
-/* ===== RHSC Lessons – Shared Styles (v2, sidebar) ===== */
+/* ===== RHSC Lessons – Shared Styles (v3, sidebar + SEN) ===== */
 :root{
-  --bg:#fafafa;
+  --bg:#fffbe6;              /* pale yellow background (SEN-friendly) */
   --ink:#111111;
   --muted:#667085;
-  --accent:#006e51;       /* Reepham green */
+  --accent:#006e51;          /* Reepham green */
   --accent-2:#008b67;
   --ring:#99e2cf;
   --radius:16px;
@@ -11,10 +11,19 @@
   --maxw: 1200px;
 
   /* Accessibility-friendly sizing */
-  --font-base:20px;       /* board-friendly */
-  --font-h1:1.8rem;       /* ~36px */
-  --font-h2:1.25rem;      /* ~25px */
+  --font-base:20px;          /* board-friendly */
+  --font-h1:1.8rem;          /* ~36px */
+  --font-h2:1.25rem;         /* ~25px */
 }
+
+/* Optional: if you host OpenDyslexic locally, drop the font files & uncomment
+@font-face{
+  font-family:"OpenDyslexic";
+  src:url("./OpenDyslexic-Regular.woff2") format("woff2"),
+      url("./OpenDyslexic-Regular.woff") format("woff");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+*/
 
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -24,7 +33,10 @@ body{
   display:flex;                 /* sidebar + main */
   background:var(--bg);
   color:var(--ink);
-  font-family:ui-sans-serif,system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial;
+  /* SEN-first font stack */
+  font-family:"OpenDyslexic","Atkinson Hyperlegible",
+               ui-sans-serif,system-ui,-apple-system,"SF Pro Text",
+               "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   font-size:var(--font-base);
   line-height:1.5;
 }
@@ -66,7 +78,7 @@ body{
   box-shadow:0 0 0 3px rgba(255,255,255,.35) inset;
 }
 
-/* (Optional) top style if you ever want to use it on a page */
+/* Optional top-nav style (keep for flexibility) */
 .tabs.top{
   position:sticky;
   top:0;
@@ -93,6 +105,7 @@ main.container{
   max-width:var(--maxw);
   margin:0 auto;
   padding:24px 24px 40px;
+  /* Card-like feel against pale yellow */
 }
 
 /* ===== Panels & Headings ===== */
@@ -124,26 +137,36 @@ main.container{
   box-shadow:0 2px 8px rgba(0,0,0,0.03);
 }
 .answer{ display:none; margin-top:8px; font-weight:700 }
+
+/* SEN-tinted answer chips */
 .answer.badge{
   display:none;
   padding:4px 10px;
   border-radius:999px;
-  background:#eefaf6;
-  border:1px solid #bfe9db;
-  color:var(--accent);
+  background:#fff4b2;      /* soft yellow */
+  border:1px solid #f2da7a;/* darker yellow border for contrast */
+  color:#4b4b00;           /* deep olive for readability */
   font-weight:700;
 }
+
+/* Toggle button (Reveal/Hide Answers) */
 .reveal{
   margin-top:14px;
   padding:10px 16px;
   border-radius:999px;
-  border:0;
+  border:2px solid #e6e6e6;
   background:var(--accent);
   color:#fff;
   font-weight:700;
   cursor:pointer;
+  transition:background .2s ease, border-color .2s ease, color .2s ease;
 }
 .reveal:hover{ background:#008b67 }
+.reveal.active{
+  background:#fff;
+  color:var(--accent);
+  border-color:var(--accent);
+}
 
 /* ===== Vocab list (definition list) ===== */
 .kv{
@@ -155,10 +178,11 @@ main.container{
 /* ===== “What you’ll learn” cards ===== */
 .learn-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px }
 .learn-card{
-  background:#f8f9fa;
+  background:#fff;
   border:1px solid #e9ecef;
   border-radius:14px;
   padding:20px;
+  box-shadow:var(--shadow);
 }
 .learn-card h3{ margin:0 0 8px; color:var(--accent) }
 
