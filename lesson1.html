@@ -91,6 +91,11 @@
 
   <div style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
     <strong>Task:</strong>
+    <p>
+      Use <a href="https://www.mazegenerator.net" target="_blank" rel="noopener noreferrer">
+      MazeGenerator.net</a> to create a printable or onscreen maze for this challenge.
+    </p>
+
     <ul>
       <li>Write a sequence using <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code> to reach the exit.</li>
       <li>Run it step-by-step; if you hit a wall, <strong>debug</strong> and try again.</li>
@@ -129,18 +134,7 @@
             <td><code>N, E, E, S, E, N</code></td>
             <td>Removed redundant steps; reaches exit cleanly. Clearer to read and execute.</td>
           </tr>
-          <tr>
-            <td><strong>Pseudo-code</strong></td>
-            <td colspan="2">
-<pre style="margin:0; white-space:pre-wrap">SET x,y TO start
-REPEAT UNTIL atExit(x,y)
-  IF pathNorth(x,y) THEN moveNorth()
-  ELSE IF pathEast(x,y) THEN moveEast()
-  ELSE IF pathSouth(x,y) THEN moveSouth()
-  ELSE moveWest()
-END REPEAT</pre>
-            </td>
-          </tr>
+    
         </tbody>
       </table>
       <p style="margin:10px 0 0;"><em>Note:</em> The exact sequence depends on your maze layout — these are exemplar formats.</p>
