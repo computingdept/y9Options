@@ -92,51 +92,129 @@
   <div style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
     <strong>Task:</strong>
     <ul>
-      <li>Write a sequence of commands using <code>N</code>, <code>S</code>, <code>E</code>, and <code>W</code> to move from the start to the exit.</li>
-      <li>Test your algorithm step by step.</li>
-      <li>If you hit a wall, <strong>debug</strong> by editing your sequence.</li>
-      <li>Once successful, improve it to make the path shorter or clearer.</li>
+      <li>Write a sequence using <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code> to reach the exit.</li>
+      <li>Run it step-by-step; if you hit a wall, <strong>debug</strong> and try again.</li>
+      <li>Improve your solution to make it shorter/clearer.</li>
     </ul>
 
     <strong>Success Criteria:</strong>
     <ul>
-      <li>Your sequence correctly reaches the goal.</li>
-      <li>You can explain how your algorithm works.</li>
-      <li>You show an improvement (before → after).</li>
+      <li>Your sequence reaches the exit without collisions.</li>
+      <li>You can explain your algorithm and your improvement.</li>
     </ul>
-  </div>
 
-  <p style="margin-top:16px;">
-    <em>Extension:</em> Can you write the algorithm using pseudo-code (e.g. “REPEAT UNTIL exit reached”)?  
-  </p>
+    <!-- Toggle button -->
+    <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+      Show Sample Answers
+    </button>
+
+    <!-- Hidden sample answers -->
+    <div id="cs-samples" class="samples">
+      <table class="samples-table">
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Command Sequence</th>
+            <th>Notes / Debugging</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Attempt 1</strong></td>
+            <td><code>N, N, E, E, S, E, E, N</code></td>
+            <td>Hit a wall after the second <code>E</code>. Sequence too long and includes a backtrack.</td>
+          </tr>
+          <tr>
+            <td><strong>Improved</strong></td>
+            <td><code>N, E, E, S, E, N</code></td>
+            <td>Removed redundant steps; reaches exit cleanly. Clearer to read and execute.</td>
+          </tr>
+          <tr>
+            <td><strong>Pseudo-code</strong></td>
+            <td colspan="2">
+<pre style="margin:0; white-space:pre-wrap">SET x,y TO start
+REPEAT UNTIL atExit(x,y)
+  IF pathNorth(x,y) THEN moveNorth()
+  ELSE IF pathEast(x,y) THEN moveEast()
+  ELSE IF pathSouth(x,y) THEN moveSouth()
+  ELSE moveWest()
+END REPEAT</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin:10px 0 0;"><em>Note:</em> The exact sequence depends on your maze layout — these are exemplar formats.</p>
+    </div>
+  </div>
 </section>
 
-    <!-- Information Technology Activity -->
+
+<!-- Information Technology Activity -->
 <section id="it-activity" class="tab-content">
   <h2>Information Technology Activity – Online Safety Slide</h2>
-  <p>Create a short, engaging digital slide aimed at 11-year-olds to teach safe online behaviour.</p>
+  <p>Create a short, engaging slide for age-11 pupils on staying safe online.</p>
 
   <div style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
     <strong>Task:</strong>
     <ul>
-      <li>Open presentation software (e.g. PowerPoint, Google Slides).</li>
       <li>Design one slide titled <em>“Stay Safe Online”</em>.</li>
-      <li>Include 3–4 age-appropriate safety tips (privacy, passwords, trusted adults, reporting).</li>
-      <li>Add one suitable image or icon and make the text large and easy to read.</li>
+      <li>Include 3–4 tips (privacy, passwords, trusted adults, reporting).</li>
+      <li>Add one clear icon/image and keep text large and readable.</li>
     </ul>
 
     <strong>Success Criteria:</strong>
     <ul>
-      <li>Clear, positive tone suitable for age 11 audience.</li>
-      <li>Readable design – large fonts, bullet points, strong contrast.</li>
-      <li>At least three accurate safety messages.</li>
+      <li>Positive, age-appropriate language.</li>
+      <li>Large headings, bullet points, strong contrast.</li>
+      <li>Three accurate, practical safety tips.</li>
     </ul>
-  </div>
 
-  <p style="margin-top:16px;">
-    <em>Extension:</em> Share your slide with a partner and give feedback on clarity and audience.
-  </p>
+    <!-- Toggle button -->
+    <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+      Show Sample Answers
+    </button>
+
+    <!-- Hidden sample answers -->
+    <div id="it-samples" class="samples">
+      <table class="samples-table">
+        <thead>
+          <tr>
+            <th>Slide Element</th>
+            <th>Sample Content (Age-11 friendly)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Title</strong></td>
+            <td><strong>Stay Safe Online</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Tip 1</strong></td>
+            <td>Keep your passwords secret — use a mix of letters and numbers.</td>
+          </tr>
+          <tr>
+            <td><strong>Tip 2</strong></td>
+            <td>Don’t share your full name, school, or address with people you don’t know.</td>
+          </tr>
+          <tr>
+            <td><strong>Tip 3</strong></td>
+            <td>If something makes you worried, <em>tell a trusted adult</em> straight away.</td>
+          </tr>
+          <tr>
+            <td><strong>Tip 4</strong></td>
+            <td>Only click links or downloads from people you trust.</td>
+          </tr>
+          <tr>
+            <td><strong>Visual</strong></td>
+            <td>A padlock/shield icon beside the title; high-contrast colours; large font sizes.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin:10px 0 0;"><em>Alternative visual:</em> Use a simple cartoon character giving the tips in speech bubbles.</p>
+    </div>
+  </div>
 </section>
+
 
     
 
