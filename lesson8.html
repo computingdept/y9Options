@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lesson 8 – Cybersecurity (CS) vs Digital Footprint (IT)</title>
+  <title>Lesson 8 – Logic (CS) vs Digital Media (IT)</title>
 
   <!-- Shared theme & behaviour -->
   <link rel="stylesheet" href="style.css" />
@@ -24,7 +24,7 @@
 
   <main class="container">
     <header>
-      <h1>Lesson 8 – Cybersecurity (CS) vs Digital Footprint (IT)</h1>
+      <h1>Lesson 8 – Logic (CS) vs Digital Media (IT)</h1>
     </header>
 
     <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
@@ -32,11 +32,11 @@
       <h2>Do Now</h2>
       <div class="do-now-wrap">
         <div class="do-now-left">
-          <img class="do-now-img" src="lesson8.png" alt="Do Now image for Lesson 8: cybersecurity and online footprint" />
+          <img class="do-now-img" src="lesson8.png" alt="Do Now image for Lesson 8: logic and digital media" />
         </div>
 
         <div class="do-now-right">
-          <p><em>Think back to our recent lessons.</em> These questions get a little harder each time.</p>
+          <p><em>Think back to recent lessons.</em> These get a little harder each time.</p>
 
           <div class="q">1) Which tool links many tables of data together?<br>
             <span class="answer badge">
@@ -52,17 +52,18 @@
             </span>
           </div>
 
-          <div class="q">3) Give one smart file-naming rule from last lesson.<br>
+          <div class="q">3) What number system stores 0–255 in one byte?<br>
             <span class="answer badge">
-              Lesson 7 – OS vs File Management:<br>
-              Use dates and short topics (e.g., 2025-10-30_task_v1).
+              Lesson 3 – Binary vs Excel:<br>
+              Binary (base-2) – 256 values in a byte.
             </span>
           </div>
 
-          <div class="q">4) Today is about safety. What is a strong password?<br>
+          <div class="q">4) Today is about logic.  
+            What do we call a rule that is true or false?<br>
             <span class="answer badge">
               Lesson 8 – New learning:<br>
-              Long, unique, and not guessable (e.g., passphrase).
+              A logic statement (Boolean).
             </span>
           </div>
 
@@ -78,17 +79,17 @@
         <div class="learn-card">
           <h3>By the end of this lesson, you will be able to:</h3>
           <ul>
-            <li>Explain common <strong>cyber threats</strong> and basic defences.</li>
-            <li>Describe what a <strong>digital footprint</strong> is and why it matters.</li>
-            <li>Make safer choices online (privacy, sharing, and reporting).</li>
+            <li>Build simple <strong>truth tables</strong> for <strong>AND</strong>, <strong>OR</strong>, and <strong>NOT</strong>.</li>
+            <li>Use logic to solve small problems (door access, alarms).</li>
+            <li>Create a small <strong>digital media</strong> poster and export it to two formats, comparing quality and size.</li>
           </ul>
         </div>
         <div class="learn-card">
           <h3>How you’ll know you’ve got it:</h3>
           <ul>
-            <li>You can spot <strong>phishing</strong> signs and suggest safe actions.</li>
-            <li>You can list 3 places your digital footprint appears.</li>
-            <li>You can set simple, strong rules for passwords and posting.</li>
+            <li>Your truth tables match the correct outputs.</li>
+            <li>You can explain a real rule using AND/OR/NOT.</li>
+            <li>Your poster exports show sensible format choices (PNG vs JPEG).</li>
           </ul>
         </div>
       </div>
@@ -98,29 +99,67 @@
     <section id="vocab" class="tab-content">
       <h2>Key Vocabulary</h2>
       <dl class="kv">
-        <dt>Cybersecurity</dt><dd>Protecting devices, accounts, and data from attacks.</dd>
-        <dt>Phishing</dt><dd>Tricking people to click or share secrets (fake messages).</dd>
-        <dt>Malware</dt><dd>Bad software that harms or steals.</dd>
-        <dt>Two-Factor Authentication (2FA)</dt><dd>Extra step to prove it’s you (code/app).</dd>
-        <dt>Digital footprint</dt><dd>All the info about you online (posts, pics, likes).</dd>
-        <dt>Privacy settings</dt><dd>Controls who can see your info.</dd>
-        <dt>Report/Block</dt><dd>Tools to stop abuse and tell a platform or adult.</dd>
+        <dt>Boolean</dt><dd>True/False values used in logic.</dd>
+        <dt>AND</dt><dd>True only if <em>both</em> parts are true.</dd>
+        <dt>OR</dt><dd>True if <em>at least one</em> part is true.</dd>
+        <dt>NOT</dt><dd>Flips the value (True → False, False → True).</dd>
+        <dt>Truth table</dt><dd>A table that shows all inputs and the output.</dd>
+        <dt>Digital media</dt><dd>Images, audio, or video made/edited on a computer.</dd>
+        <dt>Compression</dt><dd>Making files smaller (may lose some quality).</dd>
+        <dt>Resolution</dt><dd>How many pixels an image has (width × height).</dd>
+        <dt>Format</dt><dd>The file type (PNG, JPEG, MP4, etc.).</dd>
       </dl>
     </section>
 
     <!-- CS Activity -->
     <section id="cs-activity" class="tab-content">
-      <h2>CS Activity – Spot the Phish and Fix the Risk</h2>
-      <p>Read short message examples. Decide if each is <em>safe</em> or <em>phishing</em>, then say what to do.</p>
+      <h2>CS Activity – Build Truth Tables & Solve a Logic Rule</h2>
+      <p>Complete the truth tables and then write the output for a simple rule.</p>
 
       <ol>
-        <li><strong>Example A:</strong> “URGENT! Your school account will be closed. Click here to keep it.”</li>
-        <li><strong>Example B:</strong> “Hi, it’s your teacher. Can you send your password so I can mark work?”</li>
-        <li><strong>Example C:</strong> “Security code: 482 991. If this wasn’t you, change your password.”</li>
-        <li><strong>Example D:</strong> “Free gift card! First 50 clicks win.”</li>
+        <li><strong>AND table</strong> (A ∧ B):</li>
       </ol>
 
-      <p>For each, write: <em>Safe or Phish?</em> + <em>What should you do?</em></p>
+      <table class="samples-table" style="margin-bottom:10px;">
+        <thead><tr><th>A</th><th>B</th><th>A AND B</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td></td></tr>
+          <tr><td>0</td><td>1</td><td></td></tr>
+          <tr><td>1</td><td>0</td><td></td></tr>
+          <tr><td>1</td><td>1</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <ol start="2">
+        <li><strong>OR table</strong> (A ∨ B):</li>
+      </ol>
+
+      <table class="samples-table" style="margin-bottom:10px;">
+        <thead><tr><th>A</th><th>B</th><th>A OR B</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>0</td><td></td></tr>
+          <tr><td>0</td><td>1</td><td></td></tr>
+          <tr><td>1</td><td>0</td><td></td></tr>
+          <tr><td>1</td><td>1</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <ol start="3">
+        <li><strong>NOT column</strong> (¬A): fill for A = 0 and A = 1.</li>
+      </ol>
+
+      <table class="samples-table" style="max-width:420px;">
+        <thead><tr><th>A</th><th>NOT A</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td></td></tr>
+          <tr><td>1</td><td></td></tr>
+        </tbody>
+      </table>
+
+      <ol start="4">
+        <li><strong>Scenario:</strong> The lab door opens if <em>A = StaffCardPresent</em> AND <em>B = PINCorrect</em>.  
+            Complete the AND table above and write when the door opens (1) or stays shut (0).</li>
+      </ol>
 
       <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
         Show Sample Answers
@@ -129,119 +168,111 @@
       <div id="cs-samples" class="samples">
         <table class="samples-table">
           <thead>
-            <tr>
-              <th>Message</th>
-              <th>Safe / Phish?</th>
-              <th>What to do</th>
-            </tr>
+            <tr><th>Table</th><th>Filled Outputs</th><th>Why</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td>A: “URGENT… Click here…”</td>
-              <td>Phish</td>
-              <td>Don’t click. Report. Check with school via official site.</td>
+              <td>AND (A∧B)</td>
+              <td>(0,0→0), (0,1→0), (1,0→0), (1,1→1)</td>
+              <td>AND is only 1 when both are 1</td>
             </tr>
             <tr>
-              <td>B: “Send your password”</td>
-              <td>Phish</td>
-              <td>Never share passwords. Report. Turn on 2FA.</td>
+              <td>OR (A∨B)</td>
+              <td>(0,0→0), (0,1→1), (1,0→1), (1,1→1)</td>
+              <td>OR is 1 if either is 1</td>
             </tr>
             <tr>
-              <td>C: 2FA code message</td>
-              <td>Generally Safe</td>
-              <td>If you didn’t request it, change password and review logins.</td>
+              <td>NOT (¬A)</td>
+              <td>A=0→1, A=1→0</td>
+              <td>NOT flips the value</td>
             </tr>
             <tr>
-              <td>D: “Free gift card!”</td>
-              <td>Phish</td>
-              <td>Ignore/delete. Don’t enter details.</td>
+              <td>Door rule</td>
+              <td>Opens only when A=1 and B=1</td>
+              <td>Staff card AND correct PIN required</td>
             </tr>
           </tbody>
         </table>
-
-        <p style="margin-top:10px;">
-          <strong>Golden rules:</strong> Use long unique passwords, turn on 2FA, think before you click, and keep software updated.
-        </p>
       </div>
     </section>
 
     <!-- IT Activity -->
     <section id="it-activity" class="tab-content">
-      <h2>IT Activity – Audit Your Digital Footprint (Simple Checklist)</h2>
-      <p>In pairs, review a pretend student profile (or your own settings if allowed). Complete the checklist and improve privacy.</p>
+      <h2>IT Activity – Make a Simple Poster & Compare Formats</h2>
+      <p>Create a short, clear poster slide (online safety, club advert, or homework reminder). Export it to two formats and compare.</p>
 
       <ol>
-        <li>List <strong>3 places</strong> you appear online (e.g., school platform, gaming name, social app).</li>
-        <li>For one app, open <strong>Privacy</strong> → set profile to <em>Friends/Private</em>.</li>
-        <li>Check <strong>location</strong> and <strong>photo tagging</strong> options. Turn off what you don’t need.</li>
-        <li>Write a <strong>safe bio</strong> (no full name, address, or school + predictable routines).</li>
-        <li>Practice a <strong>report/block</strong> step: where is it in that app?</li>
+        <li>Open <strong>PowerPoint</strong> (or similar). Create one slide with:
+          <ul>
+            <li>Short title (≤ 6 words) and one key message.</li>
+            <li>One image or icon (clear and relevant).</li>
+            <li>High contrast colours for easy reading.</li>
+          </ul>
+        </li>
+        <li><strong>Export</strong> the slide twice:
+          <ul>
+            <li>As <strong>PNG</strong> (good for sharp text/logos).</li>
+            <li>As <strong>JPEG</strong> (often smaller; may blur a little).</li>
+          </ul>
+        </li>
+        <li>Record file sizes (KB) and note the visual difference.</li>
+        <li><em>Optional:</em> Try lowering JPEG quality to make a very small file; note what changes.</li>
       </ol>
 
       <button class="button-outline" data-toggle="samples" data-target="#it-samples">
-        Show Example Footprint Log
+        Show Example Checklist & Notes
       </button>
 
       <div id="it-samples" class="samples">
         <table class="samples-table">
           <thead>
-            <tr>
-              <th>Area</th>
-              <th>Example Entry</th>
-              <th>Action</th>
-            </tr>
+            <tr><th>Check</th><th>PNG</th><th>JPEG</th><th>Notes</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td>Where I appear</td>
-              <td>School VLE, Gaming tag, Photo album</td>
-              <td>Review each privacy setting</td>
+              <td>File size</td>
+              <td>220 KB</td>
+              <td>140 KB</td>
+              <td>JPEG smaller at same resolution</td>
             </tr>
             <tr>
-              <td>Profile privacy</td>
-              <td>Friends only</td>
-              <td>Hide from public search</td>
+              <td>Text sharpness</td>
+              <td>Very sharp</td>
+              <td>Slight blur</td>
+              <td>PNG is lossless; JPEG is lossy</td>
             </tr>
             <tr>
-              <td>Location sharing</td>
-              <td>Off</td>
-              <td>Only turn on for family tracking</td>
+              <td>Photo quality</td>
+              <td>Good</td>
+              <td>Good (smaller)</td>
+              <td>JPEG suits photos; avoid over-compression</td>
             </tr>
             <tr>
-              <td>Photo tagging</td>
-              <td>Approve tags</td>
-              <td>Review older tagged photos</td>
-            </tr>
-            <tr>
-              <td>Bio safety</td>
-              <td>“I like art and dogs.”</td>
-              <td>No school, address, or times</td>
-            </tr>
-            <tr>
-              <td>Report/Block</td>
-              <td>Know the button location</td>
-              <td>Tell a trusted adult</td>
+              <td>Best use</td>
+              <td>Logos, icons, sharp graphics</td>
+              <td>Photos, web images</td>
+              <td>Pick the format for the content</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- Exit Ticket (with sample answers) -->
+    <!-- Exit Ticket -->
     <section id="exit-ticket" class="tab-content">
       <h2>Exit Ticket</h2>
       <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
-        <li>Write two signs a message might be phishing.</li>
-        <li>What is a digital footprint?</li>
-        <li>Write one change you will make today to be safer online.</li>
+        <li>When is AND true?</li>
+        <li>Write the NOT of A=0.</li>
+        <li>Which format is usually sharper for text: PNG or JPEG?</li>
       </ol>
 
       <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
         <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
         <ul style="margin:0; padding-left:20px;">
-          <li>Strange link/urgent tone; asks for passwords or money.</li>
-          <li>All the info about you online: posts, pics, likes, comments.</li>
-          <li>Turn on 2FA and set social accounts to Friends/Private.</li>
+          <li>When both inputs are 1 (true).</li>
+          <li>NOT 0 = 1.</li>
+          <li>PNG is usually sharper for text and logos.</li>
         </ul>
       </div>
     </section>
@@ -254,4 +285,3 @@
   </main>
 </body>
 </html>
-
