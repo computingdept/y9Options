@@ -91,61 +91,78 @@
       </dl>
     </section>
 
-    <!-- CS Activity -->
-    <section id="cs-activity" class="tab-content">
-      <h2>CS Activity – Write an Algorithm (with a decision)</h2>
-      <p>Write pseudocode for <strong>making toast with butter</strong>. Include at least one decision (e.g., <em>Is the toast burnt?</em>).</p>
-      <ol>
-        <li>Draft your algorithm in pseudocode.</li>
-        <li>“Run” it with a partner who follows it literally.</li>
-        <li>Debug any unclear steps, then improve the final version.</li>
-      </ol>
+   <!-- Computer Science Activity -->
+<section id="cs-activity" class="tab-content">
+  <h2>CS Activity – Maze Navigator (Algorithms → Flowgorithm)</h2>
+  <p>Build an algorithm to escape a maze using only the commands <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>, then represent it in <strong>Flowgorithm</strong>.</p>
 
-      <!-- Per-activity sample answers toggle -->
-      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
-        Show Sample Answers
-      </button>
-      <div id="cs-samples" class="samples">
-        <table class="samples-table">
-          <thead>
-            <tr>
-              <th>Version</th>
-              <th>Sample Pseudocode</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Attempt 1</strong></td>
-              <td>
-<pre style="margin:0; white-space:pre-wrap">PUT bread in toaster
-WAIT until toasted
-SPREAD butter
-SERVE</pre>
-              </td>
-              <td>No check for burnt toast; lacks clarity on “how long”.</td>
-            </tr>
-            <tr>
-              <td><strong>Improved</strong></td>
-              <td>
-<pre style="margin:0; white-space:pre-wrap">IF bread_available = TRUE THEN
-  PUT bread in toaster
-  WAIT until toasted
-  IF toast_burnt = TRUE THEN
-    DISCARD toast
-    PUT new bread in toaster
-    WAIT until toasted
-  ENDIF
-  SPREAD butter
-  SERVE
-ENDIF</pre>
-              </td>
-              <td>Adds decision and recovery; clear sequence and outcome.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+  <ol>
+    <li>Generate or open a simple maze (paper or onscreen).</li>
+    <li>Write an initial command sequence (e.g., <code>N, N, E, E, S, E…</code>).</li>
+    <li>“Run” it step-by-step; when you hit a wall, <strong>debug</strong> and improve.</li>
+    <li>Convert the final plan into a Flowgorithm flowchart using Start, Process, and Decision shapes.</li>
+    <li>Export or screenshot your finished flowchart.</li>
+  </ol>
+
+  <!-- Helpful links -->
+  <a href="https://www.mazegenerator.net" target="_blank" rel="noopener noreferrer"
+     class="button-outline" style="display:inline-block; text-decoration:none; margin-top:8px;">
+     🔗 Open Maze Generator
+  </a>
+  <a href="https://flowgorithm.org/" target="_blank" rel="noopener noreferrer"
+     class="button-outline" style="display:inline-block; text-decoration:none; margin-top:8px; margin-left:8px;">
+     💻 Open Flowgorithm
+  </a>
+
+  <!-- Toggleable exemplar -->
+  <button class="button-outline" data-toggle="samples" data-target="#cs-samples" style="margin-left:8px;">
+    Show Sample Answers
+  </button>
+
+  <div id="cs-samples" class="samples">
+    <table class="samples-table">
+      <thead>
+        <tr>
+          <th>Version</th>
+          <th>Example</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Attempt 1 (commands)</strong></td>
+          <td><code>N, N, E, E, S, E, E, N</code></td>
+          <td>Hits a wall after the second <code>E</code>; contains a backtrack.</td>
+        </tr>
+        <tr>
+          <td><strong>Improved (commands)</strong></td>
+          <td><code>N, E, E, S, E, N</code></td>
+          <td>Shorter, no collisions; reaches the exit cleanly.</td>
+        </tr>
+        <tr>
+          <td><strong>Pseudocode (branching)</strong></td>
+          <td colspan="2">
+<pre style="margin:0; white-space:pre-wrap">WHILE NOT atExit()
+  IF pathNorth() THEN moveNorth()
+  ELSE IF pathEast() THEN moveEast()
+  ELSE IF pathSouth() THEN moveSouth()
+  ELSE moveWest()
+END WHILE</pre>
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Flowgorithm layout</strong></td>
+          <td colspan="2">
+            Use <em>Start</em> → loop with a <em>Decision</em> diamond asking “atExit?” → inside the loop a chain of
+            <em>Decision</em> nodes for <code>pathNorth/East/South</code> leading to <em>Process</em> nodes <code>moveNorth/East/South/West</code> → back to the loop.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin:10px 0 0;"><em>Tip:</em> If your maze is fixed, annotate your Flowgorithm with brief comments like “wall to the East here”.</p>
+  </div>
+</section>
+
 
     <!-- IT Activity -->
    <!-- Information Technology Activity -->
