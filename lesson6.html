@@ -1,1 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 6 – Spreadsheets (IT) vs Databases (CS)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 6 – Spreadsheets (IT) vs Databases (CS)</h1>
+    </header>
+
+    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson6.png" alt="Do Now image for Lesson 6: spreadsheets and databases" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to recent lessons.</em> These get a little harder each time.</p>
+
+          <div class="q">1) What number system do computers use to store data?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              Binary – only 0s and 1s.
+            </span>
+          </div>
+
+          <div class="q">2) What do we call tiny squares that make a picture on screen?<br>
+            <span class="answer badge">
+              Lesson 4 – Images & Colour:<br>
+              Pixels – small coloured squares.
+            </span>
+          </div>
+
+          <div class="q">3) Which device sends data between different networks?<br>
+            <span class="answer badge">
+              Lesson 5 – Networks:<br>
+              The router.
+            </span>
+          </div>
+
+          <div class="q">4) Today: spreadsheets vs databases.  
+            Which tool is best for many related tables of data?<br>
+            <span class="answer badge">
+              Lesson 6 – New learning:<br>
+              A database (links tables together).
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Explain the difference between a <strong>spreadsheet</strong> and a <strong>database</strong>.</li>
+            <li>Design a simple <strong>database table</strong> with sensible fields and a <strong>primary key</strong>.</li>
+            <li>Build a small <strong>spreadsheet</strong> with validation and formulas to analyse data.</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>You can say when to pick a database instead of a spreadsheet.</li>
+            <li>Your table design avoids duplicate records and has clear data types.</li>
+            <li>Your spreadsheet checks inputs and calculates the right results.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Record</dt><dd>All the data about one thing (one row).</dd>
+        <dt>Field</dt><dd>One piece of data in a record (a column).</dd>
+        <dt>Primary Key (PK)</dt><dd>A unique field that identifies each record.</dd>
+        <dt>Data Type</dt><dd>The kind of data (Text, Number, Date/Time, Boolean).</dd>
+        <dt>Validation</dt><dd>Rules to stop wrong data being entered.</dd>
+        <dt>Relationship</dt><dd>A link between tables (e.g., StudentID in two tables).</dd>
+        <dt>Query</dt><dd>Asks the database to find or sort data you need.</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity (Database design) -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – Plan a Simple Database (Library Example)</h2>
+      <p>Design a small database for a school library. Start with one table, then show how a second table could link.</p>
+
+      <ol>
+        <li><strong>Books table</strong> – choose fields and data types. Include a <strong>BookID</strong> as the Primary Key.</li>
+        <li>Add 3 example records (rows) with sensible values.</li>
+        <li>Now sketch a second table: <strong>Loans</strong> (who borrowed what and when).  
+            Add a <strong>LoanID</strong> PK and a <strong>BookID</strong> field to link back to Books.</li>
+        <li>Write two <em>query cards</em> in plain English:
+          <ul>
+            <li>Find all books by “Rowling”.</li>
+            <li>Find books that are currently on loan.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Sample</th>
+              <th>Why it helps</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Books fields</td>
+              <td>BookID (Number, PK), Title (Text), Author (Text), Year (Number), Genre (Text)</td>
+              <td>Clear types; BookID is unique</td>
+            </tr>
+            <tr>
+              <td>Example record</td>
+              <td>(101, “Boy in the Tower”, “A. Rai”, 2014, “Fiction”)</td>
+              <td>Realistic sample data</td>
+            </tr>
+            <tr>
+              <td>Loans fields</td>
+              <td>LoanID (PK), BookID (FK), PupilName (Text), DateOut (Date), DueDate (Date), Returned (Boolean)</td>
+              <td>Links BookID to Books table</td>
+            </tr>
+            <tr>
+              <td>Query (English)</td>
+              <td>“Show books where Author contains ‘Rowling’.”</td>
+              <td>Filters by a field value</td>
+            </tr>
+            <tr>
+              <td>Query (English)</td>
+              <td>“Show books from Loans where Returned = False.”</td>
+              <td>Finds unreturned items</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IT Activity (Spreadsheet build) -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – Build a Clean Spreadsheet (Members Example)</h2>
+      <p>Create a small spreadsheet for a school club membership and use validation and formulas to keep it tidy.</p>
+
+      <ol>
+        <li>Make headers in <strong>A1:E1</strong>: <em>MemberID, FirstName, LastName, YearGroup, Paid</em>.</li>
+        <li>In <strong>A2</strong> downwards, create IDs like 1001, 1002, 1003… (unique).</li>
+        <li><strong>Data validation:</strong>
+          <ul>
+            <li><em>YearGroup</em> (D2:D100): allow only list {7,8,9,10,11}.</li>
+            <li><em>Paid</em> (E2:E100): allow only list {Yes, No}.</li>
+          </ul>
+        </li>
+        <li>Totals area (e.g., G2:G6):
+          <ul>
+            <li>Count members: <code>=COUNTA(A2:A100)</code></li>
+            <li>Year 9 count: <code>=COUNTIF(D2:D100,9)</code></li>
+            <li>Paid count: <code>=COUNTIF(E2:E100,"Yes")</code></li>
+          </ul>
+        </li>
+        <li><em>Optional lookup:</em> Add a small table (J2:K6) mapping YearGroup to fee (e.g., 7→£3, 8→£3, 9→£4, 10→£4, 11→£5).  
+          In <strong>F2</strong> (Fee), use: <code>=VLOOKUP(D2,$J$2:$K$6,2,TRUE)</code> and fill down.</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Layout & Formulas
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Cell(s)</th>
+              <th>Example</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A1:E1</td>
+              <td>MemberID | FirstName | LastName | YearGroup | Paid</td>
+              <td>Consistent headings</td>
+            </tr>
+            <tr>
+              <td>Validation</td>
+              <td>D2:D100 list {7,8,9,10,11}; E2:E100 list {Yes,No}</td>
+              <td>Stops typing errors</td>
+            </tr>
+            <tr>
+              <td>Count members</td>
+              <td><code>=COUNTA(A2:A100)</code></td>
+              <td>Counts non-empty IDs</td>
+            </tr>
+            <tr>
+              <td>Count paid</td>
+              <td><code>=COUNTIF(E2:E100,"Yes")</code></td>
+              <td>Quick summary</td>
+            </tr>
+            <tr>
+              <td>Fee lookup</td>
+              <td><code>=VLOOKUP(D2,$J$2:$K$6,2,TRUE)</code></td>
+              <td>Maps year → fee</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>When would you choose a <strong>database</strong> instead of a spreadsheet?</li>
+        <li>What does a <strong>primary key</strong> do?</li>
+        <li>Name one spreadsheet feature that helps stop errors.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li>When you have many related tables and need links (relationships).</li>
+          <li>It uniquely identifies each record so there are no duplicates.</li>
+          <li>Data validation (drop-down lists) or lookup tables.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
 
