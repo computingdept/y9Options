@@ -98,77 +98,89 @@
       </dl>
     </section>
 
-   <!-- Computer Science Activity -->
+
+<!-- Computer Science Activity -->
 <section id="cs-activity" class="tab-content">
-  <h2>CS Activity – Maze Navigator (Algorithms → Flowgorithm)</h2>
-  <p>Build an algorithm to escape a maze using only the commands <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code>, then represent it in <strong>Flowgorithm</strong>.</p>
+  <h2>CS Activity – Design a Flowchart to Escape a Maze</h2>
+  <p>
+    Today you will create a very simple <strong>flowchart</strong> that shows how to move through a maze.
+    You can draw it in <strong>PowerPoint</strong> using basic shapes.
+  </p>
 
   <ol>
-    <li>Generate or open a simple maze (paper or onscreen).</li>
-    <li>Write an initial command sequence (e.g., <code>N, N, E, E, S, E…</code>).</li>
-    <li>“Run” it step-by-step; when you hit a wall, <strong>debug</strong> and improve.</li>
-    <li>Convert the final plan into a Flowgorithm flowchart using Start, Process, and Decision shapes.</li>
-    <li>Export or screenshot your finished flowchart.</li>
+    <li>Open <strong>PowerPoint</strong> → choose a blank slide.</li>
+    <li>Use <em>Insert → Shapes</em> to add:
+      <ul>
+        <li><strong>Oval</strong> = Start / End</li>
+        <li><strong>Parallelogram</strong> = Input / Output</li>
+        <li><strong>Diamond</strong> = Decision (Yes / No question)</li>
+        <li><strong>Rectangle</strong> = Action / Process</li>
+      </ul>
+    </li>
+    <li>Plan your maze route using <code>N</code>, <code>S</code>, <code>E</code>, <code>W</code> moves.</li>
+    <li>Start with <strong>Start</strong> → add a few <strong>Process</strong> boxes like “Move North”.</li>
+    <li>Add one <strong>Decision</strong> box such as “Is there a wall?” → Yes = turn right → No = keep going.</li>
+    <li>Finish with <strong>Output:</strong> “You escaped the maze!” → <strong>End</strong>.</li>
+    <li>Join the boxes with arrows to show the direction of flow.</li>
   </ol>
 
-  <!-- Helpful links -->
-  <a href="https://www.mazegenerator.net" target="_blank" rel="noopener noreferrer"
-     class="button-outline" style="display:inline-block; text-decoration:none; margin-top:8px;">
+  <!-- Optional helper buttons -->
+  <a href="https://www.mazegenerator.net"
+     target="_blank" rel="noopener noreferrer"
+     class="button-outline"
+     style="display:inline-block; text-decoration:none; margin-top:8px;">
      🔗 Open Maze Generator
   </a>
-  <a href="https://flowgorithm.org/" target="_blank" rel="noopener noreferrer"
-     class="button-outline" style="display:inline-block; text-decoration:none; margin-top:8px; margin-left:8px;">
-     💻 Open Flowgorithm
-  </a>
 
-  <!-- Toggleable exemplar -->
   <button class="button-outline" data-toggle="samples" data-target="#cs-samples" style="margin-left:8px;">
-    Show Sample Answers
+    Show Sample Flowchart Idea
   </button>
 
   <div id="cs-samples" class="samples">
     <table class="samples-table">
       <thead>
         <tr>
-          <th>Version</th>
-          <th>Example</th>
-          <th>Notes</th>
+          <th>Symbol</th>
+          <th>Example Text</th>
+          <th>What It Does</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Attempt 1 (commands)</strong></td>
-          <td><code>N, N, E, E, S, E, E, N</code></td>
-          <td>Hits a wall after the second <code>E</code>; contains a backtrack.</td>
+          <td>🟢 Start</td>
+          <td>Start the maze</td>
+          <td>Beginning of the program</td>
         </tr>
         <tr>
-          <td><strong>Improved (commands)</strong></td>
-          <td><code>N, E, E, S, E, N</code></td>
-          <td>Shorter, no collisions; reaches the exit cleanly.</td>
+          <td>⬜ Process</td>
+          <td>Move Forward one square</td>
+          <td>Action you take in the maze</td>
         </tr>
         <tr>
-          <td><strong>Pseudocode (branching)</strong></td>
-          <td colspan="2">
-<pre style="margin:0; white-space:pre-wrap">WHILE NOT atExit()
-  IF pathNorth() THEN moveNorth()
-  ELSE IF pathEast() THEN moveEast()
-  ELSE IF pathSouth() THEN moveSouth()
-  ELSE moveWest()
-END WHILE</pre>
-          </td>
+          <td>🔶 Decision</td>
+          <td>Is there a wall ahead?</td>
+          <td>Yes → Turn Right   No → Move Forward</td>
         </tr>
         <tr>
-          <td><strong>Flowgorithm layout</strong></td>
-          <td colspan="2">
-            Use <em>Start</em> → loop with a <em>Decision</em> diamond asking “atExit?” → inside the loop a chain of
-            <em>Decision</em> nodes for <code>pathNorth/East/South</code> leading to <em>Process</em> nodes <code>moveNorth/East/South/West</code> → back to the loop.
-          </td>
+          <td>🟣 Output</td>
+          <td>Display “You escaped the maze!”</td>
+          <td>Shows the result to the user</td>
+        </tr>
+        <tr>
+          <td>🔴 End</td>
+          <td>Stop Program</td>
+          <td>Finishes the algorithm</td>
         </tr>
       </tbody>
     </table>
-    <p style="margin:10px 0 0;"><em>Tip:</em> If your maze is fixed, annotate your Flowgorithm with brief comments like “wall to the East here”.</p>
+
+    <p style="margin-top:10px;">
+      <em>Tip:</em> Keep your arrows tidy and labels short.  
+      Use bright colours and large text so everyone can read your chart easily.
+    </p>
   </div>
 </section>
+
 
 
     <!-- IT Activity -->
