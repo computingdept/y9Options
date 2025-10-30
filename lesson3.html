@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 3 – Binary (CS) vs Excel (IT)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 3 – Binary (CS) vs Excel (IT)</h1>
+    </header>
+
+    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson3.png" alt="Do Now image for Lesson 3: binary and spreadsheets" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to Lessons 1 and 2.</em> These get a little harder each time.</p>
+
+          <div class="q">1) Writing steps to escape a maze was from which subject?<br>
+            <span class="answer badge">
+              Lesson 1 – CS vs IT:<br>
+              Computer Science (clear steps = algorithm).
+            </span>
+          </div>
+
+          <div class="q">2) Making an online-safety slide was from which subject?<br>
+            <span class="answer badge">
+              Lesson 1 – CS vs IT:<br>
+              Information Technology (design and communication).
+            </span>
+          </div>
+
+          <div class="q">3) In Lesson 2 we used decisions. What symbol shows Yes/No on a flowchart?<br>
+            <span class="answer badge">
+              Lesson 2 – Flowcharts:<br>
+              The diamond shows a decision.
+            </span>
+          </div>
+
+          <div class="q">4) Today is about numbers. What do computers use to store numbers?<br>
+            <span class="answer badge">
+              Lesson 3 – New learning:<br>
+              Binary (only 0s and 1s).
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Convert a decimal number (0–255) to <strong>8-bit binary</strong>.</li>
+            <li>Convert a decimal number to <strong>hex</strong> (base 16).</li>
+            <li>Build an <strong>Excel</strong> sheet that converts numbers to 8-bit binary.</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>Your CS conversions match the correct binary/hex.</li>
+            <li>Your IT spreadsheet shows the right 8 bits for 0–255.</li>
+            <li>Extension: your sheet also shows the hex using VLOOKUP.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Binary</dt><dd>Base-2 number system using 0 and 1 only.</dd>
+        <dt>Bit</dt><dd>A single binary digit (0 or 1).</dd>
+        <dt>Byte</dt><dd>8 bits. Can store numbers 0–255.</dd>
+        <dt>Hex (Hexadecimal)</dt><dd>Base-16 number system (0–9 then A–F).</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – Convert Decimal to 8-bit Binary and Hex</h2>
+      <p>Work with numbers from <strong>0 to 255</strong>. Convert each to <strong>8-bit binary</strong> and to <strong>hex</strong>.</p>
+
+      <ol>
+        <li>Pick 5 numbers (e.g., 7, 13, 25, 128, 255).</li>
+        <li>Write their binary using place values: <code>128 64 32 16 8 4 2 1</code>.</li>
+        <li>Write their hex (two digits, 00 to FF).</li>
+        <li>Check your answers with a calculator or Excel (later).</li>
+      </ol>
+
+      <!-- Toggleable exemplar -->
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Decimal</th>
+              <th>8-bit Binary (128 64 32 16 8 4 2 1)</th>
+              <th>Hex</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>7</td>
+              <td>0000 0111</td>
+              <td>07</td>
+              <td>4+2+1 = 7</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>0000 1101</td>
+              <td>0D</td>
+              <td>8+4+1 = 13</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>0001 1001</td>
+              <td>19</td>
+              <td>16+8+1 = 25</td>
+            </tr>
+            <tr>
+              <td>128</td>
+              <td>1000 0000</td>
+              <td>80</td>
+              <td>Just the 128 bit set</td>
+            </tr>
+            <tr>
+              <td>255</td>
+              <td>1111 1111</td>
+              <td>FF</td>
+              <td>All bits set (max for a byte)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IT Activity -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – Build an Excel Sheet: 0–255 → 8-bit Binary (Extension: Hex)</h2>
+      <p>Create a spreadsheet that converts a decimal number to an 8-bit binary string. Then add an <strong>extension</strong> using <strong>VLOOKUP</strong> to show the hex value.</p>
+
+      <ol>
+        <li>In cell <strong>A2</strong>, type a number from <strong>0 to 255</strong> (try lots!).</li>
+        <li>In cells <strong>B2:I2</strong>, show each bit (MSB → LSB):<br>
+          <small>Copy these formulas across the row (change the divisor):</small>
+          <ul>
+            <li><code>B2: =INT(MOD($A2/128,2))</code></li>
+            <li><code>C2: =INT(MOD($A2/64,2))</code></li>
+            <li><code>D2: =INT(MOD($A2/32,2))</code></li>
+            <li><code>E2: =INT(MOD($A2/16,2))</code></li>
+            <li><code>F2: =INT(MOD($A2/8,2))</code></li>
+            <li><code>G2: =INT(MOD($A2/4,2))</code></li>
+            <li><code>H2: =INT(MOD($A2/2,2))</code></li>
+            <li><code>I2: =INT(MOD($A2/1,2))</code></li>
+          </ul>
+        </li>
+        <li>Join the bits into one 8-bit string in <strong>J2</strong>:
+          <br><code>=TEXTJOIN("",TRUE,B2:I2)</code>
+        </li>
+        <li><em>(Alternative with built-ins)</em> In <strong>K2</strong> you can also try:
+          <br><code>=DEC2BIN($A2,8)</code>
+          <br><small>(Works if Engineering functions are available in your Excel.)</small>
+        </li>
+        <li><strong>Extension – Hex with VLOOKUP:</strong>
+          <ol>
+            <li>Make a small table on the side (e.g., <strong>M2:N17</strong>) with decimal 0–15 and hex 0–F.</li>
+            <li>Compute the two hex digits:
+              <ul>
+                <li>High nibble in <strong>L2</strong>: <code>=INT($A2/16)</code></li>
+                <li>Low nibble in <strong>M2</strong>: <code>=MOD($A2,16)</code></li>
+              </ul>
+            </li>
+            <li>Look them up to hex letters:
+              <ul>
+                <li><code>N2: =VLOOKUP(L2,$M$2:$N$17,2,TRUE)</code></li>
+                <li><code>O2: =VLOOKUP(M2,$M$2:$N$17,2,TRUE)</code></li>
+              </ul>
+            </li>
+            <li>Combine in <strong>P2</strong>: <code>=N2 &amp; O2</code></li>
+          </ol>
+          <p><small>Note: You could also use <code>=DEC2HEX($A2,2)</code> if available, but today we practise VLOOKUP logic.</small></p>
+        </li>
+        <li>Format cells with a clear font and big size so it’s easy to read.</li>
+      </ol>
+
+      <!-- Toggleable exemplar -->
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Layout & Checks
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Cell</th>
+              <th>Example for A2=25</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>B2:I2</td>
+              <td>0 0 0 1 1 0 0 1</td>
+              <td>16+8+1 = 25 → bits at 16, 8, 1 are 1</td>
+            </tr>
+            <tr>
+              <td>J2 (TEXTJOIN)</td>
+              <td>00011001</td>
+              <td>Joined bits make the 8-bit string</td>
+            </tr>
+            <tr>
+              <td>L2 / M2</td>
+              <td>L2=1, M2=9</td>
+              <td>25÷16=1 remainder 9 → hex is 0x19</td>
+            </tr>
+            <tr>
+              <td>N2 / O2 (VLOOKUP)</td>
+              <td>N2="1", O2="9"</td>
+              <td>Lookup digits 1 and 9 in the 0–F table</td>
+            </tr>
+            <tr>
+              <td>P2 (hex)</td>
+              <td>"19"</td>
+              <td>Final hex = “19”</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>What number system do computers use?</li>
+        <li>How many values can 1 byte store?</li>
+        <li>Write the 8-bit binary for 13.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li><strong>Binary</strong> (base-2).</li>
+          <li><strong>256</strong> values (0–255).</li>
+          <li><strong>0000 1101</strong> (8+4+1 = 13).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
