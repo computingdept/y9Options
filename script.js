@@ -1,55 +1,97 @@
-/* Tab controller with URL hash + ARIA for accessibility */
+/* ===== RHSC Lessons – Shared Script (v2) ===== */
 (function(){
   const buttons = Array.from(document.querySelectorAll('.tab-button'));
   const panels  = Array.from(document.querySelectorAll('.tab-content'));
 
   function showTab(id){
-    // Update panels
+    if(!id) return;
+    // Panels
     panels.forEach(p => {
-      const isActive = p.id === id;
-      p.classList.toggle('active', isActive);
-      p.setAttribute('aria-hidden', String(!isActive));
+      const active = p.id === id;
+      p.classList.toggle('active', active);
+      p.setAttribute('aria-hidden', String(!active));
     });
 
-    // Update buttons
+    // Buttons
     buttons.forEach(b => {
-      const isActive = b.dataset.tab === id;
-      b.classList.toggle('active', isActive);
-      b.setAttribute('aria-selected', String(isActive));
-      b.setAttribute('tabindex', isActive ? '0' : '-1');
+      const active = b.dataset.tab === id;
+      b.classList.toggle('active', active);
+      b.setAttribute('aria-selected', String(active));
+      b.setAttribute('tabindex', active ? '0' : '-1');
     });
 
-    // Keep location hash in sync (no scroll jump)
-    const newHash = '#' + id;
-    if (location.hash !== newHash) {
+    // Keep hash in sync (no jump)
+    const newHash = '#'+id;
+    if(location.hash !== newHash){
       history.replaceState(null, '', newHash);
+    }
+
+    // If "Show All" tab exists, auto-build it by cloning other panels
+    if(id === 'all'){
+      buildShowAll();
     }
   }
 
-  // Click handling
+  function buildShowAll(){
+    const all = document.getElementById('all');
+    if(!all) return;
+    // clear previous clones, keep the first heading/intro if present
+    const toRemove = Array.from(all.querySelectorAll('.__clone'));
+    toRemove.forEach(n => n.remove());
+
+    const ids = panels
+      .map(p => p.id)
+      .filter(pid => pid && pid !== 'all');
+
+    ids.forEach(pid => {
+      const src = document.getElementById(pid);
+      if(!src) return;
+      const clone = src.cloneNode(true);
+      clone.classList.add('active','__clone'); // ensure visible, mark as clone
+      // Avoid nested reveal buttons doing anything here
+      const btn = clone.querySelector('#reveal-all');
+      if(btn) btn.remove();
+      all.appendChild(clone);
+    });
+  }
+
+  // Click handlers
   buttons.forEach(btn => {
-    btn.setAttribute('role', 'tab');
+    btn.setAttribute('role','tab');
     btn.addEventListener('click', () => showTab(btn.dataset.tab));
   });
   const tablist = document.querySelector('.tabs');
-  if (tablist) tablist.setAttribute('role', 'tablist');
+  if(tablist) tablist.setAttribute('role','tablist');
   panels.forEach(p => {
-    p.setAttribute('role', 'tabpanel');
+    p.setAttribute('role','tabpanel');
     p.setAttribute('aria-hidden', String(!p.classList.contains('active')));
   });
 
-  // Keyboard navigation (Left/Right)
+  // Keyboard nav (Up/Down for sidebar, Left/Right for topbar)
   document.addEventListener('keydown', (e) => {
-    if (!['ArrowLeft','ArrowRight'].includes(e.key)) return;
+    const horiz = ['ArrowLeft','ArrowRight'].includes(e.key);
+    const vert  = ['ArrowUp','ArrowDown'].includes(e.key);
+    if(!horiz && !vert) return;
     const currentIdx = buttons.findIndex(b => b.classList.contains('active'));
-    if (currentIdx < 0) return;
-    const delta = e.key === 'ArrowRight' ? 1 : -1;
+    if(currentIdx < 0) return;
+    const delta = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : -1;
     const nextIdx = (currentIdx + delta + buttons.length) % buttons.length;
     buttons[nextIdx].focus();
     showTab(buttons[nextIdx].dataset.tab);
   });
 
-  // Initialise from hash (default to first tab)
+  // Initialise from hash or default to first button
   const initial = (location.hash || '').replace('#','') || (buttons[0] && buttons[0].dataset.tab);
-  if (initial) showTab(initial);
+  if(initial) showTab(initial);
+
+  // Global “Reveal all answers” support when a page includes:
+  //  - a button with id="reveal-all"
+  //  - answer elements with class ".answer" or ".answer.badge"
+  const reveal = document.getElementById('reveal-all');
+  if(reveal){
+    reveal.addEventListener('click', () => {
+      document.querySelectorAll('.answer').forEach(el => el.style.display = 'inline-block');
+      document.querySelectorAll('.answer.badge').forEach(el => el.style.display = 'inline-block');
+    });
+  }
 })();
