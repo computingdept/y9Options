@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 2 – Problem-Solving: Algorithms (CS) vs Workflows (IT) | RHSC Computing</title>
+
+  <!-- Shared theme + behaviours -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Header + left sidebar nav (handled by shared CSS) -->
+  <header class="rhsc-header">
+    <div class="head-wrap">
+      <h1>Lesson 2 – Problem-Solving: Algorithms (CS) vs Workflows (IT)</h1>
+      <div class="actions">
+        <button class="btn-ghost" id="contrast" aria-pressed="false">High-contrast</button>
+        <button class="btn-ghost" onclick="window.print()">Print / PDF</button>
+      </div>
+      <!-- Left-side navigation (same IDs/data-section pattern as Lesson 1) -->
+      <nav class="side-nav" aria-label="On page">
+        <a href="#do-now"     data-section="do-now"     class="active">Do Now</a>
+        <a href="#objectives" data-section="objectives">What you’ll learn</a>
+        <a href="#vocab"      data-section="vocab">Key Vocabulary</a>
+        <a href="#cs"         data-section="cs">CS Activity</a>
+        <a href="#it"         data-section="it">IT Activity</a>
+        <a href="#exit"       data-section="exit">Exit Ticket</a>
+        <button type="button" class="showall" id="show-all">Show All</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Do Now -->
+    <section id="do-now">
+      <h2>Do Now</h2>
+      <div class="grid split">
+        <div class="media" aria-hidden="false">
+          <!-- Referenced, not embedded -->
+          <img src="lesson2.png" alt="Student in Reepham blazer thinking through steps for a task" />
+        </div>
+        <div class="content">
+          <p><em>Think back to Lesson 1.</em> You compared <strong>Computer Science</strong> and <strong>IT</strong>. Both use <strong>step-by-step thinking</strong>.</p>
+          <p><strong>Match each statement to Algorithm (CS) or Workflow (IT):</strong></p>
+
+          <div class="q"><strong>1.</strong> A step-by-step plan a robot can follow.
+            <div class="answer">Answer: Algorithm (CS)</div>
+          </div>
+          <div class="q"><strong>2.</strong> The stages your class follows to collect survey data and make a chart.
+            <div class="answer">Answer: Workflow (IT)</div>
+          </div>
+          <div class="q"><strong>3.</strong> Rules for checking if a password is strong.
+            <div class="answer">Answer: Algorithm (CS)</div>
+          </div>
+          <div class="q"><strong>4.</strong> The steps your school uses to request, approve and publish a poster.
+            <div class="answer">Answer: Workflow (IT)</div>
+          </div>
+
+          <div style="margin-top:8px">
+            <!-- Your shared script handles this "Reveal all answers" toggle -->
+            <button id="toggle-all" class="btn">Reveal all answers</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Objectives (merged: what you’ll learn + how you’ll know) -->
+    <section id="objectives">
+      <h2>What you’ll learn</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <div class="q">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Say what an <strong>algorithm</strong> and a <strong>workflow</strong> are.</li>
+            <li>Spot examples of each in real life and in school.</li>
+            <li>Choose which one you prefer and explain why.</li>
+          </ul>
+        </div>
+        <div class="q">
+          <h3>How you’ll know you’ve got it</h3>
+          <ul>
+            <li>Write a short algorithm for a simple task.</li>
+            <li>Build a short workflow that others can follow.</li>
+            <li>Share which you liked more and give a reason.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab">
+      <h2>Key Vocabulary</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+        <div class="q"><strong>Algorithm</strong> — a clear set of steps a computer can follow.</div>
+        <div class="q"><strong>Workflow</strong> — the order of tasks people and tools follow to get work done.</div>
+        <div class="q"><strong>Decision</strong> — a yes/no choice in an algorithm or process.</div>
+        <div class="q"><strong>Input</strong> — information that goes into a system.</div>
+        <div class="q"><strong>Output</strong> — the result the system gives back.</div>
+      </div>
+    </section>
+
+    <!-- CS Activity (own tab) -->
+    <section id="cs">
+      <h2>CS Activity – Write an Algorithm</h2>
+      <div class="q">
+        <ol>
+          <li>Write pseudocode to make <em>toast with butter</em>.</li>
+          <li>Add one decision (e.g. <em>Is the toast burnt?</em>).</li>
+          <li>Test it with a partner: follow it exactly!</li>
+        </ol>
+        <details class="sample">
+          <summary class="btn">Show sample answer</summary>
+<pre class="codeblock"># Pseudocode
+if bread_available = TRUE then
+    put bread in toaster
+    wait until toasted
+    if toast_burnt = TRUE then
+        make new toast
+    else
+        spread butter
+        serve
+end if</pre>
+        </details>
+      </div>
+    </section>
+
+    <!-- IT Activity (own tab) -->
+    <section id="it">
+      <h2>IT Activity – Build a Simple Workflow</h2>
+      <div class="q">
+        <ol>
+          <li>Create a short workflow to plan a <em>club poster</em>.</li>
+          <li>Use Forms (survey), SharePoint/Drive (file), and Docs/Slides (poster).</li>
+          <li>Share it with a partner to follow and tick each step.</li>
+        </ol>
+        <ul>
+          <li>Collect info → pick design → make draft → peer review → publish.</li>
+        </ul>
+        <details class="sample">
+          <summary class="btn">Show sample answer</summary>
+          <p><strong>Example 5-step workflow:</strong> Create survey in Forms → Share link and collect responses → Export responses to Sheets/Excel → Draft poster in Slides/Publisher using top 3 messages → Peer review and publish to VLE/SharePoint.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Exit ticket (renamed from Plenary; with sample answers) -->
+    <section id="exit">
+      <h2>Exit Ticket</h2>
+      <div class="q">
+        <ol>
+          <li>Write one sentence that defines an <strong>algorithm</strong>.</li>
+          <li>Write one sentence that defines a <strong>workflow</strong>.</li>
+          <li>Say which approach you preferred today and <strong>why</strong>.</li>
+        </ol>
+        <details class="sample">
+          <summary class="btn">Show sample answers</summary>
+          <ul>
+            <li><em>Algorithm:</em> “A precise, step-by-step method a computer can follow to solve a problem.”</li>
+            <li><em>Workflow:</em> “The ordered sequence of tasks that people and tools follow to get work done.”</li>
+            <li><em>Preference:</em> “I preferred workflows because I like coordinating tasks with people and apps.”</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>© RHSC Computing • Uses shared style/script (SEN-friendly: pale yellow, OpenDyslexic, reveal toggles).</footer>
+</body>
+</html>
