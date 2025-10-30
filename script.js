@@ -112,6 +112,41 @@
       document.documentElement.scrollTop = 0;
     }, 50);
   });
+  // ===== Global Reveal Toggle =====
+  const reveal = document.getElementById('reveal-all');
+  if(reveal){
+    let visible = false;
+    const setVisible = (on) => {
+      visible = on;
+      document.querySelectorAll('.answer, .answer.badge').forEach(el => {
+        el.style.display = visible ? 'inline-block' : 'none';
+      });
+      reveal.classList.toggle('active', visible);
+      reveal.textContent = visible ? 'Hide Answers' : 'Reveal Answers';
+    };
+    setVisible(false);
+    reveal.addEventListener('click', () => setVisible(!visible));
+  }
+
+  // ===== Per-activity Sample Answers toggles =====
+  // Any button with data-toggle="samples" and data-target="#id" will toggle that block
+  document.querySelectorAll('[data-toggle="samples"]').forEach((btn) => {
+    const target = document.querySelector(btn.dataset.target);
+    if (!target) return;
+
+    // init hidden
+    target.classList.remove('active');
+    btn.classList.remove('active');
+    btn.textContent = btn.textContent || 'Show Sample Answers';
+
+    btn.addEventListener('click', () => {
+      const isOpen = target.classList.toggle('active');
+      btn.classList.toggle('active', isOpen);
+      btn.textContent = isOpen ? 'Hide Sample Answers' : 'Show Sample Answers';
+    });
+  });
+
+})();
 
 })();
 
