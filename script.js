@@ -1,4 +1,4 @@
-/* ===== RHSC Lessons – Shared Script (v2) ===== */
+/* ===== RHSC Lessons – Shared Script (v3, toggle reveal) ===== */
 (function(){
   const buttons = Array.from(document.querySelectorAll('.tab-button'));
   const panels  = Array.from(document.querySelectorAll('.tab-content'));
@@ -26,31 +26,28 @@
       history.replaceState(null, '', newHash);
     }
 
-    // If "Show All" tab exists, auto-build it by cloning other panels
-    if(id === 'all'){
-      buildShowAll();
-    }
+    // Auto-build "Show All"
+    if(id === 'all'){ buildShowAll(); }
   }
 
   function buildShowAll(){
     const all = document.getElementById('all');
     if(!all) return;
-    // clear previous clones, keep the first heading/intro if present
-    const toRemove = Array.from(all.querySelectorAll('.__clone'));
-    toRemove.forEach(n => n.remove());
 
-    const ids = panels
-      .map(p => p.id)
-      .filter(pid => pid && pid !== 'all');
+    // Remove previous clones (keep first child elements that are not __clone)
+    Array.from(all.querySelectorAll('.__clone')).forEach(n => n.remove());
 
+    const ids = panels.map(p => p.id).filter(pid => pid && pid !== 'all');
     ids.forEach(pid => {
       const src = document.getElementById(pid);
       if(!src) return;
       const clone = src.cloneNode(true);
       clone.classList.add('active','__clone'); // ensure visible, mark as clone
-      // Avoid nested reveal buttons doing anything here
+
+      // In "Show All", remove reveal button to avoid confusion
       const btn = clone.querySelector('#reveal-all');
       if(btn) btn.remove();
+
       all.appendChild(clone);
     });
   }
@@ -80,18 +77,28 @@
     showTab(buttons[nextIdx].dataset.tab);
   });
 
-  // Initialise from hash or default to first button
+  // Init from hash or default to first button
   const initial = (location.hash || '').replace('#','') || (buttons[0] && buttons[0].dataset.tab);
   if(initial) showTab(initial);
 
-  // Global “Reveal all answers” support when a page includes:
-  //  - a button with id="reveal-all"
-  //  - answer elements with class ".answer" or ".answer.badge"
+  // ===== Global Reveal Toggle =====
+  // Any page can include:
+  //  - <button id="reveal-all" class="reveal">Reveal Answers</button>
+  //  - answers marked with .answer or .answer.badge
   const reveal = document.getElementById('reveal-all');
   if(reveal){
-    reveal.addEventListener('click', () => {
-      document.querySelectorAll('.answer').forEach(el => el.style.display = 'inline-block');
-      document.querySelectorAll('.answer.badge').forEach(el => el.style.display = 'inline-block');
-    });
+    let visible = false;
+    const setVisible = (on) => {
+      visible = on;
+      document.querySelectorAll('.answer, .answer.badge').forEach(el => {
+        el.style.display = visible ? 'inline-block' : 'none';
+      });
+      reveal.classList.toggle('active', visible);
+      reveal.textContent = visible ? 'Hide Answers' : 'Reveal Answers';
+    };
+
+    // init state (hidden)
+    setVisible(false);
+    reveal.addEventListener('click', () => setVisible(!visible));
   }
 })();
