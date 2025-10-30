@@ -1,39 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 1 – Do Now Layout</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
-</head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lesson 1 – The Digital World: Where Do CS and IT Meet?</title>
 
+<!-- Your shared files -->
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+
+<!-- Page-local tweaks to put tabs at TOP and layout the Do Now split view -->
+<style>
+  /* Put tab bar at the TOP (overrides shared .tabs which is bottom-sticky) */
+  .tabs.top{
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    margin: 0 auto 16px;
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+
+  /* Hide section headings where requested, but keep screen-reader friendly */
+  #do-now h2{ display:block; margin-bottom:12px; } /* show Do Now label */
+  #plenary h2{ display:block; }                    /* show Plenary label */
+
+  /* Do Now split layout */
+  .do-now-wrap{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .do-now-left{
+    background:#fff;
+    border:1px solid #eee;
+    border-radius:14px;
+    padding:10px;
+  }
+  .do-now-left img{
+    width:100%; height:auto; display:block; border-radius:10px;
+  }
+
+  .do-now-right .stem{
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 0.95em;
+  }
+  .q{
+    background:#fff;
+    border:1px solid #e9ecef;
+    border-radius:14px;
+    padding:14px 16px;
+    margin:10px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .q .num{
+    font-weight:700;
+    min-width:1.8ch;
+  }
+  .reveal{
+    margin-top:14px;
+    padding:10px 14px;
+    border-radius:999px;
+    border:2px solid #e6e6e6;
+    background:#0d936f; color:#fff; font-weight:700; cursor:pointer;
+  }
+  .answer{
+    margin-top:6px;
+    font-weight:700;
+    display:none;
+  }
+  .answer.badge{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:999px;
+    background:#eefaf6;
+    border:1px solid #bfe9db;
+    color:#006e51;
+    margin-top:8px;
+  }
+
+  /* Simple definition list styling */
+  .kv{
+    display:grid; grid-template-columns: 220px 1fr; gap: 10px 18px;
+  }
+  .kv dt{
+    font-weight:700;
+  }
+  .kv dd{
+    margin:0;
+  }
+
+  /* Responsive */
+  @media (max-width: 820px){
+    .do-now-wrap{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
 <body>
+
   <header>
-    <h1>Lesson 1 – Input, Output & Storage Devices</h1>
+    <h1>Lesson 1 – The Digital World: Where Do CS and IT Meet?</h1>
   </header>
 
-  <main class="container">
-    <section id="do-now" class="tab-content active">
-      <h2>Do Now</h2>
-      <img src="lesson1.png" alt="Do Now Task – Lesson 1" class="do-now-img">
-    </section>
-
-    <section id="lesson" class="tab-content">
-      <h2>Lesson Content</h2>
-      <p>Explore different types of computer input, output, and storage devices and their uses in various contexts.</p>
-    </section>
-
-    <section id="plenary" class="tab-content">
-      <h2>Plenary</h2>
-      <p>Reflect on which devices are most suitable for specific tasks — and why.</p>
-    </section>
-  </main>
-
-  <nav class="tabs">
-    <button class="tab-button active" data-tab="do-now">Do Now</button>
-    <button class="tab-button" data-tab="lesson">Lesson</button>
+  <!-- TOP tabs -->
+  <nav class="tabs top" role="tablist">
+    <button class="tab-button active" data-tab="do-now" aria-selected="true">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you'll learn</button>
+    <button class="tab-button" data-tab="know">How you'll know you’ve got it</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="activities">Activities</button>
     <button class="tab-button" data-tab="plenary">Plenary</button>
+    <button class="tab-button" data-tab="all">Show All</button>
   </nav>
-</body>
-</html>
+
+  <main class="container">
+    <!-- Do Now -->
+    <section id="do-now" class="tab-content active" role="tabpanel">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <!-- Referenced image (same folder) -->
+          <img src="lesson1.png" alt="Lesson 1 intr
