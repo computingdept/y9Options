@@ -1,1 +1,268 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 7 – Operating Systems (CS) vs File Management (IT)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 7 – Operating Systems (CS) vs File Management (IT)</h1>
+    </header>
+
+    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson7.png" alt="Do Now image for Lesson 7: operating system and folders" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to the last few lessons.</em> These get a little harder each time.</p>
+
+          <div class="q">1) What number system did we use for 0–255?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              Binary (only 0s and 1s).
+            </span>
+          </div>
+
+          <div class="q">2) What are the tiny squares that make a picture?<br>
+            <span class="answer badge">
+              Lesson 4 – Images & Colour:<br>
+              Pixels – small coloured squares.
+            </span>
+          </div>
+
+          <div class="q">3) Which device sends data between networks like school ↔ internet?<br>
+            <span class="answer badge">
+              Lesson 5 – Networks:<br>
+              The router.
+            </span>
+          </div>
+
+          <div class="q">4) Today we need an Operating System.  
+             What does an OS help you do first?<br>
+            <span class="answer badge">
+              Lesson 7 – New learning:<br>
+              Start and run programs, and manage files.
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Explain what an <strong>Operating System</strong> (OS) does.</li>
+            <li>Match OS features to real tasks (UI, memory, file & process management).</li>
+            <li>Organise files and folders using smart names, locations, and backups.</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>You can say which OS feature solves each problem.</li>
+            <li>Your folder tree and filenames are clear and consistent.</li>
+            <li>Your backup plan means nothing important is lost.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Operating System (OS)</dt><dd>Core software that runs the computer and apps.</dd>
+        <dt>User Interface (UI)</dt><dd>How you control the computer (windows, icons, menus).</dd>
+        <dt>Process</dt><dd>A program that is running.</dd>
+        <dt>Memory management</dt><dd>Shares RAM between programs safely.</dd>
+        <dt>File system</dt><dd>How files/folders are stored and found.</dd>
+        <dt>Path</dt><dd>The location of a file in folders.</dd>
+        <dt>Extension</dt><dd>The end of a filename that shows the type (e.g., <code>.pptx</code>).</dd>
+        <dt>Metadata</dt><dd>Extra info about a file (size, date, owner).</dd>
+        <dt>Backup</dt><dd>Another copy kept safe (e.g., cloud + local).</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – What Does the OS Do?</h2>
+      <p>Match each problem to the OS feature that fixes it, then explain your choice in one short sentence.</p>
+
+      <ol>
+        <li><strong>Problem A:</strong> Two apps are open. Both need memory.<br>
+            <em>Pick a feature:</em> UI • File system • <strong>Memory management</strong> • Process management</li>
+        <li><strong>Problem B:</strong> You click an icon and the program starts running.<br>
+            <em>Pick a feature:</em> <strong>Process management</strong> • File system • Drivers • UI</li>
+        <li><strong>Problem C:</strong> You save a document to a folder and find it later.<br>
+            <em>Pick a feature:</em> <strong>File system</strong> • Memory management • Scheduling</li>
+        <li><strong>Problem D:</strong> You use a mouse to drag a window and press keys to type.<br>
+            <em>Pick a feature:</em> <strong>User Interface (UI)</strong> • Networking • File system</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Feature</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A</td>
+              <td>Memory management</td>
+              <td>Shares RAM so both apps can run safely.</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>Process management</td>
+              <td>Starts/stops programs and gives CPU time.</td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>File system</td>
+              <td>Saves files in folders and lets you find them.</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>User Interface</td>
+              <td>Lets you control the computer easily.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IT Activity -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – File Management: Name it, File it, Find it, Back it up</h2>
+      <p>Create a tidy folder for this unit and practise smart file handling.</p>
+
+      <ol>
+        <li><strong>Make the folder tree</strong> (OneDrive or local):
+          <pre style="margin:6px 0; background:#fff; border:1px solid #f2da7a; padding:8px; border-radius:8px;">
+Year9_Options/
+  L07_OS_FileMgmt/
+    Docs/
+    Images/
+    Slides/
+    Worksheets/</pre>
+        </li>
+        <li><strong>Smart naming rule:</strong> <code>YYYY-MM-DD_topic_version.ext</code><br>
+            Example: <code>2025-10-30_OS-features_v1.docx</code></li>
+        <li><strong>Move and rename</strong> 5 real files into the right folders using the rule.</li>
+        <li><strong>Search skills:</strong> find files by type and word:
+          <ul>
+            <li>By type: search <code>type:.pptx</code></li>
+            <li>By word in file: search <code>OS</code> or <code>router</code></li>
+          </ul>
+        </li>
+        <li><strong>Backup plan (2 copies):</strong> Keep one in OneDrive/SharePoint and one local.  
+            Write one sentence: “If my laptop is lost, I still have the copy in ______.”</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Checklist
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>Yes / No</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Folder tree created</td>
+              <td>Yes</td>
+              <td>Matches the structure above</td>
+            </tr>
+            <tr>
+              <td>Filenames follow rule</td>
+              <td>Yes</td>
+              <td><code>YYYY-MM-DD_topic_v1.ext</code></td>
+            </tr>
+            <tr>
+              <td>Files moved to correct folders</td>
+              <td>Yes</td>
+              <td>No duplicates left behind</td>
+            </tr>
+            <tr>
+              <td>Search works</td>
+              <td>Yes</td>
+              <td><code>type:.pptx</code> returns slides</td>
+            </tr>
+            <tr>
+              <td>Backup in place</td>
+              <td>Yes</td>
+              <td>Cloud + local copy (or cloud + external drive)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>Name two jobs an Operating System does.</li>
+        <li>What part of the OS stores files and folders?</li>
+        <li>Write one smart filename for a slide you made today.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li>Starts programs and manages memory.</li>
+          <li>The file system.</li>
+          <li><code>2025-10-30_OS-file-mgmt_v1.pptx</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
