@@ -101,4 +101,17 @@
     setVisible(false);
     reveal.addEventListener('click', () => setVisible(!visible));
   }
+
+  // ===== Force scroll-to-top on load =====
+  // ensures Do Now section + title visible when file first opens
+  window.addEventListener('load', () => {
+    // Delay a fraction to let layout stabilise
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      document.body.scrollTop = 0;        // Safari
+      document.documentElement.scrollTop = 0;
+    }, 50);
+  });
+
 })();
+
