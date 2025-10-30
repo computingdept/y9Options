@@ -1,10 +1,16 @@
-/* ===== RHSC Lessons – Shared Script (v3, toggle reveal) ===== */
-(function(){
+/* ===== RHSC Lessons – Shared Script (v4 stable) ===== */
+document.addEventListener('DOMContentLoaded', () => {
+
+  // --- cache elements after DOM is ready
   const buttons = Array.from(document.querySelectorAll('.tab-button'));
   const panels  = Array.from(document.querySelectorAll('.tab-content'));
 
+  // Guard: if no tabs found, nothing to wire
+  if (buttons.length === 0 || panels.length === 0) return;
+
   function showTab(id){
     if(!id) return;
+
     // Panels
     panels.forEach(p => {
       const active = p.id === id;
@@ -20,133 +26,118 @@
       b.setAttribute('tabindex', active ? '0' : '-1');
     });
 
-    // Keep hash in sync (no jump)
-    const newHash = '#'+id;
-    if(location.hash !== newHash){
+    // Sync hash without jump
+    const newHash = '#' + id;
+    if (location.hash !== newHash) {
       history.replaceState(null, '', newHash);
     }
 
-    // Auto-build "Show All"
-    if(id === 'all'){ buildShowAll(); }
+    // Build Show All when needed
+    if (id === 'all') buildShowAll();
   }
 
   function buildShowAll(){
     const all = document.getElementById('all');
     if(!all) return;
 
-    // Remove previous clones (keep first child elements that are not __clone)
+    // Remove prior clones
     Array.from(all.querySelectorAll('.__clone')).forEach(n => n.remove());
 
-    const ids = panels.map(p => p.id).filter(pid => pid && pid !== 'all');
-    ids.forEach(pid => {
+    // Order to display (only include if present)
+    const order = ['do-now','learn','vocab','cs-activity','it-activity','exit-ticket'];
+    order.forEach(pid => {
       const src = document.getElementById(pid);
       if(!src) return;
       const clone = src.cloneNode(true);
-      clone.classList.add('active','__clone'); // ensure visible, mark as clone
+      clone.classList.add('active','__clone');
 
-      // In "Show All", remove reveal button to avoid confusion
-      const btn = clone.querySelector('#reveal-all');
-      if(btn) btn.remove();
+      // Remove any reveal button in the clone to avoid confusion
+      const rb = clone.querySelector('#reveal-all');
+      if (rb) rb.remove();
 
       all.appendChild(clone);
     });
   }
 
-  // Click handlers
+  // Wire tab buttons
   buttons.forEach(btn => {
     btn.setAttribute('role','tab');
     btn.addEventListener('click', () => showTab(btn.dataset.tab));
   });
+
   const tablist = document.querySelector('.tabs');
-  if(tablist) tablist.setAttribute('role','tablist');
+  if (tablist) tablist.setAttribute('role','tablist');
+
   panels.forEach(p => {
     p.setAttribute('role','tabpanel');
     p.setAttribute('aria-hidden', String(!p.classList.contains('active')));
   });
 
-  // Keyboard nav (Up/Down for sidebar, Left/Right for topbar)
+  // Keyboard navigation (Up/Down for sidebar, Left/Right for top)
   document.addEventListener('keydown', (e) => {
-    const horiz = ['ArrowLeft','ArrowRight'].includes(e.key);
-    const vert  = ['ArrowUp','ArrowDown'].includes(e.key);
-    if(!horiz && !vert) return;
+    if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(e.key)) return;
     const currentIdx = buttons.findIndex(b => b.classList.contains('active'));
-    if(currentIdx < 0) return;
-    const delta = (e.key === 'ArrowRight' || e.key === 'ArrowDown') ? 1 : -1;
+    if (currentIdx < 0) return;
+    const forward = (e.key === 'ArrowRight' || e.key === 'ArrowDown');
+    const delta = forward ? 1 : -1;
     const nextIdx = (currentIdx + delta + buttons.length) % buttons.length;
     buttons[nextIdx].focus();
     showTab(buttons[nextIdx].dataset.tab);
   });
 
-  // Init from hash or default to first button
+  // Initialise from hash or first tab
   const initial = (location.hash || '').replace('#','') || (buttons[0] && buttons[0].dataset.tab);
-  if(initial) showTab(initial);
+  if (initial) showTab(initial);
 
-  // ===== Global Reveal Toggle =====
-  // Any page can include:
-  //  - <button id="reveal-all" class="reveal">Reveal Answers</button>
-  //  - answers marked with .answer or .answer.badge
-  const reveal = document.getElementById('reveal-all');
-  if(reveal){
+  // ===== Reveal Answers (single toggle per page) =====
+  // Works if the page includes a button with id="reveal-all"
+  (function setupRevealToggle(){
+    const revealBtn = document.getElementById('reveal-all');
+    if (!revealBtn) return;
     let visible = false;
     const setVisible = (on) => {
       visible = on;
       document.querySelectorAll('.answer, .answer.badge').forEach(el => {
         el.style.display = visible ? 'inline-block' : 'none';
       });
-      reveal.classList.toggle('active', visible);
-      reveal.textContent = visible ? 'Hide Answers' : 'Reveal Answers';
+      revealBtn.classList.toggle('active', visible);
+      revealBtn.textContent = visible ? 'Hide Answers' : 'Reveal Answers';
     };
-
-    // init state (hidden)
     setVisible(false);
-    reveal.addEventListener('click', () => setVisible(!visible));
-  }
+    revealBtn.addEventListener('click', () => setVisible(!visible));
+  })();
 
-  // ===== Force scroll-to-top on load =====
-  // ensures Do Now section + title visible when file first opens
+  // ===== Per-activity Sample Answers toggles =====
+  // Any button:  data-toggle="samples" data-target="#elementId"
+  (function setupSamplesToggles(){
+    document.querySelectorAll('[data-toggle="samples"]').forEach((btn) => {
+      const sel = btn.getAttribute('data-target');
+      if (!sel) return;
+      const target = document.querySelector(sel);
+      if (!target) return;
+
+      // init hidden
+      target.classList.remove('active');
+      btn.classList.remove('active');
+      if (!btn.textContent.trim()) btn.textContent = 'Show Sample Answers';
+
+      btn.addEventListener('click', () => {
+        const isOpen = target.classList.toggle('active');
+        btn.classList.toggle('active', isOpen);
+        btn.textContent = isOpen ? 'Hide Sample Answers' : 'Show Sample Answers';
+      });
+    });
+  })();
+
+  // ===== Force scroll-to-top on load (after layout stabilises) =====
   window.addEventListener('load', () => {
-    // Delay a fraction to let layout stabilise
     setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      document.body.scrollTop = 0;        // Safari
+      // standards
+      window.scrollTo(0, 0);
+      // Safari variants
+      document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }, 50);
   });
-  // ===== Global Reveal Toggle =====
-  const reveal = document.getElementById('reveal-all');
-  if(reveal){
-    let visible = false;
-    const setVisible = (on) => {
-      visible = on;
-      document.querySelectorAll('.answer, .answer.badge').forEach(el => {
-        el.style.display = visible ? 'inline-block' : 'none';
-      });
-      reveal.classList.toggle('active', visible);
-      reveal.textContent = visible ? 'Hide Answers' : 'Reveal Answers';
-    };
-    setVisible(false);
-    reveal.addEventListener('click', () => setVisible(!visible));
-  }
 
-  // ===== Per-activity Sample Answers toggles =====
-  // Any button with data-toggle="samples" and data-target="#id" will toggle that block
-  document.querySelectorAll('[data-toggle="samples"]').forEach((btn) => {
-    const target = document.querySelector(btn.dataset.target);
-    if (!target) return;
-
-    // init hidden
-    target.classList.remove('active');
-    btn.classList.remove('active');
-    btn.textContent = btn.textContent || 'Show Sample Answers';
-
-    btn.addEventListener('click', () => {
-      const isOpen = target.classList.toggle('active');
-      btn.classList.toggle('active', isOpen);
-      btn.textContent = isOpen ? 'Hide Sample Answers' : 'Show Sample Answers';
-    });
-  });
-
-})();
-
-})();
-
+});
