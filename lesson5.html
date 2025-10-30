@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 5 – Networks (CS) vs Network Testing (IT)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 5 – Networks (CS) vs Network Testing (IT)</h1>
+    </header>
+
+    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson5.png" alt="Do Now image for Lesson 5: computers connected in a classroom network" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to the last two lessons.</em> These questions warm up your memory.</p>
+
+          <div class="q">1) What number system do computers use?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              Binary – only 0s and 1s.
+            </span>
+          </div>
+
+          <div class="q">2) What do we call tiny squares in a picture?<br>
+            <span class="answer badge">
+              Lesson 4 – Images & Colour:<br>
+              Pixels – small coloured squares.
+            </span>
+          </div>
+
+          <div class="q">3) Which is bigger: a bit or a byte?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              A byte (it has 8 bits).
+            </span>
+          </div>
+
+          <div class="q">4) Today is about connections. Which device sends data between networks (like school ↔ internet)?<br>
+            <span class="answer badge">
+              Lesson 5 – New learning:<br>
+              A router moves data between networks.
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Explain what a <strong>LAN</strong> is and name key devices (router, switch, access point).</li>
+            <li>Describe <strong>IP</strong> and <strong>MAC</strong> addresses and what a <strong>packet</strong> is.</li>
+            <li>Run simple <strong>network tests</strong> (ping / tracert) and record results clearly.</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>You can sketch a classroom <strong>star network</strong> and label the devices.</li>
+            <li>You can explain IP vs MAC in one sentence each.</li>
+            <li>Your test table shows sensible results and comments.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>LAN</dt><dd>Local Area Network (e.g., your classroom or school).</dd>
+        <dt>Router</dt><dd>Forwards data between different networks (school ↔ internet).</dd>
+        <dt>Switch</dt><dd>Connects devices inside one network and forwards frames.</dd>
+        <dt>Access Point (AP)</dt><dd>Lets wireless devices join the network (Wi-Fi).</dd>
+        <dt>IP Address</dt><dd>Number used to find a device on a network (like 192.168.1.23).</dd>
+        <dt>MAC Address</dt><dd>Unique hardware address of a network card.</dd>
+        <dt>Packet</dt><dd>Small chunk of data with addresses and content.</dd>
+        <dt>Bandwidth</dt><dd>How much data can move per second.</dd>
+        <dt>Latency</dt><dd>Delay (how long a packet takes to travel).</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – Sketch a Star Network for a Classroom</h2>
+      <p>Draw a simple <strong>star</strong> network for a class of 6 computers, a teacher laptop, a printer, and the internet.</p>
+
+      <ol>
+        <li>Put a <strong>switch</strong> in the middle.</li>
+        <li>Connect 6 student PCs + 1 teacher laptop + 1 printer to the switch.</li>
+        <li>Connect the switch to the <strong>router</strong>, and the router to the <strong>internet cloud</strong>.</li>
+        <li>Label example IPs (private range): 192.168.1.10–192.168.1.17 for devices, 192.168.1.1 for router.</li>
+        <li>Write one sentence each for: <em>IP address</em>, <em>MAC address</em>, <em>packet</em>.</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Sample</th>
+              <th>Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Topology</td>
+              <td>Star – all devices connect to a central switch</td>
+              <td>Easy to add devices; one cable fault doesn’t stop all</td>
+            </tr>
+            <tr>
+              <td>IP plan</td>
+              <td>Router 192.168.1.1, PCs .10–.15, Teacher .16, Printer .17</td>
+              <td>Private addressing for a small LAN</td>
+            </tr>
+            <tr>
+              <td>IP address</td>
+              <td>“Where to send data on the network.”</td>
+              <td>Like a postal address for devices</td>
+            </tr>
+            <tr>
+              <td>MAC address</td>
+              <td>“Hardware ID burned into the network card.”</td>
+              <td>Used on the LAN by the switch</td>
+            </tr>
+            <tr>
+              <td>Packet</td>
+              <td>“Small box of data with from/to info.”</td>
+              <td>Networks move packets, not whole files at once</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IT Activity -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – Run Simple Network Tests and Log Results</h2>
+      <p>Use built-in tools to measure connection quality. Record results in a small table (Excel or a worksheet).</p>
+
+      <ol>
+        <li><strong>Find your IP:</strong>
+          <ul>
+            <li><em>Windows:</em> Open <strong>Command Prompt</strong> → type <code>ipconfig</code></li>
+            <li><em>Mac:</em> Open <strong>Terminal</strong> → type <code>ifconfig</code> (or check Wi-Fi details)</li>
+          </ul>
+        </li>
+        <li><strong>Ping a site (4 packets):</strong>
+          <ul>
+            <li><em>Windows:</em> <code>ping bbc.co.uk -n 4</code></li>
+            <li><em>Mac:</em> <code>ping -c 4 bbc.co.uk</code></li>
+          </ul>
+        </li>
+        <li><strong>Trace the route (optional):</strong>
+          <ul>
+            <li><em>Windows:</em> <code>tracert bbc.co.uk</code></li>
+            <li><em>Mac:</em> <code>traceroute bbc.co.uk</code></li>
+          </ul>
+        </li>
+        <li><strong>Log your results</strong> in a table with columns: Host • Avg ms • Packet Loss • Notes.</li>
+        <li>Write one sentence to explain the difference between <em>bandwidth</em> and <em>latency</em>.</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Log & Answers
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Field</th>
+              <th>Example</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Host</td>
+              <td>bbc.co.uk</td>
+              <td>Public website (stable target)</td>
+            </tr>
+            <tr>
+              <td>Avg ms</td>
+              <td>24</td>
+              <td>Lower is faster (lower latency)</td>
+            </tr>
+            <tr>
+              <td>Packet Loss</td>
+              <td>0%</td>
+              <td>Good connection if no loss</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>Classroom Wi-Fi, full signal</td>
+              <td>Record anything that might affect results</td>
+            </tr>
+            <tr>
+              <td>Bandwidth vs Latency</td>
+              <td>Bandwidth = how much; Latency = how long.</td>
+              <td>Amount vs delay</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>What does a <strong>router</strong> do?</li>
+        <li>What is a <strong>packet</strong>?</li>
+        <li>Which has lower numbers if the connection is quick: <strong>latency</strong> or <strong>bandwidth</strong>?</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li><strong>Router:</strong> Sends data between different networks.</li>
+          <li><strong>Packet:</strong> A small chunk of data with from/to info.</li>
+          <li><strong>Latency:</strong> Lower is faster (bandwidth is “how much”).</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
