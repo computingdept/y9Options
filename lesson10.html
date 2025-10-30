@@ -1,1 +1,247 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 10 – Emerging Tech (CS) vs Sustainability (IT)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 10 – Emerging Tech (CS) vs Sustainability (IT)</h1>
+    </header>
+
+    <!-- Do Now -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson10.png" alt="Do Now image for Lesson 10: future tech and planet" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to earlier lessons.</em> These get a little harder each time.</p>
+
+          <div class="q">1) Which lesson taught you to spot phishing tricks?<br>
+            <span class="answer badge">
+              Lesson 8 – Cybersecurity:<br>
+              We looked for urgent tone, strange links, and asking for passwords.
+            </span>
+          </div>
+
+          <div class="q">2) What part of a computer stores files and folders?<br>
+            <span class="answer badge">
+              Lesson 7 – OS & Files:<br>
+              The file system helps save and find work.
+            </span>
+          </div>
+
+          <div class="q">3) How many values can a byte store?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              256 values (0–255).
+            </span>
+          </div>
+
+          <div class="q">4) Today is about the future.  
+            What should we always think about when using new tech?<br>
+            <span class="answer badge">
+              Lesson 10 – New learning:<br>
+              Impact on people and the planet.
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Describe <strong>emerging technologies</strong> and how they work (inputs → processing → outputs).</li>
+            <li>Explain simple <strong>benefits</strong> and <strong>risks</strong> for people and society.</li>
+            <li>Suggest <strong>green IT</strong> choices that reduce waste and energy use.</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>Your CS map shows clear inputs, decisions, and outputs.</li>
+            <li>Your IT plan lists at least 4 realistic sustainability actions.</li>
+            <li>Your exit ticket links tech benefits to planet-friendly choices.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Emerging technology</dt><dd>New tech that is growing fast (e.g., AI, VR, robots).</dd>
+        <dt>IoT (Internet of Things)</dt><dd>Everyday objects connected online (sensors + data).</dd>
+        <dt>Automation</dt><dd>Computers or machines doing tasks with little human help.</dd>
+        <dt>Lifecycle</dt><dd>Make → Use → Reuse → Recycle of a device.</dd>
+        <dt>E-waste</dt><dd>Thrown-away electronics (must be handled safely).</dd>
+        <dt>Energy efficiency</dt><dd>Doing the same job with less power.</dd>
+        <dt>Power plan</dt><dd>Settings that save battery/electricity (sleep, brightness).</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – Map an Emerging Tech (IPO + Benefits/Risks)</h2>
+      <p>Choose <strong>one</strong>: AI image tagger • Delivery drone • Smart thermostat • VR training.  
+         Draw a simple map of how it works and its impact.</p>
+
+      <ol>
+        <li><strong>Inputs:</strong> What data or sensors does it use? (e.g., camera, GPS, temperature)</li>
+        <li><strong>Processing:</strong> What decisions or rules does it follow? (e.g., if too hot then lower heat)</li>
+        <li><strong>Outputs:</strong> What action or message happens? (e.g., motor moves drone; app alert)</li>
+        <li>List two <strong>benefits</strong> (faster, safer, helps people) and two <strong>risks</strong> (privacy, bias, safety).</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Tech</th>
+              <th>Inputs → Processing → Outputs</th>
+              <th>Benefits</th>
+              <th>Risks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Smart thermostat</td>
+              <td>Temp sensor → if room &lt; 19°C then heat on → Boiler on/off</td>
+              <td>Comfort, saves energy</td>
+              <td>Data privacy, internet outage</td>
+            </tr>
+            <tr>
+              <td>Delivery drone</td>
+              <td>GPS/camera → plan safe path → Motors move to target</td>
+              <td>Fast delivery, less road traffic</td>
+              <td>Safety, noise, weather risk</td>
+            </tr>
+            <tr>
+              <td>AI image tagger</td>
+              <td>Photo → model classifies → Label shown to user</td>
+              <td>Find photos quickly</td>
+              <td>Bias/mistakes, privacy of faces</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IT Activity -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – Green IT Plan (Energy, Files, Devices)</h2>
+      <p>Create a short plan to make our classroom IT kinder to the planet. Use the checklist and fill in actions that we can do this week.</p>
+
+      <ol>
+        <li><strong>Energy settings:</strong> Set screens to sleep after 5–10 mins; lower brightness if possible.</li>
+        <li><strong>Shut-down routine:</strong> End of day power off devices safely (not just sleep).</li>
+        <li><strong>Storage tidy:</strong> Delete duplicates; move large videos to shared cloud; compress where sensible.</li>
+        <li><strong>Printing:</strong> Only when needed; print double-sided; use draft quality for tests.</li>
+        <li><strong>Device lifecycle:</strong> Keep cases; repair before replacing; recycle e-waste properly.</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Checklist
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Action</th>
+              <th>When / Who</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Energy</td>
+              <td>Set sleep to 10 mins; brightness 70%</td>
+              <td>Today / Whole class</td>
+            </tr>
+            <tr>
+              <td>Power off</td>
+              <td>Shut down PCs at 3:20 pm</td>
+              <td>Daily / Tech monitors</td>
+            </tr>
+            <tr>
+              <td>Storage</td>
+              <td>Delete duplicates; tidy “Downloads”</td>
+              <td>Weekly / Each student</td>
+            </tr>
+            <tr>
+              <td>Printing</td>
+              <td>Double-sided only; draft mode</td>
+              <td>When needed / Teacher OK</td>
+            </tr>
+            <tr>
+              <td>Lifecycle</td>
+              <td>Log broken kit; recycle properly</td>
+              <td>As needed / IT support</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>Name one emerging technology and one benefit.</li>
+        <li>Write one risk we should plan for.</li>
+        <li>Write one green IT action you will do this week.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li><strong>Tech + benefit:</strong> Smart thermostat – saves energy.</li>
+          <li><strong>Risk:</strong> Privacy or safety (plan controls and rules).</li>
+          <li><strong>Green action:</strong> Set sleep to 10 mins and power off daily.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
