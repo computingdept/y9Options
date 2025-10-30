@@ -1,136 +1,182 @@
-/* ===== Lesson Layout (RHSC-style) ===== */
+/* ===== RHSC Lessons – Shared Styles (v2, sidebar) ===== */
 :root{
-  --bg: #ffffff;
-  --ink: #111111;
-  --muted: #667085;
-  --accent: #006e51;   /* Reepham green */
-  --ring: #99e2cf;
-  --radius: 16px;
-  --shadow: 0 6px 30px rgba(0,0,0,0.08);
-  --maxw: 1100px;
+  --bg:#fafafa;
+  --ink:#111111;
+  --muted:#667085;
+  --accent:#006e51;       /* Reepham green */
+  --accent-2:#008b67;
+  --ring:#99e2cf;
+  --radius:16px;
+  --shadow:0 6px 30px rgba(0,0,0,0.08);
+  --maxw: 1200px;
 
-  /* Accessibility-friendly sizing (larger baseline) */
-  --font-base: 20px;   /* ~20px body */
-  --font-h1: 1.8rem;   /* ~36px */
-  --font-h2: 1.25rem;  /* ~25px */
+  /* Accessibility-friendly sizing */
+  --font-base:20px;       /* board-friendly */
+  --font-h1:1.8rem;       /* ~36px */
+  --font-h2:1.25rem;      /* ~25px */
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-html { scroll-behavior: smooth; }
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
 body{
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, "SF Pro Text",
-               "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji",
-               "Segoe UI Emoji";
-  font-size: var(--font-base);
-  line-height: 1.5;
-  color: var(--ink);
-  background: var(--bg);
+  margin:0;
+  display:flex;                 /* sidebar + main */
+  background:var(--bg);
+  color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial;
+  font-size:var(--font-base);
+  line-height:1.5;
 }
 
-header{
-  max-width: var(--maxw);
-  margin: 24px auto 8px;
-  padding: 0 16px;
+/* ===== Sidebar Nav (Left) ===== */
+.tabs.left{
+  position:sticky;
+  top:0;
+  width:240px;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:18px;
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  color:#fff;
+  border-radius:0;
+  box-shadow:none;
+  z-index:10;
 }
-h1{
-  font-size: var(--font-h1);
-  margin: 0;
-  letter-spacing: 0.2px;
-}
-
-.container{
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 16px;
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-/* Tabs (bottom nav) */
-.tabs{
-  position: sticky;
-  bottom: 0;
-  z-index: 5;
-  display: flex;
-  gap: 8px;
-  max-width: var(--maxw);
-  margin: 10px auto 24px;
-  padding: 8px 16px;
-  background: #fff;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-.tab-button{
-  flex: 1;
+.tabs.left .tab-button{
+  flex:0 0 auto;
   font: inherit;
-  font-weight: 600;
-  padding: 12px 14px;
-  border: 2px solid #e6e6e6;
-  border-radius: 999px;
-  background: #f8f9fa;
-  color: var(--ink);
-  cursor: pointer;
-  transition: border-color .2s ease, background .2s ease, transform .05s ease;
+  font-weight:700;
+  padding:12px 16px;
+  border:0;
+  border-radius:999px;
+  background:rgba(255,255,255,0.14);
+  color:#fff;
+  cursor:pointer;
+  text-align:left;
+  transition:background .2s ease, transform .05s ease;
 }
-.tab-button:hover{ border-color: #ddd; }
-.tab-button:active{ transform: translateY(1px); }
-.tab-button.active{
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-  box-shadow: 0 0 0 4px var(--ring);
-}
-
-/* Tab panels */
-.tab-content{
-  display: none;
-  padding: 8px;
-}
-.tab-content.active{
-  display: block;
+.tabs.left .tab-button:hover{ background:rgba(255,255,255,0.22) }
+.tabs.left .tab-button:active{ transform:translateY(1px) }
+.tabs.left .tab-button.active{
+  background:#fff;
+  color:var(--accent);
+  box-shadow:0 0 0 3px rgba(255,255,255,.35) inset;
 }
 
-.tab-content h2{
-  font-size: var(--font-h2);
-  margin: 0 0 12px;
+/* (Optional) top style if you ever want to use it on a page */
+.tabs.top{
+  position:sticky;
+  top:0;
+  bottom:auto;
+  display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+  padding:10px 16px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+}
+.tabs.top .tab-button{
+  background:rgba(255,255,255,.15); color:#fff; border:0; border-radius:999px; padding:8px 18px; font-weight:700;
+}
+.tabs.top .tab-button.active{ background:#fff; color:var(--accent) }
+
+/* ===== Main Area ===== */
+header{
+  max-width:var(--maxw);
+  margin:24px auto 8px;
+  padding:0 16px;
+}
+h1{ font-size:var(--font-h1); margin:0; letter-spacing:.2px }
+
+main.container{
+  flex:1;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:24px 24px 40px;
 }
 
-/* Do Now image only (no extra text) */
-#do-now h2{ display:none; } /* As requested: no text shown in Do Now */
-.do-now-img{
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 14px;
-  border: 1px solid #eee;
+/* ===== Panels & Headings ===== */
+.tab-content{ display:none; padding:8px 0; }
+.tab-content.active{ display:block; }
+.tab-content h2{ font-size:var(--font-h2); margin:0 0 12px; color:var(--accent) }
+
+/* ===== Do Now split layout ===== */
+.do-now-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:20px;
+  align-items:start;
 }
+.do-now-left{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:14px;
+  padding:10px;
+  box-shadow:var(--shadow);
+}
+.do-now-img{ width:100%; height:auto; display:block; border-radius:10px }
+.q{
+  background:#fff;
+  border:1px solid #e9ecef;
+  border-radius:14px;
+  padding:14px 16px;
+  margin:10px 0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.03);
+}
+.answer{ display:none; margin-top:8px; font-weight:700 }
+.answer.badge{
+  display:none;
+  padding:4px 10px;
+  border-radius:999px;
+  background:#eefaf6;
+  border:1px solid #bfe9db;
+  color:var(--accent);
+  font-weight:700;
+}
+.reveal{
+  margin-top:14px;
+  padding:10px 16px;
+  border-radius:999px;
+  border:0;
+  background:var(--accent);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+}
+.reveal:hover{ background:#008b67 }
 
-/* General media/text area (kept simple for parity with Lessons 2+) */
-#plenary h2{ display:none; } /* No text visible in Plenary per your spec */
+/* ===== Vocab list (definition list) ===== */
+.kv{
+  display:grid; grid-template-columns: 220px 1fr; gap:10px 18px;
+}
+.kv dt{ font-weight:700 }
+.kv dd{ margin:0 }
 
-/* Focus visibility */
+/* ===== “What you’ll learn” cards ===== */
+.learn-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px }
+.learn-card{
+  background:#f8f9fa;
+  border:1px solid #e9ecef;
+  border-radius:14px;
+  padding:20px;
+}
+.learn-card h3{ margin:0 0 8px; color:var(--accent) }
+
+/* ===== Focus & reduced motion ===== */
 :focus-visible{
-  outline: 3px solid var(--accent);
-  outline-offset: 2px;
-  border-radius: 6px;
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+  border-radius:6px;
 }
+@media (prefers-reduced-motion: reduce){ *{ transition:none !important } }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce){
-  * { transition: none !important; }
-}
-
-/* Small screens */
-@media (max-width: 640px){
-  :root{
-    --font-base: 18px;
-    --font-h1: 1.6rem;
-    --font-h2: 1.15rem;
+/* ===== Responsive: sidebar collapses to top ===== */
+@media (max-width: 820px){
+  body{ flex-direction:column }
+  .tabs.left{
+    width:100%; height:auto; position:static;
+    flex-direction:row; flex-wrap:wrap; justify-content:center;
   }
-  .tabs{ gap: 6px; }
-  .tab-button{ padding: 10px 12px; }
+  .tabs.left .tab-button{ text-align:center; }
+  .do-now-wrap, .learn-grid{ grid-template-columns:1fr }
 }
