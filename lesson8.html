@@ -1,1 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 8 – Cybersecurity (CS) vs Digital Footprint (IT)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 8 – Cybersecurity (CS) vs Digital Footprint (IT)</h1>
+    </header>
+
+    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson8.png" alt="Do Now image for Lesson 8: cybersecurity and online footprint" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to our recent lessons.</em> These questions get a little harder each time.</p>
+
+          <div class="q">1) Which tool links many tables of data together?<br>
+            <span class="answer badge">
+              Lesson 6 – Spreadsheets vs Databases:<br>
+              A database links tables with relationships.
+            </span>
+          </div>
+
+          <div class="q">2) What part of the OS helps you save and find files?<br>
+            <span class="answer badge">
+              Lesson 7 – OS vs File Management:<br>
+              The file system stores files and folders.
+            </span>
+          </div>
+
+          <div class="q">3) Give one smart file-naming rule from last lesson.<br>
+            <span class="answer badge">
+              Lesson 7 – OS vs File Management:<br>
+              Use dates and short topics (e.g., 2025-10-30_task_v1).
+            </span>
+          </div>
+
+          <div class="q">4) Today is about safety. What is a strong password?<br>
+            <span class="answer badge">
+              Lesson 8 – New learning:<br>
+              Long, unique, and not guessable (e.g., passphrase).
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Explain common <strong>cyber threats</strong> and basic defences.</li>
+            <li>Describe what a <strong>digital footprint</strong> is and why it matters.</li>
+            <li>Make safer choices online (privacy, sharing, and reporting).</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>You can spot <strong>phishing</strong> signs and suggest safe actions.</li>
+            <li>You can list 3 places your digital footprint appears.</li>
+            <li>You can set simple, strong rules for passwords and posting.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Cybersecurity</dt><dd>Protecting devices, accounts, and data from attacks.</dd>
+        <dt>Phishing</dt><dd>Tricking people to click or share secrets (fake messages).</dd>
+        <dt>Malware</dt><dd>Bad software that harms or steals.</dd>
+        <dt>Two-Factor Authentication (2FA)</dt><dd>Extra step to prove it’s you (code/app).</dd>
+        <dt>Digital footprint</dt><dd>All the info about you online (posts, pics, likes).</dd>
+        <dt>Privacy settings</dt><dd>Controls who can see your info.</dd>
+        <dt>Report/Block</dt><dd>Tools to stop abuse and tell a platform or adult.</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – Spot the Phish and Fix the Risk</h2>
+      <p>Read short message examples. Decide if each is <em>safe</em> or <em>phishing</em>, then say what to do.</p>
+
+      <ol>
+        <li><strong>Example A:</strong> “URGENT! Your school account will be closed. Click here to keep it.”</li>
+        <li><strong>Example B:</strong> “Hi, it’s your teacher. Can you send your password so I can mark work?”</li>
+        <li><strong>Example C:</strong> “Security code: 482 991. If this wasn’t you, change your password.”</li>
+        <li><strong>Example D:</strong> “Free gift card! First 50 clicks win.”</li>
+      </ol>
+
+      <p>For each, write: <em>Safe or Phish?</em> + <em>What should you do?</em></p>
+
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Message</th>
+              <th>Safe / Phish?</th>
+              <th>What to do</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A: “URGENT… Click here…”</td>
+              <td>Phish</td>
+              <td>Don’t click. Report. Check with school via official site.</td>
+            </tr>
+            <tr>
+              <td>B: “Send your password”</td>
+              <td>Phish</td>
+              <td>Never share passwords. Report. Turn on 2FA.</td>
+            </tr>
+            <tr>
+              <td>C: 2FA code message</td>
+              <td>Generally Safe</td>
+              <td>If you didn’t request it, change password and review logins.</td>
+            </tr>
+            <tr>
+              <td>D: “Free gift card!”</td>
+              <td>Phish</td>
+              <td>Ignore/delete. Don’t enter details.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:10px;">
+          <strong>Golden rules:</strong> Use long unique passwords, turn on 2FA, think before you click, and keep software updated.
+        </p>
+      </div>
+    </section>
+
+    <!-- IT Activity -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – Audit Your Digital Footprint (Simple Checklist)</h2>
+      <p>In pairs, review a pretend student profile (or your own settings if allowed). Complete the checklist and improve privacy.</p>
+
+      <ol>
+        <li>List <strong>3 places</strong> you appear online (e.g., school platform, gaming name, social app).</li>
+        <li>For one app, open <strong>Privacy</strong> → set profile to <em>Friends/Private</em>.</li>
+        <li>Check <strong>location</strong> and <strong>photo tagging</strong> options. Turn off what you don’t need.</li>
+        <li>Write a <strong>safe bio</strong> (no full name, address, or school + predictable routines).</li>
+        <li>Practice a <strong>report/block</strong> step: where is it in that app?</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Footprint Log
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Example Entry</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Where I appear</td>
+              <td>School VLE, Gaming tag, Photo album</td>
+              <td>Review each privacy setting</td>
+            </tr>
+            <tr>
+              <td>Profile privacy</td>
+              <td>Friends only</td>
+              <td>Hide from public search</td>
+            </tr>
+            <tr>
+              <td>Location sharing</td>
+              <td>Off</td>
+              <td>Only turn on for family tracking</td>
+            </tr>
+            <tr>
+              <td>Photo tagging</td>
+              <td>Approve tags</td>
+              <td>Review older tagged photos</td>
+            </tr>
+            <tr>
+              <td>Bio safety</td>
+              <td>“I like art and dogs.”</td>
+              <td>No school, address, or times</td>
+            </tr>
+            <tr>
+              <td>Report/Block</td>
+              <td>Know the button location</td>
+              <td>Tell a trusted adult</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket (with sample answers) -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>Write two signs a message might be phishing.</li>
+        <li>What is a digital footprint?</li>
+        <li>Write one change you will make today to be safer online.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li>Strange link/urgent tone; asks for passwords or money.</li>
+          <li>All the info about you online: posts, pics, likes, comments.</li>
+          <li>Turn on 2FA and set social accounts to Friends/Private.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
 
