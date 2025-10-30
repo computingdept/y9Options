@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 4 – Images & Colour (CS) vs Slide Design (IT)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 4 – Images & Colour (CS) vs Slide Design (IT)</h1>
+    </header>
+
+    <!-- Do Now -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson4.png" alt="Do Now image for Lesson 4: pixels and colour on slides" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to our last lessons.</em> These get a little harder each time.</p>
+
+          <div class="q">1) What number system do computers use to store data?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              Binary (only 0s and 1s).
+            </span>
+          </div>
+
+          <div class="q">2) How many values can a byte store?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              256 values (0–255).
+            </span>
+          </div>
+
+          <div class="q">3) Which symbol shows a Yes/No choice on a flowchart?<br>
+            <span class="answer badge">
+              Lesson 2 – Flowcharts:<br>
+              The diamond (decision).
+            </span>
+          </div>
+
+          <div class="q">4) Today we look at images. What do we call the tiny squares in a picture?<br>
+            <span class="answer badge">
+              Lesson 4 – New learning:<br>
+              Pixels – small coloured squares.
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- What you'll learn -->
+    <section id="learn" class="tab-content">
+      <h2>What you’ll learn</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>By the end of this lesson, you will be able to:</h3>
+          <ul>
+            <li>Explain how images are stored with <strong>pixels</strong> and <strong>colour depth</strong>.</li>
+            <li>Calculate simple <strong>file sizes</strong> from width × height × bits per pixel.</li>
+            <li>Improve a slide’s <strong>readability</strong> using contrast, alignment, and consistent layout.</li>
+          </ul>
+        </div>
+        <div class="learn-card">
+          <h3>How you’ll know you’ve got it:</h3>
+          <ul>
+            <li>Your CS calculations match the expected file size.</li>
+            <li>You can read a tiny bitmap from 1s and 0s into black/white pixels.</li>
+            <li>Your IT slide redesign is clearer and easier to read.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Pixel</dt><dd>A tiny square that makes up an image.</dd>
+        <dt>Resolution</dt><dd>How many pixels wide × high (e.g., 100×80).</dd>
+        <dt>Colour depth</dt><dd>Bits per pixel (e.g., 1-bit BW, 8-bit 256 colours, 24-bit RGB).</dd>
+        <dt>File size</dt><dd>How much storage an image needs (bits / bytes / KB).</dd>
+        <dt>Contrast</dt><dd>Difference between colours; helps text be readable.</dd>
+      </dl>
+    </section>
+
+    <!-- CS Activity -->
+    <section id="cs-activity" class="tab-content">
+      <h2>CS Activity – Pixels, Colour Depth and File Size</h2>
+      <p>Work with small images to see how pixels and colour depth affect file size. Then decode a tiny bitmap from 1s and 0s.</p>
+
+      <ol>
+        <li><strong>File size:</strong> For a 20×10 image at 1-bit colour (black/white), calculate the size:<br>
+            <em>bits = width × height × colour depth</em>. Convert to bytes (÷8).</li>
+        <li>Try a 20×10 image at 8-bit colour. Compare the sizes.</li>
+        <li><strong>Decode this 4×4 bitmap (1 = black, 0 = white):</strong><br>
+          Row1: 1 0 0 1<br>
+          Row2: 0 1 1 0<br>
+          Row3: 0 1 1 0<br>
+          Row4: 1 0 0 1
+        </li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+        Show Sample Answers
+      </button>
+
+      <div id="cs-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Task</th>
+              <th>Sample Answer</th>
+              <th>Why it Works</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20×10 at 1-bit</td>
+              <td>bits = 20×10×1 = 200 bits → 25 bytes</td>
+              <td>1 bit per pixel, divide by 8 to get bytes</td>
+            </tr>
+            <tr>
+              <td>20×10 at 8-bit</td>
+              <td>bits = 20×10×8 = 1,600 bits → 200 bytes</td>
+              <td>8 bits per pixel (256 colours)</td>
+            </tr>
+            <tr>
+              <td>4×4 bitmap decode</td>
+              <td>Creates an “X” pattern (black at corners and centre cross)</td>
+              <td>1=black, 0=white; fill row by row</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- IT Activity -->
+    <section id="it-activity" class="tab-content">
+      <h2>IT Activity – Redesign a Slide for Clear Reading</h2>
+      <p>Open a <strong>messy slide</strong> (or make one quickly). Improve it for readability using good layout rules.</p>
+
+      <ol>
+        <li>Use a simple title and one short message per slide.</li>
+        <li>Choose high <strong>contrast</strong> (dark text on light background, or the reverse).</li>
+        <li>Align text and images to tidy columns. Keep spacing even.</li>
+        <li>Use one or two fonts only. Make headings big; body text clear.</li>
+        <li>Replace busy clipart with one helpful image or icon.</li>
+      </ol>
+
+      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+        Show Example Checklist
+      </button>
+
+      <div id="it-samples" class="samples">
+        <table class="samples-table">
+          <thead>
+            <tr>
+              <th>Check</th>
+              <th>Yes / No</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr><td>High contrast text/background</td><td>Yes</td><td>Easy to read from the back</td></tr>
+          <tr><td>Clear title (≤ 6 words)</td><td>Yes</td><td>Short and to the point</td></tr>
+          <tr><td>Consistent alignment</td><td>Yes</td><td>Left-aligned text, centred image</td></tr>
+          <tr><td>Limited fonts (1–2)</td><td>Yes</td><td>Headings bold, body plain</td></tr>
+          <tr><td>One helpful image or icon</td><td>Yes</td><td>Matches the message</td></tr>
+        </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>What is a pixel?</li>
+        <li>How do you calculate a simple image file size?</li>
+        <li>Name one way to make a slide easier to read.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li>A tiny square in an image.</li>
+          <li>Width × height × bits per pixel (then convert to bytes).</li>
+          <li>Use high contrast and tidy alignment.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
