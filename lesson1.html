@@ -72,28 +72,40 @@
       </div>
     </section>
 <!-- Knowledge -->
+<!-- Knowledge -->
 <section id="knowledge" class="tab-content">
   <h2>Knowledge Recap</h2>
-  <p>
-    👩‍🏫 <strong>Teacher-led summary:</strong>  
-    Use this section to review the key facts and show short examples before students begin their activities.
-  </p>
 
-  <ul>
-    <li>Remind students of last lesson’s key takeaway.</li>
-    <li>Model one new concept with a simple example.</li>
-    <li>Ask one “cold call” question to check understanding.</li>
-  </ul>
-
-  <div class="knowledge-box" style="margin-top:12px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:14px;">
-    <h3 style="margin-top:0;">💡 Key Knowledge Points</h3>
-    <ul style="margin:0; padding-left:20px;">
-      <li><strong>Fact 1:</strong> (replace with the key definition)</li>
-      <li><strong>Fact 2:</strong> (replace with the short process or rule)</li>
-      <li><strong>Example:</strong> (insert a short worked example)</li>
+  <div class="knowledge-box">
+    <h3>🧠 Computer Science – Binary and Hex</h3>
+    <p>
+      Computers don’t understand normal numbers like we do — they use <strong>binary</strong> (only 0s and 1s).  
+      Each binary digit (bit) stands for a place value that doubles each time.  
+      We can also shorten binary using <strong>hexadecimal</strong> (0–9 and A–F).
+    </p>
+    <ul>
+      <li>Each 8 bits = 1 byte → can count from 0 to 255.</li>
+      <li>Binary is base-2; Hex is base-16.</li>
+      <li>Easy way to convert: group 4 bits → 1 hex digit.</li>
     </ul>
+    <p><em>🖼 Suggested image:</em> a diagram showing an 8-bit binary number (e.g. 00101101) labelled with place values 128 64 32 16 8 4 2 1, and its hex = 2D.</p>
+  </div>
+
+  <div class="knowledge-box">
+    <h3>📊 IT – Converting Numbers in Excel</h3>
+    <p>
+      In Excel, you can make the computer do the conversions for you.  
+      We use formulas to change <strong>decimal → binary</strong> or <strong>decimal → hex</strong> automatically.
+    </p>
+    <ul>
+      <li><code>=DEC2BIN(A2,8)</code> turns a number into 8-bit binary.</li>
+      <li><code>=DEC2HEX(A2)</code> turns it into hexadecimal.</li>
+      <li>You can even use <strong>VLOOKUP</strong> to map 0–15 to 0–F yourself.</li>
+    </ul>
+    <p><em>🖼 Suggested image:</em> screenshot of an Excel sheet with columns “Decimal”, “Binary”, and “Hex” — one row highlighted showing formulas and results.</p>
   </div>
 </section>
+
 
     <!-- Key Vocabulary -->
     <section id="vocab" class="tab-content">
