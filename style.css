@@ -57,23 +57,8 @@ body{
   box-shadow:none;
   z-index:10;
 }*/
-/* === Left Sidebar (centred navigation buttons) === */
-nav.tabs.left {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: #fffef4;               /* pale yellow to match SEN theme */
-  padding: 10px 6px;
-  border-right: 2px solid #f2da7a;
-  border-radius: 0 12px 12px 0;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-  z-index: 10;
-}
+/* === Left Sidebar (centred navigation buttons) === 
+
 
 
 .tabs.left .tab-button{
@@ -95,7 +80,60 @@ nav.tabs.left {
   background:#fff;
   color:var(--accent);
   box-shadow:0 0 0 3px rgba(255,255,255,.35) inset;
+}*/
+
+/* === Left Sidebar (centred navigation buttons, high contrast) === */
+nav.tabs.left {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #f9f9f9;                /* soft neutral background for visibility */
+  padding: 14px 10px;
+  border-right: 2px solid #ccc;
+  border-radius: 0 14px 14px 0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 10;
 }
+
+/* === Navigation Buttons === */
+.tab-button {
+  background: #e0e0e0;                /* light grey: clear contrast vs background */
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-family: "OpenDyslexic", Arial, sans-serif;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 0 1px #ccc inset;
+}
+
+/* Hover: slightly darker grey */
+.tab-button:hover {
+  background: #d1d1d1;
+  color: #000;
+  box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Active (selected tab): green highlight with glow */
+.tab-button.active {
+  background: #006e51;
+  color: #fff;
+  font-weight: bold;
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 2px #004d38 inset,
+    0 0 12px 4px rgba(0, 110, 81, 0.45);
+}
+
 
 /* Optional top-nav style (keep for flexibility) */
 .tabs.top{
