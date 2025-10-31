@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lesson 5 – Networks (CS) vs Network Testing (IT)</title>
+  <title>Lesson 5 – Networks (CS) vs Sharing & Permissions (IT)</title>
 
   <!-- Shared theme & behaviour -->
   <link rel="stylesheet" href="style.css" />
@@ -15,6 +15,7 @@
   <nav class="tabs left" role="tablist">
     <button class="tab-button active" data-tab="do-now">Do Now</button>
     <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="knowledge">Knowledge</button>
     <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
     <button class="tab-button" data-tab="cs-activity">CS Activity</button>
     <button class="tab-button" data-tab="it-activity">IT Activity</button>
@@ -24,10 +25,10 @@
 
   <main class="container">
     <header>
-      <h1>Lesson 5 – Networks (CS) vs Network Testing (IT)</h1>
+      <h1>Lesson 5 – Networks (CS) vs Sharing & Permissions (IT)</h1>
     </header>
 
-    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <!-- Do Now -->
     <section id="do-now" class="tab-content active">
       <h2>Do Now</h2>
       <div class="do-now-wrap">
@@ -36,33 +37,33 @@
         </div>
 
         <div class="do-now-right">
-          <p><em>Think back to the last two lessons.</em> These questions warm up your memory.</p>
+          <p><em>Think back to earlier lessons. These get a little harder each time.</em></p>
 
-          <div class="q">1) What number system do computers use?<br>
+          <div class="q">1) What number system did we use for 0–255?<br>
             <span class="answer badge">
               Lesson 3 – Binary vs Excel:<br>
-              Binary – only 0s and 1s.
+              Binary (only 0s and 1s).
             </span>
           </div>
 
-          <div class="q">2) What do we call tiny squares in a picture?<br>
+          <div class="q">2) What are tiny squares that make a picture?<br>
             <span class="answer badge">
               Lesson 4 – Images & Colour:<br>
               Pixels – small coloured squares.
             </span>
           </div>
 
-          <div class="q">3) Which is bigger: a bit or a byte?<br>
+          <div class="q">3) Which device sends data between different networks (school ↔ internet)?<br>
             <span class="answer badge">
-              Lesson 3 – Binary vs Excel:<br>
-              A byte (it has 8 bits).
+              New learning – Networks:<br>
+              A router.
             </span>
           </div>
 
-          <div class="q">4) Today is about connections. Which device sends data between networks (like school ↔ internet)?<br>
+          <div class="q">4) Today: sharing files. What is the difference between <em>Can edit</em> and <em>Can view</em>?<br>
             <span class="answer badge">
-              Lesson 5 – New learning:<br>
-              A router moves data between networks.
+              New learning – Sharing:<br>
+              Can edit = change allowed; Can view = read-only.
             </span>
           </div>
 
@@ -79,18 +80,52 @@
           <h3>By the end of this lesson, you will be able to:</h3>
           <ul>
             <li>Explain what a <strong>LAN</strong> is and name key devices (router, switch, access point).</li>
-            <li>Describe <strong>IP</strong> and <strong>MAC</strong> addresses and what a <strong>packet</strong> is.</li>
-            <li>Run simple <strong>network tests</strong> (ping / tracert) and record results clearly.</li>
+            <li>Sketch a simple <strong>classroom network</strong> using the road-system analogy.</li>
+            <li>Use OneDrive/SharePoint to <strong>share</strong> files with <strong>different permissions</strong>.</li>
           </ul>
         </div>
         <div class="learn-card">
           <h3>How you’ll know you’ve got it:</h3>
           <ul>
-            <li>You can sketch a classroom <strong>star network</strong> and label the devices.</li>
-            <li>You can explain IP vs MAC in one sentence each.</li>
-            <li>Your test table shows sensible results and comments.</li>
+            <li>Your network plan shows devices and connections clearly.</li>
+            <li>You can set <strong>edit</strong> vs <strong>view-only</strong> access correctly.</li>
+            <li>Your exit ticket explains <em>why</em> we restrict editing.</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- Knowledge -->
+    <section id="knowledge" class="tab-content">
+      <h2>Knowledge Recap</h2>
+
+      <div class="knowledge-box">
+        <h3>🧠 Computer Science – Networks & Data Sharing</h3>
+        <p>
+          A <strong>network</strong> lets computers share data and resources.  
+          A <strong>router</strong> moves data between networks; a <strong>switch</strong> links devices inside one network.
+        </p>
+        <ul>
+          <li><strong>LAN</strong> = one site (e.g., our classroom/school).</li>
+          <li><strong>Router</strong> = traffic lights for data between roads (networks).</li>
+          <li><strong>Switch</strong> = junction box that connects local devices.</li>
+        </ul>
+        <p><em>🪄 Analogy:</em> Think of data as cars on roads. Houses = computers, roads = cables/Wi-Fi,  
+           switches = roundabouts, routers = traffic lights sending cars to other towns (the internet).</p>
+      </div>
+
+      <div class="knowledge-box">
+        <h3>🗂 IT – Sharing & Permissions (OneDrive/SharePoint)</h3>
+        <p>
+          Sharing controls who can <strong>see</strong> a file and who can <strong>change</strong> it.  
+          Use <strong>Can edit</strong> for collaboration; use <strong>Can view</strong> for read-only.
+        </p>
+        <ul>
+          <li>Share a folder for teamwork so new files inherit the same permissions.</li>
+          <li>Use clear file names and versions (e.g., <code>2025-10-31_NetworkPoster_v1.pptx</code>).</li>
+          <li>Remove access when the task is finished.</li>
+        </ul>
+        <p><em>🪄 Analogy:</em> It’s like keys to a room: some people get a <strong>blue key</strong> (edit) and some a <strong>grey key</strong> (view only).</p>
       </div>
     </section>
 
@@ -98,29 +133,36 @@
     <section id="vocab" class="tab-content">
       <h2>Key Vocabulary</h2>
       <dl class="kv">
-        <dt>LAN</dt><dd>Local Area Network (e.g., your classroom or school).</dd>
-        <dt>Router</dt><dd>Forwards data between different networks (school ↔ internet).</dd>
-        <dt>Switch</dt><dd>Connects devices inside one network and forwards frames.</dd>
+        <dt>LAN</dt><dd>Local Area Network (one site like a school building).</dd>
+        <dt>Router</dt><dd>Forwards data between different networks (e.g., school ↔ internet).</dd>
+        <dt>Switch</dt><dd>Connects devices inside a LAN and forwards frames.</dd>
         <dt>Access Point (AP)</dt><dd>Lets wireless devices join the network (Wi-Fi).</dd>
-        <dt>IP Address</dt><dd>Number used to find a device on a network (like 192.168.1.23).</dd>
-        <dt>MAC Address</dt><dd>Unique hardware address of a network card.</dd>
-        <dt>Packet</dt><dd>Small chunk of data with addresses and content.</dd>
-        <dt>Bandwidth</dt><dd>How much data can move per second.</dd>
-        <dt>Latency</dt><dd>Delay (how long a packet takes to travel).</dd>
+        <dt>Permission</dt><dd>What a person can do with a file/folder (view/edit).</dd>
+        <dt>Share link</dt><dd>A URL that grants access with rules (who, can view/edit, expiry).</dd>
+        <dt>Owner</dt><dd>The account that controls the file/folder and its permissions.</dd>
       </dl>
     </section>
 
     <!-- CS Activity -->
     <section id="cs-activity" class="tab-content">
-      <h2>CS Activity – Sketch a Star Network for a Classroom</h2>
-      <p>Draw a simple <strong>star</strong> network for a class of 6 computers, a teacher laptop, a printer, and the internet.</p>
+      <h2>CS Activity – Design a Classroom Network (Road-System Analogy)</h2>
+      <p>
+        Use the 101Computing <strong>Network Designer</strong>.  
+        First click <strong>Clear</strong>, then design your network using the road analogy:
+      </p>
+
+      <p style="margin:8px 0;">
+        🔗 <a href="https://www.101computing.net/network-design/" target="_blank" rel="noopener noreferrer">
+          101Computing – Network Design (interactive)
+        </a>
+      </p>
 
       <ol>
-        <li>Put a <strong>switch</strong> in the middle.</li>
-        <li>Connect 6 student PCs + 1 teacher laptop + 1 printer to the switch.</li>
-        <li>Connect the switch to the <strong>router</strong>, and the router to the <strong>internet cloud</strong>.</li>
-        <li>Label example IPs (private range): 192.168.1.10–192.168.1.17 for devices, 192.168.1.1 for router.</li>
-        <li>Write one sentence each for: <em>IP address</em>, <em>MAC address</em>, <em>packet</em>.</li>
+        <li>Start with a <strong>switch</strong> in the centre (roundabout).</li>
+        <li>Connect 6 student PCs, 1 teacher laptop, 1 printer to the switch.</li>
+        <li>Add a <strong>router</strong> (traffic lights) from the switch to the <strong>internet</strong> (other towns).</li>
+        <li>Label example IPs: Router <code>192.168.1.1</code>, devices <code>.10–.17</code>.</li>
+        <li>One-sentence definitions: <em>IP address</em>, <em>MAC address</em>, <em>packet</em>.</li>
       </ol>
 
       <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
@@ -131,36 +173,34 @@
         <table class="samples-table">
           <thead>
             <tr>
-              <th>Item</th>
-              <th>Sample</th>
-              <th>Why</th>
+              <th>Item</th><th>Sample</th><th>Why</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Topology</td>
-              <td>Star – all devices connect to a central switch</td>
-              <td>Easy to add devices; one cable fault doesn’t stop all</td>
+              <td>Star with central switch</td>
+              <td>Simple, resilient to single-cable faults</td>
             </tr>
             <tr>
               <td>IP plan</td>
-              <td>Router 192.168.1.1, PCs .10–.15, Teacher .16, Printer .17</td>
-              <td>Private addressing for a small LAN</td>
+              <td>Router 192.168.1.1; devices .10–.17</td>
+              <td>Private addressing for small LAN</td>
             </tr>
             <tr>
               <td>IP address</td>
-              <td>“Where to send data on the network.”</td>
-              <td>Like a postal address for devices</td>
+              <td>Network location number (like a house address)</td>
+              <td>Routes packets to the right device</td>
             </tr>
             <tr>
               <td>MAC address</td>
-              <td>“Hardware ID burned into the network card.”</td>
-              <td>Used on the LAN by the switch</td>
+              <td>Unique hardware ID of the network card</td>
+              <td>Used by switches on the LAN</td>
             </tr>
             <tr>
               <td>Packet</td>
-              <td>“Small box of data with from/to info.”</td>
-              <td>Networks move packets, not whole files at once</td>
+              <td>Small unit of data with to/from info</td>
+              <td>Networks move packets, not whole files</td>
             </tr>
           </tbody>
         </table>
@@ -169,70 +209,65 @@
 
     <!-- IT Activity -->
     <section id="it-activity" class="tab-content">
-      <h2>IT Activity – Run Simple Network Tests and Log Results</h2>
-      <p>Use built-in tools to measure connection quality. Record results in a small table (Excel or a worksheet).</p>
+      <h2>IT Activity – Share a Folder & Set Permissions (OneDrive/SharePoint)</h2>
+      <p>Create a shared space and practise giving the <strong>right access</strong> to the <strong>right people</strong>.</p>
 
       <ol>
-        <li><strong>Find your IP:</strong>
+        <li><strong>Create a folder</strong> in OneDrive called <code>L05_Sharing_Practice</code>.</li>
+        <li><strong>Inside the folder, create two files:</strong>
           <ul>
-            <li><em>Windows:</em> Open <strong>Command Prompt</strong> → type <code>ipconfig</code></li>
-            <li><em>Mac:</em> Open <strong>Terminal</strong> → type <code>ifconfig</code> (or check Wi-Fi details)</li>
+            <li><code>PeerEditable.docx</code> – a blank Word file with your name on the first line.</li>
+            <li><code>ReadOnlyInfo.docx</code> – a Word file that says “This should be view-only.”</li>
           </ul>
         </li>
-        <li><strong>Ping a site (4 packets):</strong>
+        <li><strong>Share PeerEditable.docx</strong> with a classmate → set permission to <strong>Can edit</strong>.</li>
+        <li><strong>Share ReadOnlyInfo.docx</strong> with the same classmate → set permission to <strong>Can view</strong> (read-only).</li>
+        <li><strong>Test</strong> together: classmate edits the first file; confirm they <em>cannot</em> edit the second.</li>
+        <li><strong>Extension:</strong> Share the folder <code>L05_Sharing_Practice</code> with your teacher twice:
           <ul>
-            <li><em>Windows:</em> <code>ping bbc.co.uk -n 4</code></li>
-            <li><em>Mac:</em> <code>ping -c 4 bbc.co.uk</code></li>
+            <li>Option A: <strong>Can edit</strong> (teacher can add/modify files).</li>
+            <li>Option B: <strong>Can view</strong> (teacher read-only).  
+                <em>(If your system won’t allow both at once, create a second folder <code>L05_Teacher_ViewOnly</code> and share that as “Can view”.)</em>
           </ul>
         </li>
-        <li><strong>Trace the route (optional):</strong>
-          <ul>
-            <li><em>Windows:</em> <code>tracert bbc.co.uk</code></li>
-            <li><em>Mac:</em> <code>traceroute bbc.co.uk</code></li>
-          </ul>
-        </li>
-        <li><strong>Log your results</strong> in a table with columns: Host • Avg ms • Packet Loss • Notes.</li>
-        <li>Write one sentence to explain the difference between <em>bandwidth</em> and <em>latency</em>.</li>
       </ol>
 
       <button class="button-outline" data-toggle="samples" data-target="#it-samples">
-        Show Example Log & Answers
+        Show Example Checklist
       </button>
 
       <div id="it-samples" class="samples">
         <table class="samples-table">
           <thead>
             <tr>
-              <th>Field</th>
-              <th>Example</th>
-              <th>Notes</th>
+              <th>Step</th><th>Done?</th><th>Notes</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Host</td>
-              <td>bbc.co.uk</td>
-              <td>Public website (stable target)</td>
+              <td>Folder <code>L05_Sharing_Practice</code> created</td>
+              <td>Yes / No</td>
+              <td>OneDrive / SharePoint</td>
             </tr>
             <tr>
-              <td>Avg ms</td>
-              <td>24</td>
-              <td>Lower is faster (lower latency)</td>
+              <td><code>PeerEditable.docx</code> shared as <strong>Can edit</strong></td>
+              <td>Yes / No</td>
+              <td>Classmate name: ____</td>
             </tr>
             <tr>
-              <td>Packet Loss</td>
-              <td>0%</td>
-              <td>Good connection if no loss</td>
+              <td><code>ReadOnlyInfo.docx</code> shared as <strong>Can view</strong></td>
+              <td>Yes / No</td>
+              <td>Classmate name: ____</td>
             </tr>
             <tr>
-              <td>Notes</td>
-              <td>Classroom Wi-Fi, full signal</td>
-              <td>Record anything that might affect results</td>
+              <td>Teacher edit access (folder or file)</td>
+              <td>Yes / No</td>
+              <td>Teacher: ____</td>
             </tr>
             <tr>
-              <td>Bandwidth vs Latency</td>
-              <td>Bandwidth = how much; Latency = how long.</td>
-              <td>Amount vs delay</td>
+              <td>Teacher view-only access (separate folder if needed)</td>
+              <td>Yes / No</td>
+              <td>Folder: ____</td>
             </tr>
           </tbody>
         </table>
@@ -243,17 +278,17 @@
     <section id="exit-ticket" class="tab-content">
       <h2>Exit Ticket</h2>
       <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
-        <li>What does a <strong>router</strong> do?</li>
-        <li>What is a <strong>packet</strong>?</li>
-        <li>Which has lower numbers if the connection is quick: <strong>latency</strong> or <strong>bandwidth</strong>?</li>
+        <li>Name two devices used in a LAN and what they do.</li>
+        <li>Why might you give someone <em>view-only</em> instead of <em>edit</em>?</li>
+        <li>Write one good filename for today’s work.</li>
       </ol>
 
       <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
         <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
         <ul style="margin:0; padding-left:20px;">
-          <li><strong>Router:</strong> Sends data between different networks.</li>
-          <li><strong>Packet:</strong> A small chunk of data with from/to info.</li>
-          <li><strong>Latency:</strong> Lower is faster (bandwidth is “how much”).</li>
+          <li><strong>Switch:</strong> connects local devices; <strong>Router:</strong> moves data to other networks.</li>
+          <li>To protect the original document or stop accidental changes.</li>
+          <li><code>2025-10-31_L5_Networks_Sharing_v1.docx</code></li>
         </ul>
       </div>
     </section>
