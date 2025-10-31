@@ -72,41 +72,36 @@
       </div>
     </section>
 <!-- Knowledge -->
-<!-- Knowledge -->
-<section id="knowledge" class="tab-content">
-  <h2>Knowledge Recap</h2>
 
- <!-- Knowledge -->
 <section id="knowledge" class="tab-content">
   <h2>Knowledge Recap</h2>
 
   <div class="knowledge-box">
-    <h3>🧠 Computer Science – Binary & Hex</h3>
+    <h3>🧠 Computer Science – Binary and Hex</h3>
     <p>
-      Computers can’t count like us — they only know <strong>on (1)</strong> or <strong>off (0)</strong>.  
-      Every number we type is turned into these tiny on/off switches called <strong>bits</strong>.
+      Computers don’t understand normal numbers like we do — they use <strong>binary</strong> (only 0s and 1s).
+      Each binary digit (bit) stands for a place value that doubles each time.
+      We can also shorten binary using <strong>hexadecimal</strong> (0–9 and A–F).
     </p>
     <ul>
-      <li>Each bit is like a <strong>light switch</strong>: off = 0, on = 1.</li>
-      <li>Eight switches (bits) together make a <strong>byte</strong>, counting 0 – 255.</li>
-      <li>Hex is a shortcut for long binary strings, using digits 0-9 and letters A-F.</li>
+      <li>Each 8 bits = 1 byte → can count from 0 to 255.</li>
+      <li>Binary is base-2; Hex is base-16.</li>
+      <li>Easy way to convert: group 4 bits → 1 hex digit.</li>
     </ul>
-    <p><em>🪄 Analogy:</em> Imagine eight light switches in a row.  
-       When some are on, they “add up” to make a number — just like mixing switches for 128 + 64 + 8 + 1 = 201.</p>
+    <p><em>Analogy:</em> Eight light switches in a row. When some are on, they add up to a number.</p>
   </div>
 
   <div class="knowledge-box">
-    <h3>📊 IT – Using Excel for Binary & Hex</h3>
+    <h3>📊 IT – Converting Numbers in Excel</h3>
     <p>
-      Excel can act like a mini computer brain.  
-      Instead of flipping switches by hand, we tell it to convert numbers using <strong>formulas</strong>.
+      Excel can do the conversions for you using <strong>formulas</strong>.
     </p>
     <ul>
-      <li><code>=DEC2BIN(A2,8)</code> → turns a number into 8-bit binary.</li>
-      <li><code>=DEC2HEX(A2)</code> → shows the same number in hex.</li>
-      <li>You can build your own lookup table (0-15 → 0-F) with <strong>VLOOKUP</strong>.</li>
+      <li><code>=DEC2BIN(A2,8)</code> turns a number into 8-bit binary.</li>
+      <li><code>=DEC2HEX(A2)</code> turns it into hexadecimal.</li>
+      <li>Or build your own 0–15 → 0–F table with <strong>VLOOKUP</strong>.</li>
     </ul>
-    <p><em>🪄 Analogy:</em> Think of Excel as your <strong>calculator helper</strong> that knows the switch patterns — you just type the number and it lights up the right bulbs for you.</p>
+    <p><em>Analogy:</em> Excel is a helper that knows which switches to flip.</p>
   </div>
 </section>
 
