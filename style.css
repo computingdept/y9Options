@@ -41,7 +41,7 @@ body{
   line-height:1.5;
 }
 
-/* ===== Sidebar Nav (Left) ===== */
+/* ===== Sidebar Nav (Left) ===== 
 .tabs.left{
   position:sticky;
   top:0;
@@ -56,7 +56,26 @@ body{
   border-radius:0;
   box-shadow:none;
   z-index:10;
+}*/
+/* === Left Sidebar (centred navigation buttons) === */
+nav.tabs.left {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #fffef4;               /* pale yellow to match SEN theme */
+  padding: 10px 6px;
+  border-right: 2px solid #f2da7a;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  z-index: 10;
 }
+
+
 .tabs.left .tab-button{
   flex:0 0 auto;
   font: inherit;
