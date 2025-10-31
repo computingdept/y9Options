@@ -106,112 +106,164 @@
       </dl>
     </section>
 
-    <!-- CS Activity -->
-    <section id="cs-activity" class="tab-content">
-      <h2>CS Activity – Pixels, Colour Depth and File Size</h2>
-      <p>Work with small images to see how pixels and colour depth affect file size. Then decode a tiny bitmap from 1s and 0s.</p>
+   <!-- CS Activity -->
+<section id="cs-activity" class="tab-content">
+  <h2>CS Activity – Understanding Bitmap Pictures & File Size</h2>
+  <p>
+    📘 <strong>Read this page first:</strong><br>
+    <a href="https://www.101computing.net/understanding-bitmap-pictures/"
+       target="_blank" rel="noopener noreferrer">
+       Understanding Bitmap Pictures – 101Computing.net
+    </a><br>
+    It explains how pixels, resolution, and colour depth affect image file size.  
+    When you reach the table at the bottom, complete all the missing answers on that page.
+  </p>
 
-      <ol>
-        <li><strong>File size:</strong> For a 20×10 image at 1-bit colour (black/white), calculate the size:<br>
-            <em>bits = width × height × colour depth</em>. Convert to bytes (÷8).</li>
-        <li>Try a 20×10 image at 8-bit colour. Compare the sizes.</li>
-        <li><strong>Decode this 4×4 bitmap (1 = black, 0 = white):</strong><br>
-          Row1: 1 0 0 1<br>
-          Row2: 0 1 1 0<br>
-          Row3: 0 1 1 0<br>
-          Row4: 1 0 0 1
-        </li>
-      </ol>
+  <p>After finishing the table, write two short notes:</p>
+  <ul>
+    <li>How increasing <strong>resolution</strong> affects file size.</li>
+    <li>How increasing <strong>colour depth</strong> affects file size.</li>
+  </ul>
 
-      <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
-        Show Sample Answers
-      </button>
+  <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+    Show Sample Answers
+  </button>
 
-      <div id="cs-samples" class="samples">
-        <table class="samples-table">
-          <thead>
-            <tr>
-              <th>Task</th>
-              <th>Sample Answer</th>
-              <th>Why it Works</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>20×10 at 1-bit</td>
-              <td>bits = 20×10×1 = 200 bits → 25 bytes</td>
-              <td>1 bit per pixel, divide by 8 to get bytes</td>
-            </tr>
-            <tr>
-              <td>20×10 at 8-bit</td>
-              <td>bits = 20×10×8 = 1,600 bits → 200 bytes</td>
-              <td>8 bits per pixel (256 colours)</td>
-            </tr>
-            <tr>
-              <td>4×4 bitmap decode</td>
-              <td>Creates an “X” pattern (black at corners and centre cross)</td>
-              <td>1=black, 0=white; fill row by row</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+  <div id="cs-samples" class="samples">
+    <table class="samples-table">
+      <thead>
+        <tr>
+          <th>Example Image</th>
+          <th>Resolution (pixels)</th>
+          <th>Colour Depth</th>
+          <th>Bits</th>
+          <th>Bytes</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20 × 10</td>
+          <td>200</td>
+          <td>1-bit (B/W)</td>
+          <td>200</td>
+          <td>25 bytes</td>
+          <td>Small and simple – black/white only</td>
+        </tr>
+        <tr>
+          <td>20 × 10</td>
+          <td>200</td>
+          <td>8-bit (256 colours)</td>
+          <td>1 600</td>
+          <td>200 bytes</td>
+          <td>More colours = larger file</td>
+        </tr>
+        <tr>
+          <td>40 × 20</td>
+          <td>800</td>
+          <td>8-bit (256 colours)</td>
+          <td>6 400</td>
+          <td>800 bytes</td>
+          <td>Bigger image = more pixels = bigger file</td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- IT Activity -->
-    <section id="it-activity" class="tab-content">
-      <h2>IT Activity – Redesign a Slide for Clear Reading</h2>
-      <p>Open a <strong>messy slide</strong> (or make one quickly). Improve it for readability using good layout rules.</p>
+    <p style="margin-top:10px;">
+      <em>Tip:</em> File size (bits) = Width × Height × Colour Depth.  
+      Divide by 8 for bytes. Increasing either resolution or colour depth makes files larger.
+    </p>
+  </div>
+</section>
 
-      <ol>
-        <li>Use a simple title and one short message per slide.</li>
-        <li>Choose high <strong>contrast</strong> (dark text on light background, or the reverse).</li>
-        <li>Align text and images to tidy columns. Keep spacing even.</li>
-        <li>Use one or two fonts only. Make headings big; body text clear.</li>
-        <li>Replace busy clipart with one helpful image or icon.</li>
-      </ol>
 
-      <button class="button-outline" data-toggle="samples" data-target="#it-samples">
-        Show Example Checklist
-      </button>
+ <!-- IT Activity -->
+<section id="it-activity" class="tab-content">
+  <h2>IT Activity – Make a PowerPoint from the Article</h2>
+  <p>
+    📘 <strong>Read this page:</strong><br>
+    <a href="https://www.101computing.net/understanding-bitmap-pictures/" target="_blank" rel="noopener noreferrer">
+      Understanding Bitmap Pictures – 101Computing.net
+    </a>
+  </p>
 
-      <div id="it-samples" class="samples">
-        <table class="samples-table">
-          <thead>
-            <tr>
-              <th>Check</th>
-              <th>Yes / No</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-        <tbody>
-          <tr><td>High contrast text/background</td><td>Yes</td><td>Easy to read from the back</td></tr>
-          <tr><td>Clear title (≤ 6 words)</td><td>Yes</td><td>Short and to the point</td></tr>
-          <tr><td>Consistent alignment</td><td>Yes</td><td>Left-aligned text, centred image</td></tr>
-          <tr><td>Limited fonts (1–2)</td><td>Yes</td><td>Headings bold, body plain</td></tr>
-          <tr><td>One helpful image or icon</td><td>Yes</td><td>Matches the message</td></tr>
-        </tbody>
-        </table>
-      </div>
-    </section>
+  <p>Create a <strong>3–4 slide</strong> PowerPoint that clearly explains bitmap images. Keep it simple and readable.</p>
 
-    <!-- Exit Ticket -->
-    <section id="exit-ticket" class="tab-content">
-      <h2>Exit Ticket</h2>
-      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
-        <li>What is a pixel?</li>
-        <li>How do you calculate a simple image file size?</li>
-        <li>Name one way to make a slide easier to read.</li>
-      </ol>
+  <ol>
+    <li><strong>Slide 1 (Title):</strong> “Understanding Bitmap Pictures” + your name. One relevant image/icon.</li>
+    <li><strong>Slide 2 (Pixels & Resolution):</strong> Define <em>pixel</em> and <em>resolution</em>. Include a short example (e.g., 200×100 = 20,000 pixels).</li>
+    <li><strong>Slide 3 (Colour Depth & File Size):</strong> Explain colour depth (1-bit, 8-bit, 24-bit) and show the file-size formula:<br>
+      <code>Width × Height × Colour Depth = bits → ÷8 = bytes</code></li>
+    <li><strong>Slide 4 (Quick apply):</strong> Work one example (e.g., 20×10 at 8-bit) and state the size in bytes. Add one tip to reduce file size without changing how it looks (compression / format choice).</li>
+  </ol>
 
-      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
-        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
-        <ul style="margin:0; padding-left:20px;">
-          <li>A tiny square in an image.</li>
-          <li>Width × height × bits per pixel (then convert to bytes).</li>
-          <li>Use high contrast and tidy alignment.</li>
-        </ul>
-      </div>
-    </section>
+  <h3 style="margin-top:10px;">Design checklist (keep SEN-friendly):</h3>
+  <ul>
+    <li>High contrast colours, large fonts (≥ 24 pt), minimal text (≤ 6 bullets).</li>
+    <li>Consistent alignment and spacing. One clear visual per slide.</li>
+    <li>Alt-text on images (brief: what it shows and why it’s there).</li>
+  </ul>
+
+  <button class="button-outline" data-toggle="samples" data-target="#it-samples">Show Example Slide Notes</button>
+
+  <div id="it-samples" class="samples">
+    <table class="samples-table">
+      <thead>
+        <tr><th>Slide</th><th>Example Content</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1 – Title</td>
+          <td>“Understanding Bitmap Pictures” • by Taylor</td>
+          <td>One icon of pixels; large, clear title</td>
+        </tr>
+        <tr>
+          <td>2 – Pixels & Resolution</td>
+          <td>Pixel = tiny square; Resolution = width×height; 200×100=20,000 px</td>
+          <td>Short bullets; simple diagram of zoomed pixels</td>
+        </tr>
+        <tr>
+          <td>3 – Colour Depth & Size</td>
+          <td>1-bit=2 colours; 8-bit=256; 24-bit≈16M • Size = W×H×depth (bits) → ÷8</td>
+          <td>Keep formula on one line; use code font if available</td>
+        </tr>
+        <tr>
+          <td>4 – Worked Example</td>
+          <td>20×10 @ 8-bit → 1600 bits → 200 bytes • Tip: use compression/PNG/JPEG</td>
+          <td>One callout box with the calculation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:10px;">Submit</h3>
+  <ul>
+    <li>Save name: <code>2025-10-31_L4_Bitmap_Presentation_v1.pptx</code></li>
+    <li>Export a PDF copy too (File → Export → PDF) for easy viewing.</li>
+  </ul>
+</section>
+
+
+   <!-- Exit Ticket -->
+<section id="exit-ticket" class="tab-content">
+  <h2>Exit Ticket</h2>
+  <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+    <li>What is a pixel?</li>
+    <li>How do you calculate a simple image file size?</li>
+    <li>Name one way to make a slide easier to read.</li>
+    <li>How can you reduce an image file size without changing how it looks?</li>
+  </ol>
+
+  <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+    <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+    <ul style="margin:0; padding-left:20px;">
+      <li>A tiny square in an image.</li>
+      <li>Width × height × bits per pixel (then divide by 8 for bytes).</li>
+      <li>Use high contrast and tidy alignment.</li>
+      <li>Use image <strong>compression</strong> or a different <strong>file format</strong> (e.g. JPEG instead of BMP).</li>
+    </ul>
+  </div>
+</section>
 
     <!-- Show All -->
     <section id="all" class="tab-content">
