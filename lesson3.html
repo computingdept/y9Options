@@ -15,6 +15,7 @@
   <nav class="tabs left" role="tablist">
     <button class="tab-button active" data-tab="do-now">Do Now</button>
     <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="knowledge">Knowledge</button>
     <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
     <button class="tab-button" data-tab="cs-activity">CS Activity</button>
     <button class="tab-button" data-tab="it-activity">IT Activity</button>
@@ -93,6 +94,38 @@
         </div>
       </div>
     </section>
+
+    <section id="knowledge" class="tab-content">
+  <h2>Knowledge Recap</h2>
+
+  <div class="knowledge-box">
+    <h3>🧠 Computer Science – Binary and Hex</h3>
+    <p>
+      Computers don’t understand normal numbers like we do — they use <strong>binary</strong> (only 0s and 1s).
+      Each binary digit (bit) stands for a place value that doubles each time.
+      We can also shorten binary using <strong>hexadecimal</strong> (0–9 and A–F).
+    </p>
+    <ul>
+      <li>Each 8 bits = 1 byte → can count from 0 to 255.</li>
+      <li>Binary is base-2; Hex is base-16.</li>
+      <li>Easy way to convert: group 4 bits → 1 hex digit.</li>
+    </ul>
+    <p><em>Analogy:</em> Eight light switches in a row. When some are on, they add up to a number.</p>
+  </div>
+
+  <div class="knowledge-box">
+    <h3>📊 IT – Converting Numbers in Excel</h3>
+    <p>
+      Excel can do the conversions for you using <strong>formulas</strong>.
+    </p>
+    <ul>
+      <li><code>=DEC2BIN(A2,8)</code> turns a number into 8-bit binary.</li>
+      <li><code>=DEC2HEX(A2)</code> turns it into hexadecimal.</li>
+      <li>Or build your own 0–15 → 0–F table with <strong>VLOOKUP</strong>.</li>
+    </ul>
+    <p><em>Analogy:</em> Excel is a helper that knows which switches to flip.</p>
+  </div>
+</section>
 
     <!-- Vocabulary -->
     <section id="vocab" class="tab-content">
