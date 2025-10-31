@@ -233,6 +233,27 @@ main.container{
   text-align:left;
   font-weight:700;
 }
+/* === Knowledge Section Styling === */
+.knowledge-box {
+  background: #f6fff5;               /* pale green teacher box */
+  border: 2px solid #a4d4a4;         /* gentle green outline */
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-top: 12px;
+}
+
+.knowledge-box h3 {
+  color: #006e51;                    /* Reepham green heading */
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.knowledge-box ul {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.5em;
+}
+
 
 /* Button style reused for sample toggles */
 .button-outline{
