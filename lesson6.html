@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 6 – Spreadsheets (IT) vs Databases (CS)</title>
+
+  <!-- Shared theme & behaviour -->
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Left-side navigation -->
+  <nav class="tabs left" role="tablist">
+    <button class="tab-button active" data-tab="do-now">Do Now</button>
+    <button class="tab-button" data-tab="learn">What you’ll learn</button>
+    <button class="tab-button" data-tab="vocab">Key Vocabulary</button>
+    <button class="tab-button" data-tab="cs-activity">CS Activity</button>
+    <button class="tab-button" data-tab="it-activity">IT Activity</button>
+    <button class="tab-button" data-tab="exit-ticket">Exit Ticket</button>
+    <button class="tab-button" data-tab="all">Show All</button>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Lesson 6 – Spreadsheets (IT) vs Databases (CS)</h1>
+    </header>
+
+    <!-- Do Now (retrieval with lesson references + kid-friendly answers) -->
+    <section id="do-now" class="tab-content active">
+      <h2>Do Now</h2>
+      <div class="do-now-wrap">
+        <div class="do-now-left">
+          <img class="do-now-img" src="lesson6.png" alt="Do Now image for Lesson 6: spreadsheets and databases" />
+        </div>
+
+        <div class="do-now-right">
+          <p><em>Think back to recent lessons.</em> These get a little harder each time.</p>
+
+          <div class="q">1) What number system do computers use to store data?<br>
+            <span class="answer badge">
+              Lesson 3 – Binary vs Excel:<br>
+              Binary – only 0s and 1s.
+            </span>
+          </div>
+
+          <div class="q">2) What do we call tiny squares that make a picture on screen?<br>
+            <span class="answer badge">
+              Lesson 4 – Images & Colour:<br>
+              Pixels – small coloured squares.
+            </span>
+          </div>
+
+          <div class="q">3) Which device sends data between different networks?<br>
+            <span class="answer badge">
+              Lesson 5 – Networks:<br>
+              The router.
+            </span>
+          </div>
+
+          <div class="q">4) Today: spreadsheets vs databases.  
+            Which tool is best for many related tables of data?<br>
+            <span class="answer badge">
+              Lesson 6 – New learning:<br>
+              A database (links tables together).
+            </span>
+          </div>
+
+          <button id="reveal-all" class="reveal" style="margin-top:10px;">Reveal Answers</button>
+        </div>
+      </div>
+    </section>
+
+<!-- Learn Section -->
+<section id="learn" class="tab-content">
+  <h2>What You’ll Learn</h2>
+  <p>This lesson introduces <strong>SQL (Structured Query Language)</strong> — the language used to talk to
+     and manage databases. You’ll learn how to ask a database questions (known as <em>queries</em>) and
+     how to filter or sort the answers you get back.</p>
+
+  <ul>
+    <li>Understand what SQL is and how it can retrieve information from a database.</li>
+    <li>Use key commands such as <code>SELECT</code>, <code>WHERE</code> and <code>ORDER BY</code>.</li>
+    <li>Explore an interactive environment on 
+        <a href="https://sql-island.informatik.uni-kl.de/#" target="_blank" rel="noopener">SQL Island</a>
+        to practise real SQL queries.</li>
+    <li>See how conditions, sorting and pattern matching affect the results you get.</li>
+    <li>Reflect on how databases make data easier to search, edit and analyse than spreadsheets.</li>
+  </ul>
+
+  <div class="key-idea-box">
+    <strong>Key Idea:</strong> SQL lets you control and question data efficiently — 
+    it’s like giving precise instructions to a search engine for structured data.
+  </div>
+</section>
+
+
+    <!-- Knowledge Recap Section -->
+<section id="knowledge" class="tab-content">
+  <h2>Knowledge Recap</h2>
+  <p>Before using SQL, it helps to remember what you already know about <strong>databases</strong>
+     and <strong>data structures</strong> from earlier lessons.</p>
+
+  <ul>
+    <li>A <strong>database</strong> stores information in <strong>tables</strong> made up of <em>rows</em> (records)
+        and <em>columns</em> (fields).</li>
+    <li>Each table usually has a <strong>primary key</strong> — a unique ID that identifies each record.</li>
+    <li><strong>Data types</strong> (Text, Number, Date, Boolean) define what kind of data can go in each field.</li>
+    <li><strong>Relationships</strong> link tables together using a shared field, such as <em>StudentID</em> or <em>BookID</em>.</li>
+    <li>SQL (Structured Query Language) allows you to <strong>ask questions</strong> of that data using commands such as:
+      <ul>
+        <li><code>SELECT</code> — choose which fields to view</li>
+        <li><code>FROM</code> — choose which table to use</li>
+        <li><code>WHERE</code> — filter results that match a condition</li>
+        <li><code>ORDER BY</code> — sort the data</li>
+      </ul>
+    </li>
+    <li>Good database design avoids repetition and keeps data consistent — this is called <strong>normalisation</strong>.</li>
+  </ul>
+
+  <div class="key-idea-box">
+    <strong>Key Idea:</strong> SQL builds on your understanding of tables and relationships —
+    it turns your questions about data into precise instructions that the computer can execute.
+  </div>
+</section>
+
+
+    <!-- Vocabulary -->
+    <section id="vocab" class="tab-content">
+      <h2>Key Vocabulary</h2>
+      <dl class="kv">
+        <dt>Record</dt><dd>All the data about one thing (one row).</dd>
+        <dt>Field</dt><dd>One piece of data in a record (a column).</dd>
+        <dt>Query</dt><dd>A request for specific data from a database.</dd>
+        <dt>SELECT</dt><dd>Get chosen columns/rowsfrom a table</dd>
+        <dt>WHERE</dt><dd>Filter rows by condition</dd>
+      </dl>
+    </section>
+
+   <!-- CS Activity (SQL Island) -->
+<section id="cs-activity" class="tab-content">
+  <h2>CS Activity – Explore SQL with SQL Island</h2>
+  <p>
+    Use the interactive world of 
+    <a href="https://sql-island.informatik.uni-kl.de/#" target="_blank" rel="noopener">SQL Island</a>
+    to learn how SQL queries work.  Follow the on-screen instructions to complete each challenge and
+    escape the island by writing SQL statements that retrieve, filter and sort data.
+  </p>
+
+  <ol>
+    <li>Work through at least <strong>6 – 8</strong> stages on SQL Island.</li>
+    <li>Keep a record of each <code>SELECT</code> statement you used and what it achieved.</li>
+    <li>Try out <code>WHERE</code>, <code>AND</code>, <code>OR</code>, <code>LIKE</code> and 
+        <code>ORDER BY</code> in your own queries.</li>
+    <li>When you finish, explain which commands helped you most and why.</li>
+  </ol>
+
+  <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
+    Show Sample Queries
+  </button>
+
+  <div id="cs-samples" class="samples">
+    <table class="samples-table">
+      <thead>
+        <tr>
+          <th>Example Query</th>
+          <th>What it Does</th>
+          <th>Skill Shown</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>SELECT * FROM citizens;</code></td>
+          <td>Displays every column and record in the <em>citizens</em> table.</td>
+          <td>Retrieve all data from one table.</td>
+        </tr>
+        <tr>
+          <td><code>SELECT name, age FROM citizens WHERE age &gt;= 18;</code></td>
+          <td>Shows the names and ages of all adults.</td>
+          <td>Filtering records with a condition (<code>WHERE</code>).</td>
+        </tr>
+        <tr>
+          <td><code>SELECT name, job FROM citizens WHERE job = 'sailor' OR job = 'guard';</code></td>
+          <td>Lists everyone who is either a sailor or a guard.</td>
+          <td>Combining conditions with <code>OR</code>.</td>
+        </tr>
+        <tr>
+          <td><code>SELECT name FROM citizens WHERE name LIKE 'A%';</code></td>
+          <td>Finds citizens whose names start with the letter A.</td>
+          <td>Pattern matching using <code>LIKE</code>.</td>
+        </tr>
+        <tr>
+          <td><code>SELECT name, age FROM citizens WHERE age &gt;= 18 ORDER BY age DESC;</code></td>
+          <td>Shows adults from oldest to youngest.</td>
+          <td>Sorting results with <code>ORDER BY</code>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- IT Activity (Spreadsheet tabs to record progress) -->
+<section id="it-activity" class="tab-content">
+  <h2>IT Activity – Track SQL Island Progress in a Spreadsheet</h2>
+  <p>Create a spreadsheet workbook with a separate <strong>tab (sheet)</strong> for each game stage: 
+     <em>Task 1</em>, <em>Task 2</em>, <em>Task 3</em> … (or name by the island step). 
+     On each tab, record what you did and your result.</p>
+
+  <ol>
+    <li><strong>Set up tabs:</strong> Add sheets named <code>Task 1</code>, <code>Task 2</code>, <code>Task 3</code> …</li>
+    <li><strong>Add a header row</strong> (copy this to every tab):
+      <ul>
+        <li>Stage / Task</li>
+        <li>Goal (What to find/do)</li>
+        <li>Your SQL Query</li>
+        <li>Result (What appeared)</li>
+        <li>Proof (Paste snip or link)</li>
+        <li>Errors / Fixes</li>
+        <li>Time Taken (mins)</li>
+        <li>Next Step / Reflection</li>
+      </ul>
+    </li>
+    <li><strong>Record evidence:</strong> After each stage, paste a <em>Snipping Tool</em> (or macOS screenshot) image into the tab 
+        <em>or</em> insert a link to the file (e.g., OneDrive/Drive link) in the <em>Proof</em> column.</li>
+    <li><strong>Be consistent:</strong> One stage per tab. Keep your SQL exactly as you typed it (don’t paraphrase).</li>
+    <li><strong>Save as:</strong> <code>SQL_Island_Progress_YourName.xlsx</code> (or Google Sheets).</li>
+  </ol>
+
+  <button class="button-outline" data-toggle="samples" data-target="#it-samples">
+    Show Example Layouts & Tips
+  </button>
+
+  <div id="it-samples" class="samples">
+    <table class="samples-table">
+      <thead>
+        <tr>
+          <th>Sheet / Cell</th>
+          <th>Example Content</th>
+          <th>Why it helps</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tab name</td>
+          <td><code>Task 1</code></td>
+          <td>One stage per tab keeps evidence tidy and easy to mark.</td>
+        </tr>
+        <tr>
+          <td>Header row</td>
+          <td><code>Stage | Goal | Your SQL Query | Result | Proof | Errors / Fixes | Time Taken (mins) | Next Step / Reflection</code></td>
+          <td>Standardised columns make progress comparable across students/classes.</td>
+        </tr>
+        <tr>
+          <td>Goal</td>
+          <td>“Find all citizens.”</td>
+          <td>Clarifies the task in plain English.</td>
+        </tr>
+        <tr>
+          <td>Your SQL Query</td>
+          <td><code>SELECT * FROM citizens;</code></td>
+          <td>Exact query shows technical accuracy.</td>
+        </tr>
+        <tr>
+          <td>Result</td>
+          <td>“Table of 42 rows returned.”</td>
+          <td>Describes the output succinctly.</td>
+        </tr>
+        <tr>
+          <td>Proof</td>
+          <td>Paste screenshot OR link: <em>OneDrive/Drive URL</em></td>
+          <td>Verifies the work without bloating the file size.</td>
+        </tr>
+        <tr>
+          <td>Errors / Fixes</td>
+          <td>“Syntax error: used <code>=</code> instead of <code>LIKE</code>. Fixed and re-ran.”</td>
+          <td>Captures troubleshooting skill (valuable for assessment).</td>
+        </tr>
+        <tr>
+          <td>Time Taken (mins)</td>
+          <td><code>8</code></td>
+          <td>Supports reflection and pacing.</td>
+        </tr>
+        <tr>
+          <td>Next Step / Reflection</td>
+          <td>“Try <code>WHERE</code> with <code>AND</code> to narrow results next.”</td>
+          <td>Encourages iterative improvement.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Optional quality-of-life tips (for Google Sheets/Excel):</strong></p>
+    <ul>
+      <li><em>Data Validation:</em> Make <strong>Stage</strong> a dropdown (Task 1–10) if you prefer one-sheet method.</li>
+      <li><em>Freeze header row:</em> View → Freeze 1 row (keeps headers visible while scrolling).</li>
+      <li><em>Auto time-stamp:</em> Add a <strong>Completed On</strong> column and use <code>=TODAY()</code>.</li>
+      <li><em>Consistency:</em> Create a “Template” tab with the headers; duplicate it for each new task.</li>
+    </ul>
+  </div>
+</section>
+
+    <!-- Exit Ticket -->
+    <section id="exit-ticket" class="tab-content">
+      <h2>Exit Ticket</h2>
+      <ol style="background:#fff; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px; list-style-position:inside;">
+        <li>When would you choose a <strong>database</strong> instead of a spreadsheet?</li>
+        <li>What does a <strong>primary key</strong> do?</li>
+        <li>Name one spreadsheet feature that helps stop errors.</li>
+      </ol>
+
+      <div style="margin-top:16px; background:#fffef4; border:1px solid #f2da7a; border-radius:12px; padding:16px 20px;">
+        <h3 style="margin:0 0 8px; color:#4b4b00;">💡 Sample Answers</h3>
+        <ul style="margin:0; padding-left:20px;">
+          <li>When you have many related tables and need links (relationships).</li>
+          <li>It uniquely identifies each record so there are no duplicates.</li>
+          <li>Data validation (drop-down lists) or lookup tables.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Show All -->
+    <section id="all" class="tab-content">
+      <h2>Show All</h2>
+      <p>This view expands all sections for printing/PDF. Use the toggles to show/hide sample tables.</p>
+    </section>
+  </main>
+</body>
+</html>
+
