@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesson 6 — Databases: Introduction to SQL</title>
+
+  <!-- Accessibility & Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Base / SEN-friendly ===== */
+    :root{
+      --bg:#fff7cc;            /* pale yellow */
+      --ink:#222;
+      --ink-muted:#444;
+      --accent:#0b6e4f;        /* Reepham green-ish */
+      --card:#fffdf0;
+      --border:#e8dfb7;
+      --focus:#1f7a8c;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"OpenDyslexic", "Atkinson Hyperlegible", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.5;
+      font-size:18px;          /* ≈ 24px on iPad zoom */
+    }
+    /* Try to load OpenDyslexic locally if present */
+    @font-face{
+      font-family:"OpenDyslexic";
+      src: local("OpenDyslexic"), local("OpenDyslexic-Regular");
+      font-display: swap;
+    }
+
+    a{ color:var(--accent); }
+    h1,h2,h3{ line-height:1.2; margin:0.4rem 0 0.2rem }
+    h1{ font-size:1.6rem }
+    h2{ font-size:1.35rem }
+    h3{ font-size:1.1rem; color:var(--ink-muted) }
+
+    .app{
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      min-height:100dvh;
+    }
+
+    /* ===== Left Nav ===== */
+    .sidebar{
+      position:sticky;
+      top:0;
+      align-self:start;
+      height:100dvh;
+      background:#fffbe6;
+      border-right:2px solid var(--border);
+      padding:1rem;
+    }
+    .brand{
+      display:flex; gap:.6rem; align-items:center; margin-bottom:1rem;
+    }
+    .brand .dot{
+      width:14px;height:14px;border-radius:50%; background:var(--accent);
+      box-shadow: 0 0 0 3px #e8f3ef inset;
+    }
+    .brand h1{ font-size:1.25rem; margin:0 }
+    .nav{
+      list-style:none; padding:0; margin:1rem 0 0;
+      display:flex; flex-direction:column; gap:.4rem;
+    }
+    .nav a{
+      display:block;
+      text-decoration:none;
+      background:var(--card);
+      border:2px solid var(--border);
+      padding:.65rem .8rem;
+      border-radius:14px;
+      transition: transform .05s ease, background .2s ease;
+      font-weight:700;
+    }
+    .nav a:hover{ transform: translateY(-1px); }
+    .nav a.active{ outline:3px solid var(--accent); }
+
+    /* ===== Main ===== */
+    main{ padding:1.2rem; }
+    .section{
+      display:none;
+      background:#fffdf7;
+      border:2px solid var(--border);
+      border-radius:16px;
+      padding:1rem;
+      margin:0 0 1rem;
+      box-shadow: 0 2px 0 rgba(0,0,0,.05);
+    }
+    .section.show{ display:block; }
+
+    .panel{
+      background:#fff;
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:0.8rem;
+      margin:.6rem 0;
+    }
+
+    /* ===== Two-column responsive table for Activities ===== */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1rem;
+    }
+    @media (max-width: 900px){
+      .app{ grid-template-columns: 1fr; }
+      .sidebar{ position:relative; height:auto; }
+      .grid-2{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background:#fff;
+      border:2px solid var(--border);
+      border-radius:16px;
+      padding:1rem;
+    }
+    .card h3{ margin-top:0 }
+
+    /* ===== Do Now image only (reference, not embedded text) ===== */
+    .donow-figure{
+      background:#fff;
+      border:2px dashed var(--border);
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:1rem;
+      min-height:260px;
+    }
+    .donow-figure img{
+      max-width:100%;
+      height:auto;
+      border-radius:12px;
+      display:block;
+    }
+    .caption{
+      text-align:center;
+      font-size:.95rem;
+      color:var(--ink-muted);
+      margin-top:.4rem;
+    }
+
+    /* ===== Definition Table ===== */
+    table.kv{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      background:#fff;
+      border:2px solid var(--border);
+      border-radius:14px;
+      overflow:hidden;
+    }
+    table.kv th, table.kv td{
+      padding:.65rem .8rem;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+    }
+    table.kv tr:last-child td{ border-bottom:none; }
+    table.kv th{
+      text-align:left;
+      width:180px;
+      background:#fffdf0;
+    }
+
+    /* ===== Reveal toggles ===== */
+    .reveal{
+      margin:.6rem 0 0;
+    }
+    .reveal button{
+      font-weight:700;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:.55rem .9rem;
+      border-radius:12px;
+      cursor:pointer;
+    }
+    .reveal .ans{
+      display:none;
+      background:#fff;
+      border:2px solid var(--border);
+      border-radius:12px;
+      padding:.7rem .9rem;
+      margin-top:.6rem;
+    }
+
+    /* Focus states */
+    .nav a:focus, button:focus{
+      outline:3px solid var(--focus);
+      outline-offset:2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app" role="application">
+    <aside class="sidebar" aria-label="Lesson navigation">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <h1>Lesson 6 — SQL</h1>
+      </div>
+      <ul class="nav" role="tablist">
+        <li><a href="#donow"       role="tab" aria-controls="donow"       class="active">Do Now</a></li>
+        <li><a href="#learn"       role="tab" aria-controls="learn">What you’ll learn</a></li>
+        <li><a href="#vocab"       role="tab" aria-controls="vocab">Key Vocabulary</a></li>
+        <li><a href="#activities"  role="tab" aria-controls="activities">Activities</a></li>
+        <li><a href="#exit"        role="tab" aria-controls="exit">Exit Ticket</a></li>
+        <li><a href="#showall"     role="tab" aria-controls="showall">Show All</a></li>
+      </ul>
+    </aside>
+
+    <main>
+      <!-- Do Now (image only) -->
+      <section id="donow" class="section show" role="tabpanel" aria-labelledby="Do Now">
+        <h2>Do Now</h2>
+        <div class="donow-figure">
+          <!-- Reference the image only; teacher uploads lesson6.png to the same folder -->
+          <img src="lesson6.png" alt="Do Now prompt for Lesson 6: SQL." />
+        </div>
+        <p class="caption">Upload or place <code>lesson6.png</code> in the same folder as this page.</p>
+      </section>
+
+      <!-- What you'll learn -->
+      <section id="learn" class="section" role="tabpanel">
+        <h2>What you’ll learn</h2>
+        <div class="panel">
+          <ul>
+            <li>What SQL (<strong>Structured Query Language</strong>) is used for.</li>
+            <li>How to use <code>SELECT</code>, <code>WHERE</code>, and <code>ORDER BY</code> to retrieve, filter, and sort data.</li>
+            <li>Difference between a <em>query</em> and <em>results</em>.</li>
+            <li>Apply SQL to solve practical problems on <a href="https://sql-island.informatik.uni-kl.de/#" target="_blank" rel="noopener">SQL Island</a>.</li>
+            <li>(IT) Capture results clearly with screenshots and organise them on separate tabs/pages.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Key Vocab -->
+      <section id="vocab" class="section" role="tabpanel">
+        <h2>Key Vocabulary</h2>
+        <table class="kv" aria-label="Key vocabulary for SQL">
+          <tr><th>SQL</th><td>Structured Query Language for managing and querying data in relational databases.</td></tr>
+          <tr><th>Query</th><td>A request for data from the database.</td></tr>
+          <tr><th>SELECT</th><td>Retrieves columns/rows from a table.</td></tr>
+          <tr><th>WHERE</th><td>Filters rows based on a condition.</td></tr>
+          <tr><th>ORDER BY</th><td>Sorts the returned rows (e.g., ascending/descending).</td></tr>
+          <tr><th>Table</th><td>A set of rows (records) and columns (fields) holding related data.</td></tr>
+          <tr><th>Record</th><td>A single row in a table.</td></tr>
+          <tr><th>Field</th><td>A single column (attribute) in a table.</td></tr>
+        </table>
+      </section>
+
+      <!-- Activities -->
+      <section id="activities" class="section" role="tabpanel">
+        <h2>Activities</h2>
+        <div class="grid-2">
+          <article class="card" aria-labelledby="cs-title">
+            <h3 id="cs-title">Computer Science (Coding with SQL)</h3>
+            <ol>
+              <li>Go to <a href="https://sql-island.informatik.uni-kl.de/#" target="_blank" rel="noopener">SQL Island</a>.</li>
+              <li>Work through at least <strong>6–8</strong> stages. Type your own SQL to progress.</li>
+              <li>For each stage, write the SQL you used (e.g., <code>SELECT * FROM citizens;</code>) and a short note on what it does.</li>
+              <li><strong>Extension:</strong> Use <code>AND</code>, <code>OR</code>, and <code>LIKE</code> in your filters.</li>
+            </ol>
+            <div class="panel">
+              <strong>Starter snippets</strong>
+              <pre><code>-- View everything in a table
+SELECT * FROM citizens;
+
+-- Filter (WHERE)
+SELECT name, age FROM citizens WHERE age &gt;= 18;
+
+-- Sort (ORDER BY)
+SELECT name, age FROM citizens WHERE age &gt;= 18 ORDER BY age DESC;</code></pre>
+            </div>
+          </article>
+
+          <article class="card" aria-labelledby="it-title">
+            <h3 id="it-title">Information Technology (Documenting Results)</h3>
+            <ol>
+              <li>Open a blank document in <strong>Word</strong> or <strong>Google Docs</strong>.</li>
+              <li>Create a <strong>separate tab/page</strong> for each SQL Island task you complete.</li>
+              <li>After each task, use <strong>Snipping Tool</strong> (or macOS Screenshot) to capture:
+                <ul>
+                  <li>Your SQL query area</li>
+                  <li>The results output</li>
+                </ul>
+              </li>
+              <li>Label clearly: <em>Task 1</em>, <em>Task 2</em>, etc. Add a one‑line caption of what the query did.</li>
+              <li>Save as <code>SQL_Lesson6_YourName</code> and submit via your usual platform.</li>
+            </ol>
+            <div class="panel">
+              <strong>Tips:</strong> Zoom to 110–125% for legibility; ensure the query and result both appear in the same snip.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Exit Ticket -->
+      <section id="exit" class="section" role="tabpanel">
+        <h2>Exit Ticket</h2>
+        <ol>
+          <li>What does SQL stand for?</li>
+          <li>What is the difference between <code>WHERE</code> and <code>ORDER BY</code>?</li>
+          <li>Give one reason a business might prefer a database over a spreadsheet.</li>
+        </ol>
+
+        <div class="reveal">
+          <button type="button" data-target="#ans">Reveal sample answers</button>
+          <div id="ans" class="ans" aria-live="polite">
+            <ol>
+              <li><strong>Structured Query Language.</strong></li>
+              <li><code>WHERE</code> filters rows that meet a condition; <code>ORDER BY</code> sorts the returned rows.</li>
+              <li>Databases scale to larger datasets, support multiple users at once, offer better data integrity and querying.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Show All (prints everything) -->
+      <section id="showall" class="section" role="tabpanel" aria-label="All sections on one page">
+        <h2>Show All</h2>
+        <p class="panel">This view reveals every section at once for printing or quick review.</p>
+        <div id="all-slot"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // ===== Simple tab navigation =====
+    const links = document.querySelectorAll('.nav a');
+    const sections = document.querySelectorAll('.section');
+    const allSlot = document.getElementById('all-slot');
+
+    function show(id){
+      sections.forEach(s => s.classList.remove('show'));
+      document.getElementById(id).classList.add('show');
+      links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      // rebuild Show All when clicked
+      if(id === 'showall'){
+        allSlot.innerHTML = '';
+        ['donow','learn','vocab','activities','exit'].forEach(secId => {
+          const sec = document.getElementById(secId).cloneNode(true);
+          sec.classList.add('show');
+          // remove duplicate headings in Show All? keep for clarity
+          allSlot.appendChild(sec);
+        });
+      }
+    }
+
+    links.forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        show(a.getAttribute('href').slice(1));
+      });
+    });
+
+    // ===== Reveal toggles =====
+    document.addEventListener('click', (e) => {
+      if(e.target.matches('.reveal button')){
+        const targetSel = e.target.getAttribute('data-target');
+        const ans = document.querySelector(targetSel);
+        if(ans){
+          const isOpen = ans.style.display === 'block';
+          ans.style.display = isOpen ? 'none' : 'block';
+          e.target.setAttribute('aria-expanded', String(!isOpen));
+        }
+      }
+    });
+  </script>
+</body>
+</html>
