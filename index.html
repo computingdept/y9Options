@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Computing — KS3 Lessons (Index)</title>
+  <title>KS3 Computing — CS & IT (Both are cool!)</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,159 +11,72 @@
 
   <style>
     :root{
-      --bg:#fff7cc;         /* pale yellow */
-      --ink:#1e1e1e;
-      --muted:#4b4b4b;
-      --accent:#006e51;     /* Reepham green */
-      --card:#fffef4;
-      --border:#e8dfb7;
-      --focus:#1f7a8c;
-      --ring:0 0 0 3px rgba(0,110,81,.25);
+      --bg:#fff7cc; --ink:#1e1e1e; --muted:#4b4b4b; --accent:#006e51;
+      --card:#fffef4; --border:#e8dfb7; --focus:#1f7a8c; --ring:0 0 0 3px rgba(0,110,81,.25);
+      --pill-bg:#eaf6f2; --pill-ink:#0b6e4f; --pill-border:#cfeadd;
     }
     *{ box-sizing:border-box }
     html,body{ height:100% }
     body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
+      margin:0; background:var(--bg); color:var(--ink);
       font-family:"OpenDyslexic","Atkinson Hyperlegible",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.55;
-      font-size:18px; /* accessible default */
+      line-height:1.55; font-size:18px;
     }
-    @font-face{
-      font-family:"OpenDyslexic";
-      src: local("OpenDyslexic"), local("OpenDyslexic-Regular");
-      font-display:swap;
-    }
+    @font-face{ font-family:"OpenDyslexic"; src:local("OpenDyslexic"),local("OpenDyslexic-Regular"); font-display:swap; }
 
-    /* Layout */
-    .app{
-      min-height:100dvh;
-      display:grid;
-      grid-template-columns: 300px 1fr;
-    }
-    @media (max-width: 960px){
-      .app{ grid-template-columns: 1fr; }
-      .sidebar{ position:relative; height:auto }
-    }
+    .app{ min-height:100dvh; display:grid; grid-template-columns:300px 1fr }
+    @media (max-width:960px){ .app{ grid-template-columns:1fr } .sidebar{ position:relative; height:auto } }
 
-    /* Sidebar */
-    .sidebar{
-      position:sticky; top:0; height:100dvh;
-      background:#fffbe6;
-      border-right:2px solid var(--border);
-      padding:1rem 1rem 1.25rem;
-    }
-    .brand{
-      display:flex; gap:.7rem; align-items:center; margin-bottom:.75rem;
-    }
+    .sidebar{ position:sticky; top:0; height:100dvh; background:#fffbe6; border-right:2px solid var(--border); padding:1rem 1rem 1.25rem }
+    .brand{ display:flex; gap:.7rem; align-items:center; margin-bottom:.75rem }
     .dot{ width:16px; height:16px; border-radius:50%; background:var(--accent) }
     .brand h1{ margin:0; font-size:1.25rem }
-    .blurb{
-      margin:.25rem 0 1rem; color:var(--muted); font-size:.98rem;
-    }
-    .control{
-      display:flex; align-items:center; gap:.5rem; margin:.4rem 0 1rem;
-    }
+    .blurb{ margin:.25rem 0 1rem; color:var(--muted); font-size:.98rem }
+    .control{ display:flex; align-items:center; gap:.5rem; margin:.4rem 0 1rem }
     .control label{ font-weight:700 }
-    .search{
-      width:100%;
-      display:flex; gap:.6rem;
-      background:#fff; border:2px solid var(--border); border-radius:14px;
-      padding:.5rem .7rem;
-    }
-    .search input{
-      flex:1; border:none; outline:none; background:transparent; font-size:1rem;
-    }
-    .tags{
-      display:flex; flex-wrap:wrap; gap:.4rem;
-      margin-top:.4rem;
-    }
-    .tag{
-      border:2px solid var(--border); background:#fff;
-      padding:.25rem .55rem; border-radius:999px; font-size:.9rem; cursor:pointer;
-    }
-    .tag[aria-pressed="true"]{
-      background:var(--accent); color:#fff; border-color:var(--accent);
-      box-shadow: var(--ring);
-    }
+    .search{ width:100%; display:flex; gap:.6rem; background:#fff; border:2px solid var(--border); border-radius:14px; padding:.5rem .7rem }
+    .search input{ flex:1; border:none; outline:none; background:transparent; font-size:1rem }
+    .tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem }
+    .tag{ border:2px solid var(--border); background:#fff; padding:.25rem .55rem; border-radius:999px; font-size:.9rem; cursor:pointer }
+    .tag[aria-pressed="true"]{ background:var(--accent); color:#fff; border-color:var(--accent); box-shadow:var(--ring) }
 
-    /* Main area */
-    main{ padding:1.2rem; }
+    main{ padding:1.2rem }
     .hero{
-      background:linear-gradient(180deg, #ffffffdd, #fff6d7);
-      border:2px solid var(--border);
-      border-radius:20px;
-      padding:1rem 1.1rem;
-      box-shadow: 0 4px 0 rgba(0,0,0,.05);
-      margin-bottom:1rem;
+      background:linear-gradient(180deg,#ffffffdd,#fff6d7);
+      border:2px solid var(--border); border-radius:20px;
+      padding:1rem 1.1rem; box-shadow:0 4px 0 rgba(0,0,0,.05); margin-bottom:1rem
     }
     .hero h2{ margin:.2rem 0 .35rem; font-size:1.4rem }
     .hero p{ margin:.25rem 0 0; color:var(--muted) }
-
-    /* Grid of lessons */
-    .grid{
-      display:grid;
-      gap:1rem;
-      grid-template-columns: repeat(3, 1fr);
+    .hero-chips{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem }
+    .chip{
+      display:inline-flex; align-items:center; gap:.4rem;
+      background:#fff; border:2px solid var(--border); border-radius:999px; padding:.25rem .6rem; font-size:.92rem
     }
-    @media (max-width: 1200px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 720px){ .grid{ grid-template-columns: 1fr; } }
+    .chip b{ color:var(--accent) }
+
+    .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3,1fr) }
+    @media (max-width:1200px){ .grid{ grid-template-columns:repeat(2,1fr) } }
+    @media (max-width:720px){ .grid{ grid-template-columns:1fr } }
 
     .card{
-      display:flex; flex-direction:column;
-      background:var(--card);
-      border:2px solid var(--border);
-      border-radius:18px;
-      overflow:hidden;
+      display:flex; flex-direction:column; background:var(--card);
+      border:2px solid var(--border); border-radius:18px; overflow:hidden;
       transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
     }
-    .thumb{
-      aspect-ratio: 16/9;
-      background:#fff;
-      overflow:hidden;
-    }
-    .thumb img{
-      width:100%; height:100%; object-fit:cover; display:block;
-      transition: transform .35s ease;
-    }
-    .meta{
-      padding:.85rem .95rem 1rem;
-      display:grid; gap:.35rem;
-    }
-    .meta h3{
-      margin:0; font-size:1.05rem;
-      display:flex; align-items:center; gap:.5rem;
-    }
-    .pill{
-      display:inline-block; font-size:.82rem; font-weight:700;
-      padding:.15rem .5rem; border-radius:999px;
-      background:#eaf6f2; color:#0b6e4f; border:1px solid #cfeadd;
-    }
+    .thumb{ aspect-ratio:16/9; background:#fff; overflow:hidden }
+    .thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease }
+    .meta{ padding:.85rem .95rem 1rem; display:grid; gap:.35rem }
+    .meta h3{ margin:0; font-size:1.05rem; display:flex; align-items:center; gap:.5rem }
+    .pill{ display:inline-block; font-size:.82rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); border:1px solid var(--pill-border) }
     .meta p{ margin:0; color:var(--muted); font-size:.96rem }
-    .actions{
-      display:flex; gap:.5rem; margin-top:.6rem; flex-wrap:wrap;
-    }
-    .btn{
-      text-decoration:none; font-weight:700; font-size:.95rem; text-align:center;
-      border:2px solid var(--border); background:#fff; color:var(--ink);
-      padding:.5rem .7rem; border-radius:12px; flex:0 0 auto;
-    }
-    .btn.primary{
-      background:var(--accent); color:#fff; border-color:var(--accent);
-    }
-    .card:focus-within, .card:hover{
-      border-color:var(--accent); box-shadow: var(--ring); transform: translateY(-1px);
-    }
-    .card:hover .thumb img{ transform: scale(1.04) }
-
-    /* Footer */
-    footer{
-      color:var(--muted); font-size:.9rem; margin-top:1rem; text-align:center;
-    }
-
-    /* A11y focus */
-    a:focus, button:focus, input:focus{ outline:3px solid var(--focus); outline-offset:2px }
+    .actions{ display:flex; gap:.5rem; margin-top:.6rem; flex-wrap:wrap }
+    .btn{ text-decoration:none; font-weight:700; font-size:.95rem; text-align:center; border:2px solid var(--border); background:#fff; color:var(--ink); padding:.5rem .7rem; border-radius:12px; flex:0 0 auto }
+    .btn.primary{ background:var(--accent); color:#fff; border-color:var(--accent) }
+    .card:focus-within, .card:hover{ border-color:var(--accent); box-shadow:var(--ring); transform:translateY(-1px) }
+    .card:hover .thumb img{ transform:scale(1.04) }
+    footer{ color:var(--muted); font-size:.9rem; margin-top:1rem; text-align:center }
+    a:focus,button:focus,input:focus{ outline:3px solid var(--focus); outline-offset:2px }
   </style>
 </head>
 <body>
@@ -172,13 +85,11 @@
     <aside class="sidebar" aria-label="Navigation">
       <div class="brand">
         <span class="dot" aria-hidden="true"></span>
-        <h1>KS3 Computing — Lessons</h1>
+        <h1>KS3 Computing — CS & IT</h1>
       </div>
-      <p class="blurb">Short, simple lessons for Year 7–9. SEN-friendly design. Click a lesson to open.</p>
+      <p class="blurb">CS is cool. IT is cool. <strong>Maybe both are cool for you.</strong> Explore topics and see what you enjoy.</p>
 
-      <div class="control">
-        <label for="q">Search</label>
-      </div>
+      <div class="control"><label for="q">Search</label></div>
       <div class="search" role="search">
         <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
           <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
@@ -186,9 +97,7 @@
         <input id="q" type="text" placeholder="Search ‘SQL’, ‘networks’, ‘binary’…" aria-label="Filter lessons">
       </div>
 
-      <div class="control">
-        <label>Quick filters</label>
-      </div>
+      <div class="control"><label>Quick filters</label></div>
       <div class="tags" role="toolbar" aria-label="Lesson filters">
         <button class="tag" data-tag="cs" aria-pressed="false">Computer Science</button>
         <button class="tag" data-tag="it" aria-pressed="false">IT</button>
@@ -202,7 +111,12 @@
     <main>
       <section class="hero" aria-label="Overview">
         <h2>Choose a lesson</h2>
-        <p>Each card includes a short description. Use the search to quickly find topics.</p>
+        <p>Short, simple lessons. Try CS, try IT — or try both — and discover what clicks for you.</p>
+        <div class="hero-chips" role="list">
+          <span class="chip" role="listitem"><b>CS</b> = coding, logic, problem-solving</span>
+          <span class="chip" role="listitem"><b>IT</b> = practical tools, presenting, organisation</span>
+          <span class="chip" role="listitem">Both paths build real skills</span>
+        </div>
       </section>
 
       <section aria-label="Lesson list">
@@ -212,7 +126,7 @@
             <div class="thumb"><img src="lesson1.png" alt="Lesson 1 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 1</span> Computer Science vs IT</h3>
-              <p>What’s the difference? Simple examples and a quick task.</p>
+              <p>What’s the difference? Try both and compare.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson1.html">Open</a>
                 <a class="btn" href="lesson1.html#activities">Activities</a>
@@ -225,7 +139,7 @@
             <div class="thumb"><img src="lesson2.png" alt="Lesson 2 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 2</span> Hardware & Software</h3>
-              <p>CPU, memory, storage — simple and clear.</p>
+              <p>CPU, memory, storage — how computers work.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson2.html">Open</a>
                 <a class="btn" href="lesson2.html#activities">Activities</a>
@@ -277,7 +191,7 @@
             <div class="thumb"><img src="lesson6.png" alt="Lesson 6 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 6</span> SQL (SQL Island)</h3>
-              <p>Ask the database questions using SQL. KS3-friendly tasks.</p>
+              <p>Ask the database questions using SQL.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson6.html">Open</a>
                 <a class="btn" href="lesson6.html#activities">Activities</a>
@@ -303,7 +217,7 @@
             <div class="thumb"><img src="lesson8.png" alt="Lesson 8 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 8</span> Spreadsheets</h3>
-              <p>Simple formulas and tidy data tables.</p>
+              <p>Formulas, tidy tables, neat charts.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson8.html">Open</a>
                 <a class="btn" href="lesson8.html#activities">Activities</a>
@@ -316,7 +230,7 @@
             <div class="thumb"><img src="lesson9.png" alt="Lesson 9 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 9</span> Cybersecurity</h3>
-              <p>Keep accounts safe: passwords, phishing, 2FA.</p>
+              <p>Passwords, phishing, 2FA — staying safe.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson9.html">Open</a>
                 <a class="btn" href="lesson9.html#activities">Activities</a>
@@ -329,7 +243,7 @@
             <div class="thumb"><img src="lesson10.png" alt="Lesson 10 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 10</span> Assessment & Review</h3>
-              <p>Quick recap and short checks.</p>
+              <p>Recap the best bits from CS & IT.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson10.html">Open</a>
                 <a class="btn" href="lesson10.html#activities">Activities</a>
@@ -340,7 +254,7 @@
       </section>
 
       <footer>
-        © <span id="y"></span> RHSC Computing · SEN-friendly design · Keyboard navigable
+        © <span id="y"></span> RHSC Computing · SEN-friendly · Keyboard navigable
       </footer>
     </main>
   </div>
@@ -358,18 +272,15 @@
       return tags.filter(t => t.getAttribute('aria-pressed') === 'true')
                  .map(t => t.dataset.tag.toLowerCase());
     }
-
     function matchesFilters(card, filters){
       if(filters.length === 0) return true;
       const cardTags = (card.getAttribute('data-tags') || '').toLowerCase().split(/\s+/);
       return filters.every(f => cardTags.includes(f));
     }
-
     function matchesQuery(card, query){
       if(!query) return true;
       return (card.getAttribute('data-title') || '').toLowerCase().includes(query.toLowerCase());
     }
-
     function applyFilters(){
       const filters = currentTagFilters();
       const query = q.value.trim().toLowerCase();
@@ -378,7 +289,6 @@
         card.style.display = ok ? '' : 'none';
       });
     }
-
     q.addEventListener('input', applyFilters);
     tags.forEach(btn => {
       btn.addEventListener('click', () => {
