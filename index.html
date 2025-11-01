@@ -1,125 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson Index</title>
-<link rel="stylesheet" href="style.css">
-<style>
-  /* Grid layout for index */
-  body{
-    background:#fafafa;
-    font-family: ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-    margin:0;
-    padding:0;
-  }
-  header{
-    text-align:center;
-    padding:40px 20px 10px;
-  }
-  h1{
-    font-size:2rem;
-    color:#006e51;
-    margin-bottom:10px;
-  }
-  p.sub{
-    color:#555;
-    font-size:1rem;
-  }
-  main{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
-    gap:24px;
-    max-width:1100px;
-    margin:40px auto;
-    padding:0 20px 60px;
-  }
-  .card{
-    background:white;
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
-    text-align:center;
-    transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  }
-  .card img{
-    width:100%;
-    height:160px;
-    object-fit:cover;
-  }
-  .card h2{
-    margin:14px 0;
-    font-size:1.1rem;
-    color:#006e51;
-  }
-  footer{
-    text-align:center;
-    font-size:0.9rem;
-    color:#777;
-    margin-bottom:20px;
-  }
-  a{
-    text-decoration:none;
-    color:inherit;
-  }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Computing — KS3 Lessons (Index)</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff7cc;         /* pale yellow */
+      --ink:#1e1e1e;
+      --muted:#4b4b4b;
+      --accent:#006e51;     /* Reepham green */
+      --card:#fffef4;
+      --border:#e8dfb7;
+      --focus:#1f7a8c;
+      --ring:0 0 0 3px rgba(0,110,81,.25);
+    }
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"OpenDyslexic","Atkinson Hyperlegible",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.55;
+      font-size:18px; /* accessible default */
+    }
+    @font-face{
+      font-family:"OpenDyslexic";
+      src: local("OpenDyslexic"), local("OpenDyslexic-Regular");
+      font-display:swap;
+    }
+
+    /* Layout */
+    .app{
+      min-height:100dvh;
+      display:grid;
+      grid-template-columns: 300px 1fr;
+    }
+    @media (max-width: 960px){
+      .app{ grid-template-columns: 1fr; }
+      .sidebar{ position:relative; height:auto }
+    }
+
+    /* Sidebar */
+    .sidebar{
+      position:sticky; top:0; height:100dvh;
+      background:#fffbe6;
+      border-right:2px solid var(--border);
+      padding:1rem 1rem 1.25rem;
+    }
+    .brand{
+      display:flex; gap:.7rem; align-items:center; margin-bottom:.75rem;
+    }
+    .dot{ width:16px; height:16px; border-radius:50%; background:var(--accent) }
+    .brand h1{ margin:0; font-size:1.25rem }
+    .blurb{
+      margin:.25rem 0 1rem; color:var(--muted); font-size:.98rem;
+    }
+    .control{
+      display:flex; align-items:center; gap:.5rem; margin:.4rem 0 1rem;
+    }
+    .control label{ font-weight:700 }
+    .search{
+      width:100%;
+      display:flex; gap:.6rem;
+      background:#fff; border:2px solid var(--border); border-radius:14px;
+      padding:.5rem .7rem;
+    }
+    .search input{
+      flex:1; border:none; outline:none; background:transparent; font-size:1rem;
+    }
+    .tags{
+      display:flex; flex-wrap:wrap; gap:.4rem;
+      margin-top:.4rem;
+    }
+    .tag{
+      border:2px solid var(--border); background:#fff;
+      padding:.25rem .55rem; border-radius:999px; font-size:.9rem; cursor:pointer;
+    }
+    .tag[aria-pressed="true"]{
+      background:var(--accent); color:#fff; border-color:var(--accent);
+      box-shadow: var(--ring);
+    }
+
+    /* Main area */
+    main{ padding:1.2rem; }
+    .hero{
+      background:linear-gradient(180deg, #ffffffdd, #fff6d7);
+      border:2px solid var(--border);
+      border-radius:20px;
+      padding:1rem 1.1rem;
+      box-shadow: 0 4px 0 rgba(0,0,0,.05);
+      margin-bottom:1rem;
+    }
+    .hero h2{ margin:.2rem 0 .35rem; font-size:1.4rem }
+    .hero p{ margin:.25rem 0 0; color:var(--muted) }
+
+    /* Grid of lessons */
+    .grid{
+      display:grid;
+      gap:1rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 1200px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      display:flex; flex-direction:column;
+      background:var(--card);
+      border:2px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+      transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .thumb{
+      aspect-ratio: 16/9;
+      background:#fff;
+      overflow:hidden;
+    }
+    .thumb img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .35s ease;
+    }
+    .meta{
+      padding:.85rem .95rem 1rem;
+      display:grid; gap:.35rem;
+    }
+    .meta h3{
+      margin:0; font-size:1.05rem;
+      display:flex; align-items:center; gap:.5rem;
+    }
+    .pill{
+      display:inline-block; font-size:.82rem; font-weight:700;
+      padding:.15rem .5rem; border-radius:999px;
+      background:#eaf6f2; color:#0b6e4f; border:1px solid #cfeadd;
+    }
+    .meta p{ margin:0; color:var(--muted); font-size:.96rem }
+    .actions{
+      display:flex; gap:.5rem; margin-top:.6rem; flex-wrap:wrap;
+    }
+    .btn{
+      text-decoration:none; font-weight:700; font-size:.95rem; text-align:center;
+      border:2px solid var(--border); background:#fff; color:var(--ink);
+      padding:.5rem .7rem; border-radius:12px; flex:0 0 auto;
+    }
+    .btn.primary{
+      background:var(--accent); color:#fff; border-color:var(--accent);
+    }
+    .card:focus-within, .card:hover{
+      border-color:var(--accent); box-shadow: var(--ring); transform: translateY(-1px);
+    }
+    .card:hover .thumb img{ transform: scale(1.04) }
+
+    /* Footer */
+    footer{
+      color:var(--muted); font-size:.9rem; margin-top:1rem; text-align:center;
+    }
+
+    /* A11y focus */
+    a:focus, button:focus, input:focus{ outline:3px solid var(--focus); outline-offset:2px }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Computer Science Lessons</h1>
-    <p class="sub">Select a lesson to begin</p>
-  </header>
+  <div class="app" role="application">
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Navigation">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <h1>KS3 Computing — Lessons</h1>
+      </div>
+      <p class="blurb">Short, simple lessons for Year 7–9. SEN-friendly design. Click a lesson to open.</p>
 
-  <main>
-    <a href="lesson1.html" class="card">
-      <img src="lesson1.png" alt="Lesson 1 thumbnail">
-      <h2>Lesson 1 – Input, Output & Storage Devices</h2>
-    </a>
-   <a href="lesson2.html" class="card">
-    <img src="lesson2.png" alt="Lesson 2 thumbnail: Algorithms vs Workflows">
-    <h2>Lesson 2 – Problem-Solving: Algorithms (CS) vs Workflows (IT)</h2>
-  </a>
+      <div class="control">
+        <label for="q">Search</label>
+      </div>
+      <div class="search" role="search">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input id="q" type="text" placeholder="Search ‘SQL’, ‘networks’, ‘binary’…" aria-label="Filter lessons">
+      </div>
 
-    <a href="lesson3.html" class="card">
-      <img src="lesson3.png" alt="Lesson 3 thumbnail">
-      <h2>Lesson 3</h2>
-    </a>
-    <a href="lesson4.html" class="card">
-      <img src="lesson4.png" alt="Lesson 4 thumbnail">
-      <h2>Lesson 4</h2>
-    </a>
-    <a href="lesson5.html" class="card">
-      <img src="lesson5.png" alt="Lesson 5 thumbnail">
-      <h2>Lesson 5</h2>
-    </a>
-    <a href="lesson6.html" class="card">
-      <img src="lesson6.png" alt="Lesson 6 thumbnail">
-      <h2>Lesson 6</h2>
-    </a>
-    <a href="lesson7.html" class="card">
-      <img src="lesson7.png" alt="Lesson 7 thumbnail">
-      <h2>Lesson 7</h2>
-    </a>
-    <a href="lesson8.html" class="card">
-      <img src="lesson8.png" alt="Lesson 8 thumbnail">
-      <h2>Lesson 8</h2>
-    </a>
-    <a href="lesson9.html" class="card">
-      <img src="lesson9.png" alt="Lesson 9 thumbnail">
-      <h2>Lesson 9</h2>
-    </a>
-    <a href="lesson10.html" class="card">
-      <img src="lesson10.png" alt="Lesson 10 thumbnail">
-      <h2>Lesson 10</h2>
-    </a>
-  </main>
+      <div class="control">
+        <label>Quick filters</label>
+      </div>
+      <div class="tags" role="toolbar" aria-label="Lesson filters">
+        <button class="tag" data-tag="cs" aria-pressed="false">Computer Science</button>
+        <button class="tag" data-tag="it" aria-pressed="false">IT</button>
+        <button class="tag" data-tag="algorithms" aria-pressed="false">Algorithms</button>
+        <button class="tag" data-tag="data" aria-pressed="false">Data</button>
+        <button class="tag" data-tag="networks" aria-pressed="false">Networks</button>
+      </div>
+    </aside>
 
-  <footer>
-    © Reepham High School & College — Computer Science
-  </footer>
+    <!-- Main -->
+    <main>
+      <section class="hero" aria-label="Overview">
+        <h2>Choose a lesson</h2>
+        <p>Each card includes a short description. Use the search to quickly find topics.</p>
+      </section>
+
+      <section aria-label="Lesson list">
+        <div class="grid" id="grid">
+          <!-- Lesson 1 -->
+          <article class="card" tabindex="0" data-title="Lesson 1 — Computer Science vs IT" data-tags="cs it">
+            <div class="thumb"><img src="lesson1.png" alt="Lesson 1 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 1</span> Computer Science vs IT</h3>
+              <p>What’s the difference? Simple examples and a quick task.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson1.html">Open</a>
+                <a class="btn" href="lesson1.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 2 -->
+          <article class="card" tabindex="0" data-title="Lesson 2 — Hardware & Software" data-tags="cs data">
+            <div class="thumb"><img src="lesson2.png" alt="Lesson 2 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 2</span> Hardware & Software</h3>
+              <p>CPU, memory, storage — simple and clear.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson2.html">Open</a>
+                <a class="btn" href="lesson2.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 3 -->
+          <article class="card" tabindex="0" data-title="Lesson 3 — Networks & Internet" data-tags="cs networks">
+            <div class="thumb"><img src="lesson3.png" alt="Lesson 3 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 3</span> Networks & Internet</h3>
+              <p>How devices connect and share data.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson3.html">Open</a>
+                <a class="btn" href="lesson3.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 4 -->
+          <article class="card" tabindex="0" data-title="Lesson 4 — Algorithms (Flowcharts)" data-tags="cs algorithms">
+            <div class="thumb"><img src="lesson4.png" alt="Lesson 4 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 4</span> Algorithms (Flowcharts)</h3>
+              <p>Step-by-step instructions using symbols.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson4.html">Open</a>
+                <a class="btn" href="lesson4.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 5 -->
+          <article class="card" tabindex="0" data-title="Lesson 5 — Binary & Data" data-tags="cs data">
+            <div class="thumb"><img src="lesson5.png" alt="Lesson 5 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 5</span> Binary & Data</h3>
+              <p>Bits, bytes and simple conversions.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson5.html">Open</a>
+                <a class="btn" href="lesson5.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 6 -->
+          <article class="card" tabindex="0" data-title="Lesson 6 — SQL (SQL Island)" data-tags="cs it data">
+            <div class="thumb"><img src="lesson6.png" alt="Lesson 6 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 6</span> SQL (SQL Island)</h3>
+              <p>Ask the database questions using SQL. KS3-friendly tasks.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson6.html">Open</a>
+                <a class="btn" href="lesson6.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 7 -->
+          <article class="card" tabindex="0" data-title="Lesson 7 — E-Safety & Digital Footprint" data-tags="it">
+            <div class="thumb"><img src="lesson7.png" alt="Lesson 7 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 7</span> E-Safety & Digital Footprint</h3>
+              <p>Protect yourself online. Think before you share.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson7.html">Open</a>
+                <a class="btn" href="lesson7.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 8 -->
+          <article class="card" tabindex="0" data-title="Lesson 8 — Spreadsheets" data-tags="it data">
+            <div class="thumb"><img src="lesson8.png" alt="Lesson 8 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 8</span> Spreadsheets</h3>
+              <p>Simple formulas and tidy data tables.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson8.html">Open</a>
+                <a class="btn" href="lesson8.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 9 -->
+          <article class="card" tabindex="0" data-title="Lesson 9 — Cybersecurity" data-tags="cs">
+            <div class="thumb"><img src="lesson9.png" alt="Lesson 9 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 9</span> Cybersecurity</h3>
+              <p>Keep accounts safe: passwords, phishing, 2FA.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson9.html">Open</a>
+                <a class="btn" href="lesson9.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Lesson 10 -->
+          <article class="card" tabindex="0" data-title="Lesson 10 — Assessment & Review" data-tags="cs it data networks algorithms">
+            <div class="thumb"><img src="lesson10.png" alt="Lesson 10 thumbnail"></div>
+            <div class="meta">
+              <h3><span class="pill">Lesson 10</span> Assessment & Review</h3>
+              <p>Quick recap and short checks.</p>
+              <div class="actions">
+                <a class="btn primary" href="lesson10.html">Open</a>
+                <a class="btn" href="lesson10.html#activities">Activities</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="y"></span> RHSC Computing · SEN-friendly design · Keyboard navigable
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Year in footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Search + filter
+    const q = document.getElementById('q');
+    const cards = [...document.querySelectorAll('.card')];
+    const tags = [...document.querySelectorAll('.tag')];
+
+    function currentTagFilters(){
+      return tags.filter(t => t.getAttribute('aria-pressed') === 'true')
+                 .map(t => t.dataset.tag.toLowerCase());
+    }
+
+    function matchesFilters(card, filters){
+      if(filters.length === 0) return true;
+      const cardTags = (card.getAttribute('data-tags') || '').toLowerCase().split(/\s+/);
+      return filters.every(f => cardTags.includes(f));
+    }
+
+    function matchesQuery(card, query){
+      if(!query) return true;
+      return (card.getAttribute('data-title') || '').toLowerCase().includes(query.toLowerCase());
+    }
+
+    function applyFilters(){
+      const filters = currentTagFilters();
+      const query = q.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const ok = matchesFilters(card, filters) && matchesQuery(card, query);
+        card.style.display = ok ? '' : 'none';
+      });
+    }
+
+    q.addEventListener('input', applyFilters);
+    tags.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const on = btn.getAttribute('aria-pressed') === 'true';
+        btn.setAttribute('aria-pressed', String(!on));
+        applyFilters();
+      });
+    });
+  </script>
 </body>
 </html>
