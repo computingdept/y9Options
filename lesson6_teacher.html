@@ -1,1 +1,167 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Guidance – Lesson 6 (Spreadsheets vs Databases: SQL Island)</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    main.container{
+      margin-left: var(--sidebar-w,240px);
+      max-width:980px;
+      background:#fffef4;
+      border:1px solid #f2da7a;
+      border-radius:14px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    h1,h2{color:var(--accent)}
+    .silent-box{
+      background:#fff4b2;border:1px solid #f2da7a;color:#4b4b00;
+      border-radius:12px;padding:10px 14px;font-weight:700;
+    }
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{border:1px solid #f2da7a;padding:10px 12px;vertical-align:top}
+    th{background:#fff4b2;text-align:left;color:#4b4b00}
+    tr:nth-child(even){background:#fff}
+    .mini{color:var(--muted);font-size:.95rem}
+    .btn-link{
+      display:inline-block;padding:8px 12px;border-radius:10px;
+      border:2px solid var(--accent);color:var(--accent);background:#fff;
+      text-decoration:none;font-weight:700;
+    }
+    .btn-link:hover{background:#f6fff8}
+    ul.tight li{margin-bottom:.35rem}
+  </style>
+</head>
+<body>
+
+  <nav class="tabs left" role="navigation">
+    <a href="index.html" class="tab-button">⬅ Back to Index</a>
+    <a href="lesson6.html" class="tab-button">Open Lesson 6</a>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Teacher Guidance – Lesson 6<br>
+        <span class="mini">Spreadsheets (IT) vs Databases (CS) – SQL Island</span>
+      </h1>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p><strong>Approx. length:</strong> 60 minutes <strong>Year group:</strong> 9 Options Taster</p>
+      <p><strong>Focus:</strong> CS — introduce SQL via <em>SQL Island</em> (SELECT, WHERE, ORDER BY, LIKE).  
+         IT — record progress using a spreadsheet with one tab per stage, evidenced with screenshots.</p>
+    </section>
+
+    <section>
+      <h2>Learning Objectives</h2>
+      <ul class="tight">
+        <li>Explain how databases store data (tables, records, fields, keys).</li>
+        <li>Use core SQL clauses: <code>SELECT</code>, <code>WHERE</code>, <code>ORDER BY</code>, <code>AND/OR</code>, <code>LIKE</code>.</li>
+        <li>Capture evidence neatly in a spreadsheet (one tab per stage) using Snipping Tool.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Lesson Flow (approx.)</h2>
+
+      <div class="silent-box">
+        Students complete the <strong>Do Now</strong> silently in <strong>Microsoft OneNote (Class Notebook)</strong> under “Lesson 6 – Do Now”.  
+        Throughout the lesson, pupils must use the <strong>Snipping Tool</strong> (Win + Shift + S) to evidence both CS and IT tasks in OneNote.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Approx. Time</th>
+            <th>Stage</th>
+            <th>Teacher Guidance (modelling optional)</th>
+            <th>Student Outcome / Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Start (≈ 5 min)</td>
+            <td>Do Now – Silent retrieval</td>
+            <td>Display the Do Now. Remind: quiet answers in OneNote; reveal briefly and move on.</td>
+            <td>Responses saved under “Lesson 6 – Do Now”.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 5 – 12 min</td>
+            <td>Knowledge recap (DB basics)</td>
+            <td>Run through table/record/field, primary key, data types; menu analogy (McDonald’s/Nando’s).</td>
+            <td>Class can state what SQL does and why databases beat spreadsheets for related tables.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 12 – 15 min</td>
+            <td>CS setup – SQL Island</td>
+            <td>Open <a href="https://sql-island.informatik.uni-kl.de/#" target="_blank">SQL Island</a>. If helpful, model one simple query:<br>
+                <code>SELECT name, age FROM citizens WHERE age &gt;= 18 ORDER BY age DESC;</code></td>
+            <td>Students ready to attempt stages independently.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 15 – 35 min</td>
+            <td>CS – SQL Island stages</td>
+            <td>Circulate and prompt: “What are you selecting? What are you filtering? How are you ordering?”  
+                Encourage <code>AND/OR</code>, <code>LIKE</code>, tidy column lists, and testing iteratively.</td>
+            <td>6–8 stages completed; list of queries attempted.  
+                <strong>Evidence:</strong> Snip a working query + result and paste in OneNote under “Lesson 6 – CS Activity”.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 35 – 52 min</td>
+            <td>IT – Spreadsheet evidence pack</td>
+            <td>Students create a spreadsheet <em>SQL_Island_Name</em>. If helpful, model making a new tab per stage and pasting a screenshot.</td>
+            <td>Spreadsheet with tabs Task 1, Task 2, … each containing a clear screenshot (query + result).  
+                <strong>Evidence:</strong> Snip the spreadsheet structure into OneNote under “Lesson 6 – IT Activity”.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 52 – 58 min</td>
+            <td>Key Vocabulary (quick reinforce)</td>
+            <td>Revisit: Record, Field, Query, SELECT, WHERE, ORDER BY, LIKE, Primary Key.</td>
+            <td>Verbal recall; optional short note in OneNote.</td>
+          </tr>
+
+          <tr>
+            <td>Final minutes</td>
+            <td>Exit Ticket</td>
+            <td>Use the three questions from the student page. Responses in OneNote.</td>
+            <td>Saved under “Lesson 6 – Exit Ticket”.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Links & Resources</h2>
+      <ul>
+        <li><a class="btn-link" href="https://sql-island.informatik.uni-kl.de/#" target="_blank" rel="noopener">SQL Island (interactive)</a></li>
+        <li>Spreadsheet app (Excel/Google Sheets) for evidence tabs</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Support & Extension</h2>
+      <ul>
+        <li><strong>Support:</strong> Provide a mini SQL crib sheet (SELECT col list; WHERE field op value; ORDER BY col ASC/DESC).  
+            Offer starter queries students can adapt. Allow pair programming.</li>
+        <li><strong>Extension:</strong> Add <code>COUNT(*)</code> and <code>GROUP BY</code> where the stage allows; try a compound <code>ORDER BY</code> with two columns; write one query and an equivalent using <code>LIKE</code>.</li>
+        <li><strong>SEND:</strong> Large fonts/high contrast; chunk tasks; modelling used only if needed; ensure independent use of Snipping Tool for evidence.</li>
+      </ul>
+    </section>
+
+    <footer style="margin-top:1rem;text-align:center;color:var(--muted);">
+      © <span id="y"></span> RHSC Computing – Teacher Guidance (Lesson 6)
+    </footer>
+  </main>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
