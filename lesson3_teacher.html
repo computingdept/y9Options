@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Teacher Guidance – Lesson 2 (Algorithms vs Workflows)</title>
+  <title>Teacher Guidance – Lesson 3 (Binary vs Excel)</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
     main.container{
       margin-left: var(--sidebar-w,240px);
-      max-width:980px;
+      max-width: 980px;
       background:#fffef4;
       border:1px solid #f2da7a;
       border-radius:14px;
       padding:24px;
-      box-shadow:var(--shadow);
+      box-shadow: var(--shadow);
     }
-    h1,h2{color:var(--accent)}
+    h1,h2{ color: var(--accent) }
     .silent-box{
-      background:#fff4b2;border:1px solid #f2da7a;color:#4b4b00;
-      border-radius:12px;padding:10px 14px;font-weight:700;
+      background:#fff4b2; border:1px solid #f2da7a; color:#4b4b00;
+      border-radius:12px; padding:10px 14px; font-weight:700;
     }
-    table{width:100%;border-collapse:collapse;margin-top:10px}
-    th,td{border:1px solid #f2da7a;padding:10px 12px;vertical-align:top}
-    th{background:#fff4b2;text-align:left;color:#4b4b00}
-    tr:nth-child(even){background:#fff}
-    .mini{color:var(--muted);font-size:.95rem}
+    table{ width:100%; border-collapse:collapse; margin-top:10px }
+    th,td{ border:1px solid #f2da7a; padding:10px 12px; vertical-align:top }
+    th{ background:#fff4b2; text-align:left; color:#4b4b00 }
+    tr:nth-child(even){ background:#fff }
+    .mini{ color: var(--muted); font-size:.95rem }
+    .btn-link{
+      display:inline-block; padding:8px 12px; border-radius:10px;
+      border:2px solid var(--accent); color:var(--accent); background:#fff; text-decoration:none; font-weight:700;
+    }
+    .btn-link:hover{ background:#f6fff8 }
   </style>
 </head>
 <body>
 
   <nav class="tabs left" role="navigation">
     <a href="index.html" class="tab-button">⬅ Back to Index</a>
-    <a href="lesson2.html" class="tab-button">Open Lesson 2</a>
+    <a href="lesson3.html" class="tab-button">Open Lesson 3</a>
   </nav>
 
   <main class="container">
     <header>
-      <h1>Teacher Guidance – Lesson 2<br>
-        <span class="mini">Problem-Solving: Algorithms (CS) vs Workflows (IT)</span>
+      <h1>Teacher Guidance – Lesson 3<br>
+        <span class="mini">Binary (CS) vs Excel (IT)</span>
       </h1>
     </header>
 
     <section>
       <h2>Overview</h2>
       <p><strong>Approx. length:</strong> 60 minutes <strong>Year group:</strong> 9 Options Taster</p>
-      <p><strong>Focus:</strong> Explore how algorithms (CS) and workflows (IT) both solve problems using clear steps, decisions, and digital tools.</p>
+      <p><strong>Focus:</strong> Convert numbers between denary, <em>8-bit binary</em>, and <em>hex</em> (CS), then build an Excel sheet to automate conversions (IT).</p>
     </section>
 
     <section>
       <h2>Learning Objectives</h2>
       <ul>
-        <li>Define an <strong>algorithm</strong> and a <strong>workflow</strong>.</li>
-        <li>Spot real-life examples of each (school, home, apps).</li>
-        <li>Explain where CS and IT problem-solving overlap.</li>
+        <li>Convert 0–255 to <strong>8-bit binary</strong> and to <strong>hex</strong>.</li>
+        <li>Explain place values (128–1) and nibble-to-hex groupings.</li>
+        <li>Create an <strong>Excel</strong> sheet that outputs 8-bit binary (and hex as an extension).</li>
       </ul>
     </section>
 
@@ -60,8 +65,8 @@
       <h2>Lesson Flow (approx.)</h2>
 
       <div class="silent-box">
-        Students complete the <strong>Do Now</strong> silently in <strong>Microsoft OneNote (Class Notebook)</strong> under “Lesson 2 – Do Now”.  
-        No talking until you say “Reveal answers”.
+        Students complete the <strong>Do Now</strong> silently in <strong>Microsoft OneNote (Class Notebook)</strong> under “Lesson 3 – Do Now”.  
+        Use the <strong>Snipping Tool</strong> (Win + Shift + S) for any screenshots later in the lesson.
       </div>
 
       <table>
@@ -77,87 +82,83 @@
           <tr>
             <td>Start (≈ 5 min)</td>
             <td>Do Now – Silent recap</td>
-            <td>Display Do Now questions + image. Remind pupils to record answers quietly in OneNote. After a few minutes, click Reveal and check two examples verbally.</td>
-            <td>Written answers in OneNote under “Lesson 2 – Do Now”.</td>
+            <td>Display the Do Now. Remind: quiet answers in OneNote. After a few mins, click Reveal and check a couple quickly.</td>
+            <td>Written responses in OneNote under “Lesson 3 – Do Now”.</td>
           </tr>
 
           <tr>
-            <td>≈ 5 – 10 min</td>
-            <td>Introduce focus</td>
-            <td>Ask the class: <strong>“How do algorithms and workflows help people solve problems?”</strong> Summarise link between logic and organisation.</td>
-            <td>Can state that both use ordered steps and decisions to reach a goal.</td>
-          </tr>
-
-          <tr>
-            <td>≈ 10 – 20 min</td>
+            <td>≈ 5 – 12 min</td>
             <td>Knowledge Recap</td>
-            <td>Show the two Knowledge boxes:<br>• <strong>CS – Flowcharts & Decisions</strong> (choose-your-own-adventure analogy).<br>• <strong>IT – Digital Forms & Data Flow</strong> (mail-sorter analogy).<br>Encourage students to spot where decisions appear in each.</td>
-            <td>Understands purpose of flowcharts and forms as tools for clear problem-solving.</td>
+            <td>Use the Knowledge boxes: bits/byte (0–255), base-2, and hex shortcut (group 4 bits).  
+                Use the “light switches” analogy for place values.</td>
+            <td>Class can state why 8 bits cover 256 values and how hex groups work.</td>
           </tr>
 
           <tr>
-            <td>≈ 20 – 30 min</td>
-            <td>Computer Science Activity – Flowchart Design</td>
-            <td>If helpful, demonstrate one example in PowerPoint with basic shapes (Start, Process, Decision). Remind students to keep symbols clear and arrows tidy.</td>
-            <td>Flowchart designed in PowerPoint showing path through maze with a decision box.<br>
-              <strong>Evidence in OneNote:</strong> Students use Snipping Tool (Win + Shift + S) to capture their flowchart and paste it under “Lesson 2 – CS Activity”.</td>
+            <td>≈ 12 – 22 min</td>
+            <td>CS – Conversions (direct practice)</td>
+            <td><em>If helpful:</em> Model one example on the board (e.g., 25 → 00011001 → 19).  
+                Prompt thinking: “Which highest place value fits? Subtract. Repeat.”</td>
+            <td>5 numbers converted to 8-bit binary and hex.  
+                <strong>Evidence:</strong> Paste a small table or a screenshot into OneNote under “Lesson 3 – CS Activity”.</td>
           </tr>
 
           <tr>
-            <td>≈ 30 – 40 min</td>
-            <td>Information Technology Activity – Peer-Review Form</td>
-            <td>Guide students to <a href="https://forms.office.com/" target="_blank">Microsoft Forms</a>. Explain purpose: collect constructive feedback on Lesson 1 slides. If needed, model how to add a question type or title.</td>
-            <td>Form created with 4–6 questions (Yes/No, rating, short text).<br>
-              <strong>Evidence in OneNote:</strong> Use Snipping Tool to capture the form and responses page; paste under “Lesson 2 – IT Activity”.</td>
+            <td>≈ 22 – 30 min</td>
+            <td>CS – Quick checks (online)</td>
+            <td>Point to the two Bitesize pages if needed; then let students try 5 Qs on each Bag of Cows quiz for feedback.</td>
+            <td><strong>Evidence:</strong> Snip quiz feedback (score/result) into OneNote (optional if tight for time).</td>
           </tr>
 
           <tr>
-            <td>≈ 40 – 50 min</td>
-            <td>Key Vocabulary (reinforce after practice)</td>
-            <td>Review terms (Algorithm, Workflow, Decision, Input/Output). Ask: “Where did you see a decision today?”</td>
-            <td>Verbal recall or short note in OneNote if time allows.</td>
+            <td>≈ 30 – 45 min</td>
+            <td>IT – Excel converter</td>
+            <td><em>If helpful:</em> Model a single row: A2 = number → B2:I2 bit formulas (INT(MOD(...))) → TEXTJOIN in J2.  
+                Mention built-in <code>=DEC2BIN(A2,8)</code> as an alternative.  
+                Extension: two-nibble hex with <code>INT(A2/16)</code>, <code>MOD(A2,16)</code> + lookup table.</td>
+            <td>Working sheet that outputs 8-bit binary (and hex if extended).  
+                <strong>Evidence:</strong> Snip the sheet (inputs + outputs) into OneNote under “Lesson 3 – IT Activity”.</td>
           </tr>
 
           <tr>
-            <td>≈ 50 – 58 min</td>
+            <td>≈ 45 – 53 min</td>
+            <td>Key Vocabulary (after practice)</td>
+            <td>Reinforce: Binary, Bit, Byte, Hex. Ask pupils to point to where each appeared in their work today.</td>
+            <td>Verbal recall; optional brief note in OneNote.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 53 – 60 min</td>
             <td>Exit Ticket / Reflection</td>
-            <td>Display the three questions (Define algorithm, Define workflow, Choose one example). Students respond in OneNote.</td>
-            <td>Completed Exit Ticket saved in Class Notebook.</td>
-          </tr>
-
-          <tr>
-            <td>Final minutes</td>
-            <td>Plenary</td>
-            <td>Summarise: <strong>“Both CS and IT rely on clear steps and smart decisions.”</strong> Encourage students to notice these in everyday tasks.</td>
-            <td>Verbal share of key learning points.</td>
+            <td>Use the three questions from the student page. Responses in OneNote.</td>
+            <td>Saved in Class Notebook under “Lesson 3 – Exit Ticket”.</td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <section>
-      <h2>Resources and Preparation</h2>
+      <h2>Links & Resources</h2>
       <ul>
-        <li><code>lesson2.html</code> (projected or on student devices)</li>
-        <li><code>lesson2.png</code> for Do Now</li>
-        <li>Microsoft PowerPoint (for flowcharts)</li>
-        <li><a href="https://www.mazegenerator.net" target="_blank">MazeGenerator.net</a> (optional starter)</li>
-        <li><a href="https://forms.office.com/" target="_blank">Microsoft Forms</a> for IT task</li>
-        <li>Class Notebook sections ready for Do Now, CS Activity, IT Activity, and Exit Ticket</li>
+        <li><a class="btn-link" href="https://www.bbc.co.uk/bitesize/guides/z26rcdm/revision/3" target="_blank" rel="noopener">BBC Bitesize – Binary whole numbers</a></li>
+        <li><a class="btn-link" href="https://www.bbc.co.uk/bitesize/guides/zd88jty/revision/4" target="_blank" rel="noopener">BBC Bitesize – Hexadecimal & denary</a></li>
+        <li><a class="btn-link" href="https://bagofcows.com/binary/?topic=binary" target="_blank" rel="noopener">Bag of Cows – Binary quiz</a></li>
+        <li><a class="btn-link" href="https://bagofcows.com/binary/?topic=hexadecimal" target="_blank" rel="noopener">Bag of Cows – Hex quiz</a></li>
+        <li><a class="btn-link" href="https://www.exceldemy.com/excel-decimal-to-binary/" target="_blank" rel="noopener">ExcelDemy – Decimal → Binary in Excel</a></li>
       </ul>
     </section>
 
     <section>
-      <h2>Support and Extension</h2>
+      <h2>Support & Extension</h2>
       <ul>
-        <li><strong>Support:</strong> Provide a flowchart symbol guide or starter template. Pair students for peer help.</li>
-        <li><strong>Extension:</strong> Challenge students to add a loop (“repeat until exit found”) or add branching questions to their Form.</li>
-        <li><strong>SEND:</strong> Use modelling only if needed; keep visual examples on screen; encourage students to use Snipping Tool independently for evidence.</li>
+        <li><strong>Support:</strong> Provide a place-value strip (128–1). Allow partner talk during conversions. Offer a starter Excel file with headings.</li>
+        <li><strong>Extension:</strong> Add automatic hex output (two-nibble table) and validate A2 to 0–255 only. Try a conditional format to colour bits.</li>
+        <li><strong>SEND:</strong> Keep fonts large and high contrast; model only if helpful; circulate with quick checks; ensure independent use of Snipping Tool for evidence.</li>
       </ul>
     </section>
 
     <footer style="margin-top:1rem;text-align:center;color:var(--muted);">
-      © <span id="y"></span> RHSC Computing – Teacher Guidance (Lesson 2)
+      © <span id="y"></span> RHSC Computing – Teacher Guidance (Lesson 3)
     </footer>
   </main>
 
