@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>KS3 Computing — CS & IT (Both are cool!)</title>
+  <title>Year 9 Options — CS or IT</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +27,7 @@
     .app{ min-height:100dvh; display:grid; grid-template-columns:300px 1fr }
     @media (max-width:960px){ .app{ grid-template-columns:1fr } .sidebar{ position:relative; height:auto } }
 
+    /* Sidebar */
     .sidebar{ position:sticky; top:0; height:100dvh; background:#fffbe6; border-right:2px solid var(--border); padding:1rem 1rem 1.25rem }
     .brand{ display:flex; gap:.7rem; align-items:center; margin-bottom:.75rem }
     .dot{ width:16px; height:16px; border-radius:50%; background:var(--accent) }
@@ -40,13 +41,14 @@
     .tag{ border:2px solid var(--border); background:#fff; padding:.25rem .55rem; border-radius:999px; font-size:.9rem; cursor:pointer }
     .tag[aria-pressed="true"]{ background:var(--accent); color:#fff; border-color:var(--accent); box-shadow:var(--ring) }
 
+    /* Main */
     main{ padding:1.2rem }
     .hero{
       background:linear-gradient(180deg,#ffffffdd,#fff6d7);
       border:2px solid var(--border); border-radius:20px;
       padding:1rem 1.1rem; box-shadow:0 4px 0 rgba(0,0,0,.05); margin-bottom:1rem
     }
-    .hero h2{ margin:.2rem 0 .35rem; font-size:1.4rem }
+    .hero h2{ margin:.2rem 0 .35rem; font-size:1.5rem }
     .hero p{ margin:.25rem 0 0; color:var(--muted) }
     .hero-chips{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem }
     .chip{
@@ -54,6 +56,12 @@
       background:#fff; border:2px solid var(--border); border-radius:999px; padding:.25rem .6rem; font-size:.92rem
     }
     .chip b{ color:var(--accent) }
+    .pathways{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem }
+    .path-btn{
+      border:2px solid var(--accent); background:#fff; color:var(--accent);
+      padding:.55rem .9rem; border-radius:12px; font-weight:700; cursor:pointer;
+    }
+    .path-btn.all{ background:var(--accent); color:#fff }
 
     .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3,1fr) }
     @media (max-width:1200px){ .grid{ grid-template-columns:repeat(2,1fr) } }
@@ -68,7 +76,7 @@
     .thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease }
     .meta{ padding:.85rem .95rem 1rem; display:grid; gap:.35rem }
     .meta h3{ margin:0; font-size:1.05rem; display:flex; align-items:center; gap:.5rem }
-    .pill{ display:inline-block; font-size:.82rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); border:1px solid var(--pill-border) }
+    .pill{ display:inline-block; font-size:.82rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); border:1px solid:var(--pill-border) }
     .meta p{ margin:0; color:var(--muted); font-size:.96rem }
     .actions{ display:flex; gap:.5rem; margin-top:.6rem; flex-wrap:wrap }
     .btn{ text-decoration:none; font-weight:700; font-size:.95rem; text-align:center; border:2px solid var(--border); background:#fff; color:var(--ink); padding:.5rem .7rem; border-radius:12px; flex:0 0 auto }
@@ -85,9 +93,9 @@
     <aside class="sidebar" aria-label="Navigation">
       <div class="brand">
         <span class="dot" aria-hidden="true"></span>
-        <h1> Computing in years 7 to 9 lead to the options of CS (Computer Science) & IT (Information Technology) at GCSE's </h1>
+        <h1>Year 9 Options — CS or IT</h1>
       </div>
-      <p class="blurb">CS is cool. IT is cool. <strong>Maybe both are cool for you.</strong> Explore topics and see what you enjoy.</p>
+      <p class="blurb">Computer Science builds it. IT uses it. <strong>Both are brilliant.</strong> Explore topics and see what you enjoy.</p>
 
       <div class="control"><label for="q">Search</label></div>
       <div class="search" role="search">
@@ -110,12 +118,17 @@
     <!-- Main -->
     <main>
       <section class="hero" aria-label="Overview">
-        <h2>Choose a lesson</h2>
-        <p>Short, simple lessons. Try CS, try IT — or try both — and discover what clicks for you.</p>
+        <h2>Choose a path — or try both</h2>
+        <p>Short, simple lessons. Find out what fits you best.</p>
         <div class="hero-chips" role="list">
           <span class="chip" role="listitem"><b>CS</b> = coding, logic, problem-solving</span>
           <span class="chip" role="listitem"><b>IT</b> = practical tools, presenting, organisation</span>
           <span class="chip" role="listitem">Both paths build real skills</span>
+        </div>
+        <div class="pathways" role="group" aria-label="Pathway shortcuts">
+          <button class="path-btn all" data-filter="all">Show All</button>
+          <button class="path-btn" data-filter="cs">Just CS</button>
+          <button class="path-btn" data-filter="it">Just IT</button>
         </div>
       </section>
 
@@ -165,7 +178,7 @@
             <div class="thumb"><img src="lesson4.png" alt="Lesson 4 thumbnail"></div>
             <div class="meta">
               <h3><span class="pill">Lesson 4</span> Algorithms (Flowcharts)</h3>
-              <p>Step-by-step instructions using symbols.</p>
+              <p>Plan steps clearly using symbols.</p>
               <div class="actions">
                 <a class="btn primary" href="lesson4.html">Open</a>
                 <a class="btn" href="lesson4.html#activities">Activities</a>
@@ -263,7 +276,7 @@
     // Year in footer
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Search + filter
+    // Search + quick-filter chips
     const q = document.getElementById('q');
     const cards = [...document.querySelectorAll('.card')];
     const tags = [...document.querySelectorAll('.tag')];
@@ -297,6 +310,23 @@
         applyFilters();
       });
     });
+
+    // Pathway buttons (Show All / Just CS / Just IT)
+    const pathwayBtns = document.querySelectorAll('.path-btn');
+    pathwayBtns.forEach(b => b.addEventListener('click', () => {
+      pathwayBtns.forEach(x => x.classList.remove('all'));
+      b.classList.add('all');
+
+      // Clear all tag buttons
+      tags.forEach(t => t.setAttribute('aria-pressed','false'));
+
+      const filter = b.dataset.filter;
+      if(filter === 'cs' || filter === 'it'){
+        const tagBtn = document.querySelector(`.tag[data-tag="${filter}"]`);
+        if(tagBtn) tagBtn.setAttribute('aria-pressed','true');
+      }
+      applyFilters();
+    }));
   </script>
 </body>
 </html>
