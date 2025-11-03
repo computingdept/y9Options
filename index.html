@@ -3,66 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Year 9 Options — CS or IT</title>
+  <title>Year 9 – CS & IT (KS3 Options)</title>
 
-  <!-- Fonts -->
+  <!-- Accessible, SEN-friendly fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#fff7cc; --ink:#1e1e1e; --muted:#4b4b4b; --accent:#006e51;
-      --card:#fffef4; --border:#e8dfb7; --focus:#1f7a8c; --ring:0 0 0 3px rgba(0,110,81,.25);
-      --pill-bg:#eaf6f2; --pill-ink:#0b6e4f; --pill-border:#cfeadd;
+      --card:#fffef4; --border:#e8dfb7; --ring:0 0 0 3px rgba(0,110,81,.25);
     }
     *{ box-sizing:border-box }
     html,body{ height:100% }
     body{
       margin:0; background:var(--bg); color:var(--ink);
-      font-family:"OpenDyslexic","Atkinson Hyperlegible",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      font-family:"OpenDyslexic","Atkinson Hyperlegible",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       line-height:1.55; font-size:18px;
     }
     @font-face{ font-family:"OpenDyslexic"; src:local("OpenDyslexic"),local("OpenDyslexic-Regular"); font-display:swap; }
 
-    .app{ min-height:100dvh; display:grid; grid-template-columns:300px 1fr }
-    @media (max-width:960px){ .app{ grid-template-columns:1fr } .sidebar{ position:relative; height:auto } }
-
-    /* Sidebar */
-    .sidebar{ position:sticky; top:0; height:100dvh; background:#fffbe6; border-right:2px solid var(--border); padding:1rem 1rem 1.25rem }
-    .brand{ display:flex; gap:.7rem; align-items:center; margin-bottom:.75rem }
-    .dot{ width:16px; height:16px; border-radius:50%; background:var(--accent) }
-    .brand h1{ margin:0; font-size:1.25rem }
-    .blurb{ margin:.25rem 0 1rem; color:var(--muted); font-size:.98rem }
-    .control{ display:flex; align-items:center; gap:.5rem; margin:.4rem 0 1rem }
-    .control label{ font-weight:700 }
-    .search{ width:100%; display:flex; gap:.6rem; background:#fff; border:2px solid var(--border); border-radius:14px; padding:.5rem .7rem }
-    .search input{ flex:1; border:none; outline:none; background:transparent; font-size:1rem }
-    .tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem }
-    .tag{ border:2px solid var(--border); background:#fff; padding:.25rem .55rem; border-radius:999px; font-size:.9rem; cursor:pointer }
-    .tag[aria-pressed="true"]{ background:var(--accent); color:#fff; border-color:var(--accent); box-shadow:var(--ring) }
-
-    /* Main */
-    main{ padding:1.2rem }
-    .hero{
+    header.site{
+      padding:1rem 1.2rem 0;
+    }
+    .title-wrap{
+      display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
       background:linear-gradient(180deg,#ffffffdd,#fff6d7);
-      border:2px solid var(--border); border-radius:20px;
-      padding:1rem 1.1rem; box-shadow:0 4px 0 rgba(0,0,0,.05); margin-bottom:1rem
+      border:2px solid var(--border); border-radius:20px; padding:1rem 1.1rem;
+      box-shadow:0 4px 0 rgba(0,0,0,.05);
     }
-    .hero h2{ margin:.2rem 0 .35rem; font-size:1.5rem }
-    .hero p{ margin:.25rem 0 0; color:var(--muted) }
-    .hero-chips{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem }
-    .chip{
-      display:inline-flex; align-items:center; gap:.4rem;
-      background:#fff; border:2px solid var(--border); border-radius:999px; padding:.25rem .6rem; font-size:.92rem
-    }
-    .chip b{ color:var(--accent) }
-    .pathways{ display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem }
-    .path-btn{
-      border:2px solid var(--accent); background:#fff; color:var(--accent);
-      padding:.55rem .9rem; border-radius:12px; font-weight:700; cursor:pointer;
-    }
-    .path-btn.all{ background:var(--accent); color:#fff }
+    .dot{ width:16px; height:16px; border-radius:50%; background:var(--accent) }
+    h1{ margin:.2rem 0 .25rem; font-size:1.6rem }
+    p.lead{ margin:0; color:var(--muted) }
 
+    main{ padding:1.2rem }
     .grid{ display:grid; gap:1rem; grid-template-columns:repeat(3,1fr) }
     @media (max-width:1200px){ .grid{ grid-template-columns:repeat(2,1fr) } }
     @media (max-width:720px){ .grid{ grid-template-columns:1fr } }
@@ -75,258 +49,171 @@
     .thumb{ aspect-ratio:16/9; background:#fff; overflow:hidden }
     .thumb img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease }
     .meta{ padding:.85rem .95rem 1rem; display:grid; gap:.35rem }
+    .pill{ display:inline-block; font-size:.82rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; background:#eaf6f2; color:#0b6e4f; border:1px solid #cfeadd }
     .meta h3{ margin:0; font-size:1.05rem; display:flex; align-items:center; gap:.5rem }
-    .pill{ display:inline-block; font-size:.82rem; font-weight:700; padding:.15rem .5rem; border-radius:999px; background:var(--pill-bg); color:var(--pill-ink); border:1px solid:var(--pill-border) }
     .meta p{ margin:0; color:var(--muted); font-size:.96rem }
     .actions{ display:flex; gap:.5rem; margin-top:.6rem; flex-wrap:wrap }
     .btn{ text-decoration:none; font-weight:700; font-size:.95rem; text-align:center; border:2px solid var(--border); background:#fff; color:var(--ink); padding:.5rem .7rem; border-radius:12px; flex:0 0 auto }
     .btn.primary{ background:var(--accent); color:#fff; border-color:var(--accent) }
     .card:focus-within, .card:hover{ border-color:var(--accent); box-shadow:var(--ring); transform:translateY(-1px) }
     .card:hover .thumb img{ transform:scale(1.04) }
-    footer{ color:var(--muted); font-size:.9rem; margin-top:1rem; text-align:center }
-    a:focus,button:focus,input:focus{ outline:3px solid var(--focus); outline-offset:2px }
+
+    footer{ color:var(--muted); font-size:.9rem; margin:1rem; text-align:center }
+    a:focus,button:focus,input:focus{ outline:3px solid #1f7a8c; outline-offset:2px }
   </style>
 </head>
 <body>
-  <div class="app" role="application">
-    <!-- Sidebar -->
-    <aside class="sidebar" aria-label="Navigation">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <h1>Year 9 Options — CS or IT</h1>
+  <header class="site" aria-label="Page header">
+    <div class="title-wrap">
+      <span class="dot" aria-hidden="true"></span>
+      <div>
+        <h1>Year 9 – CS & IT (KS3 Options)</h1>
+        <p class="lead">Computer Science builds it. IT uses it. Short, simple lessons — try both and see what fits.</p>
       </div>
-      <p class="blurb">Computer Science builds it. IT uses it. <strong>Both are brilliant.</strong> Explore topics and see what you enjoy.</p>
+    </div>
+  </header>
 
-      <div class="control"><label for="q">Search</label></div>
-      <div class="search" role="search">
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 5 1.5-1.5-5-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-        </svg>
-        <input id="q" type="text" placeholder="Search ‘SQL’, ‘networks’, ‘binary’…" aria-label="Filter lessons">
-      </div>
+  <main aria-label="Lesson list">
+    <div class="grid">
 
-      <div class="control"><label>Quick filters</label></div>
-      <div class="tags" role="toolbar" aria-label="Lesson filters">
-        <button class="tag" data-tag="cs" aria-pressed="false">Computer Science</button>
-        <button class="tag" data-tag="it" aria-pressed="false">IT</button>
-        <button class="tag" data-tag="algorithms" aria-pressed="false">Algorithms</button>
-        <button class="tag" data-tag="data" aria-pressed="false">Data</button>
-        <button class="tag" data-tag="networks" aria-pressed="false">Networks</button>
-      </div>
-    </aside>
-
-    <!-- Main -->
-    <main>
-      <section class="hero" aria-label="Overview">
-        <h2>Choose a path — or try both</h2>
-        <p>Short, simple lessons. Find out what fits you best.</p>
-        <div class="hero-chips" role="list">
-          <span class="chip" role="listitem"><b>CS</b> = coding, logic, problem-solving</span>
-          <span class="chip" role="listitem"><b>IT</b> = practical tools, presenting, organisation</span>
-          <span class="chip" role="listitem">Both paths build real skills</span>
+      <!-- L1 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson1.png" alt="Lesson 1 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 1</span> CS vs IT (Overview)</h3>
+          <p>What each pathway is about; try a quick task from both.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson1.html">Open</a>
+            <a class="btn" href="lesson1_teacher.html">Teacher Guidance</a>
+          </div>
         </div>
-        <div class="pathways" role="group" aria-label="Pathway shortcuts">
-          <button class="path-btn all" data-filter="all">Show All</button>
-          <button class="path-btn" data-filter="cs">Just CS</button>
-          <button class="path-btn" data-filter="it">Just IT</button>
+      </article>
+
+      <!-- L2 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson2.png" alt="Lesson 2 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 2</span> Flowcharts (CS) vs Forms (IT)</h3>
+          <p>Plan algorithms clearly; match form logic to decisions.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson2.html">Open</a>
+            <a class="btn" href="lesson2_teacher.html">Teacher Guidance</a>
+          </div>
         </div>
-      </section>
+      </article>
 
-      <section aria-label="Lesson list">
-        <div class="grid" id="grid">
-          <!-- Lesson 1 -->
-          <article class="card" tabindex="0" data-title="Lesson 1 — Computer Science vs IT" data-tags="cs it">
-            <div class="thumb"><img src="lesson1.png" alt="Lesson 1 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 1</span> Computer Science vs IT</h3>
-              <p>What’s the difference? Try both and compare.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson1.html">Open</a>
-                <a class="btn" href="lesson1_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 2 -->
-          <article class="card" tabindex="0" data-title="Lesson 2 — Hardware & Software" data-tags="cs data">
-            <div class="thumb"><img src="lesson2.png" alt="Lesson 2 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 2</span> Hardware & Software</h3>
-              <p>CPU, memory, storage — how computers work.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson2.html">Open</a>
-                <a class="btn" href="lesson2_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 3 -->
-          <article class="card" tabindex="0" data-title="Lesson 3 — Networks & Internet" data-tags="cs networks">
-            <div class="thumb"><img src="lesson3.png" alt="Lesson 3 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 3</span> Networks & Internet</h3>
-              <p>How devices connect and share data.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson3.html">Open</a>
-                    <a class="btn" href="lesson3_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 4 -->
-          <article class="card" tabindex="0" data-title="Lesson 4 — Algorithms (Flowcharts)" data-tags="cs algorithms">
-            <div class="thumb"><img src="lesson4.png" alt="Lesson 4 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 4</span> Algorithms (Flowcharts)</h3>
-              <p>Plan steps clearly using symbols.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson4.html">Open</a>
-                   <a class="btn" href="lesson4_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 5 -->
-          <article class="card" tabindex="0" data-title="Lesson 5 — Binary & Data" data-tags="cs data">
-            <div class="thumb"><img src="lesson5.png" alt="Lesson 5 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 5</span> Binary & Data</h3>
-              <p>Bits, bytes and simple conversions.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson5.html">Open</a>
-                    <a class="btn" href="lesson5_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 6 -->
-          <article class="card" tabindex="0" data-title="Lesson 6 — SQL (SQL Island)" data-tags="cs it data">
-            <div class="thumb"><img src="lesson6.png" alt="Lesson 6 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 6</span> SQL (SQL Island)</h3>
-              <p>Ask the database questions using SQL.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson6.html">Open</a>
-                   <a class="btn" href="lesson6_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 7 -->
-          <article class="card" tabindex="0" data-title="Lesson 7 — E-Safety & Digital Footprint" data-tags="it">
-            <div class="thumb"><img src="lesson7.png" alt="Lesson 7 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 7</span> E-Safety & Digital Footprint</h3>
-              <p>Protect yourself online. Think before you share.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson7.html">Open</a>
-                  <a class="btn" href="lesson7_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 8 -->
-          <article class="card" tabindex="0" data-title="Lesson 8 — Spreadsheets" data-tags="it data">
-            <div class="thumb"><img src="lesson8.png" alt="Lesson 8 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 8</span> Spreadsheets</h3>
-              <p>Formulas, tidy tables, neat charts.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson8.html">Open</a>
-                  <a class="btn" href="lesson8_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 9 -->
-          <article class="card" tabindex="0" data-title="Lesson 9 — Cybersecurity" data-tags="cs">
-            <div class="thumb"><img src="lesson9.png" alt="Lesson 9 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 9</span> Cybersecurity</h3>
-              <p>Passwords, phishing, 2FA — staying safe.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson9.html">Open</a>
-                   <a class="btn" href="lesson9_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Lesson 10 -->
-          <article class="card" tabindex="0" data-title="Lesson 10 — Assessment & Review" data-tags="cs it data networks algorithms">
-            <div class="thumb"><img src="lesson10.png" alt="Lesson 10 thumbnail"></div>
-            <div class="meta">
-              <h3><span class="pill">Lesson 10</span> Assessment & Review</h3>
-              <p>Recap the best bits from CS & IT.</p>
-              <div class="actions">
-                <a class="btn primary" href="lesson10.html">Open</a>
-                    <a class="btn" href="lesson10_teacher.html">Teacher Guidance</a>
-              </div>
-            </div>
-          </article>
+      <!-- L3 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson3.png" alt="Lesson 3 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 3</span> Binary (CS) vs Excel (IT)</h3>
+          <p>Convert 0–255 to 8-bit binary & hex; build an Excel converter.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson3.html">Open</a>
+            <a class="btn" href="lesson3_teacher.html">Teacher Guidance</a>
+          </div>
         </div>
-      </section>
+      </article>
 
-      <footer>
-        © <span id="y"></span> RHSC Computing · SEN-friendly · Keyboard navigable
-      </footer>
-    </main>
-  </div>
+      <!-- L4 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson4.png" alt="Lesson 4 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 4</span> Images & Colour (CS) vs Slide Design (IT)</h3>
+          <p>Pixels, colour depth, file size; make clearer slides.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson4.html">Open</a>
+            <a class="btn" href="lesson4_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- L5 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson5.png" alt="Lesson 5 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 5</span> Networks (CS) vs Sharing & Permissions (IT)</h3>
+          <p>LANs with router/switch; set view vs edit access correctly.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson5.html">Open</a>
+            <a class="btn" href="lesson5_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- L6 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson6.png" alt="Lesson 6 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 6</span> Spreadsheets (IT) vs Databases (CS)</h3>
+          <p>SQL Island practice; evidence with screenshots in OneNote.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson6.html">Open</a>
+            <a class="btn" href="lesson6_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- L7 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson7.png" alt="Lesson 7 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 7</span> Operating Systems (CS) vs File Management (IT)</h3>
+          <p>UI, memory, process & file systems; smart naming + backups.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson7.html">Open</a>
+            <a class="btn" href="lesson7_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- L8 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson8.png" alt="Lesson 8 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 8</span> Logic (CS) vs Digital Media (IT)</h3>
+          <p>AND/OR/NOT truth tables; export PNG vs JPEG and compare.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson8.html">Open</a>
+            <a class="btn" href="lesson8_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- L9 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson9.png" alt="Lesson 9 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 9</span> Cybersecurity (CS) vs Digital Footprint (IT)</h3>
+          <p>Spot phishing, use 2FA; audit and improve privacy settings.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson9.html">Open</a>
+            <a class="btn" href="lesson9_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- L10 -->
+      <article class="card" tabindex="0">
+        <div class="thumb"><img src="lesson10.png" alt="Lesson 10 thumbnail"></div>
+        <div class="meta">
+          <h3><span class="pill">Lesson 10</span> Assessment & Review</h3>
+          <p>Retrieval across CS & IT; celebrate strengths and next steps.</p>
+          <div class="actions">
+            <a class="btn primary" href="lesson10.html">Open</a>
+            <a class="btn" href="lesson10_teacher.html">Teacher Guidance</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>© <span id="y"></span> RHSC Computing · SEN-friendly · Keyboard navigable</footer>
 
   <script>
-    // Year in footer
+    // Year in footer (no filtering JS needed)
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Search + quick-filter chips
-    const q = document.getElementById('q');
-    const cards = [...document.querySelectorAll('.card')];
-    const tags = [...document.querySelectorAll('.tag')];
-
-    function currentTagFilters(){
-      return tags.filter(t => t.getAttribute('aria-pressed') === 'true')
-                 .map(t => t.dataset.tag.toLowerCase());
-    }
-    function matchesFilters(card, filters){
-      if(filters.length === 0) return true;
-      const cardTags = (card.getAttribute('data-tags') || '').toLowerCase().split(/\s+/);
-      return filters.every(f => cardTags.includes(f));
-    }
-    function matchesQuery(card, query){
-      if(!query) return true;
-      return (card.getAttribute('data-title') || '').toLowerCase().includes(query.toLowerCase());
-    }
-    function applyFilters(){
-      const filters = currentTagFilters();
-      const query = q.value.trim().toLowerCase();
-      cards.forEach(card => {
-        const ok = matchesFilters(card, filters) && matchesQuery(card, query);
-        card.style.display = ok ? '' : 'none';
-      });
-    }
-    q.addEventListener('input', applyFilters);
-    tags.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const on = btn.getAttribute('aria-pressed') === 'true';
-        btn.setAttribute('aria-pressed', String(!on));
-        applyFilters();
-      });
-    });
-
-    // Pathway buttons (Show All / Just CS / Just IT)
-    const pathwayBtns = document.querySelectorAll('.path-btn');
-    pathwayBtns.forEach(b => b.addEventListener('click', () => {
-      pathwayBtns.forEach(x => x.classList.remove('all'));
-      b.classList.add('all');
-
-      // Clear all tag buttons
-      tags.forEach(t => t.setAttribute('aria-pressed','false'));
-
-      const filter = b.dataset.filter;
-      if(filter === 'cs' || filter === 'it'){
-        const tagBtn = document.querySelector(`.tag[data-tag="${filter}"]`);
-        if(tagBtn) tagBtn.setAttribute('aria-pressed','true');
-      }
-      applyFilters();
-    }));
   </script>
 </body>
 </html>
