@@ -6,7 +6,6 @@
   <title>Teacher Guidance – Lesson 1 (CS vs IT)</title>
   <link rel="stylesheet" href="style.css"/>
   <style>
-    /* Light framing so this reads like a teacher doc */
     main.container{
       margin-left: var(--sidebar-w, 240px);
       max-width: 980px;
@@ -30,17 +29,11 @@
     th{ background:#fff4b2; text-align:left; color:#4b4b00 }
     tr:nth-child(even){ background:#fff }
     .mini{ color: var(--muted); font-size:.95rem }
-    .btn-link{
-      display:inline-block; padding:10px 14px; border-radius:10px;
-      border:2px solid var(--accent); color:var(--accent); background:#fff; text-decoration:none; font-weight:700;
-    }
-    .btn-link:hover{ background:#f6fff8 }
   </style>
 </head>
 <body>
 
-  <!-- Slim left rail for consistency with your lessons -->
-  <nav class="tabs left" role="navigation" aria-label="Teacher nav">
+  <nav class="tabs left" role="navigation">
     <a href="index.html" class="tab-button">⬅ Back to Index</a>
     <a href="lesson1.html" class="tab-button">Open Lesson 1</a>
   </nav>
@@ -54,159 +47,128 @@
 
     <section>
       <h2>Overview</h2>
-      <p><strong>Duration:</strong> 60 minutes &nbsp;&nbsp; <strong>Class:</strong> Year 9 Options Taster</p>
-      <p><strong>Focus:</strong> Understand the difference/overlap between <em>Computer Science</em> (creating/programming)
-         and <em>IT</em> (using/managing tools), then try one CS and one IT task.</p>
+      <p><strong>Approx. length:</strong> 60 minutes  <strong>Year group:</strong> 9 Options Taster</p>
+      <p><strong>Focus:</strong> Understanding the difference and overlap between
+        <em>Computer Science</em> (creating and programming) and
+        <em>Information Technology</em> (using and managing tools). </p>
     </section>
 
     <section>
       <h2>Learning Objectives</h2>
       <ul>
         <li>Explain what <strong>Computer Science</strong> and <strong>Information Technology</strong> mean.</li>
-        <li>Identify real examples of each in everyday life.</li>
+        <li>Identify everyday examples of each.</li>
         <li>Describe where the two subjects overlap.</li>
       </ul>
     </section>
 
     <section>
-      <h2>Lesson Flow & Timings (60 min)</h2>
+      <h2>Lesson Flow (approx.)</h2>
 
-      <div class="teacher-note silent-box">
-        Do Now routine: Students complete in <em>Class Notebook / OneNote</em> under
-        <strong>“Lesson 1 – Do Now”</strong>, in <strong>silence</strong>. No discussion until you say “Reveal answers.”
+      <div class="silent-box">
+        Students complete the <strong>Do Now</strong> quietly in <em>Class Notebook / OneNote</em> under
+        “Lesson 1 – Do Now”.  No talking until you say “Reveal answers”.
       </div>
 
       <table>
         <thead>
           <tr>
-            <th style="width:110px">Time</th>
-            <th style="width:200px">Stage</th>
-            <th>Teacher Guidance (modelling + prompts)</th>
+            <th>Approx. Time</th>
+            <th>Stage</th>
+            <th>Teacher Guidance ( modelling optional )</th>
             <th>Student Outcome</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>0–5</td>
-            <td>Do Now (silent in OneNote)</td>
-            <td>
-              Display the Do Now tab (image + 4 statements). Remind: “Work silently in OneNote.”<br>
-              Circulate. After 3–4 mins, click <em>Reveal</em> and check quickly: ask “Why CS?” or “Why IT?” for one item.
-            </td>
-            <td>Answers typed in OneNote under “Lesson 1 – Do Now”.</td>
+            <td>Start (5 min)</td>
+            <td>Do Now – Silent task</td>
+            <td>Display the Do Now image and statements.  
+              Remind: “Answer silently in OneNote.”  
+              After a few minutes, click Reveal and discuss one or two examples briefly.</td>
+            <td>Written answers in OneNote under ‘Lesson 1 – Do Now’.</td>
           </tr>
           <tr>
-            <td>5–10</td>
-            <td>Lesson focus</td>
-            <td>
-              Pose the anchor: <strong>“Where do CS and IT meet?”</strong><br>
-              Simple frame: <em>CS builds it; IT uses it well</em>. Both need problem-solving.
-            </td>
-            <td>Students can state the high-level difference.</td>
+            <td>≈ 5 – 10 min</td>
+            <td>Introduce the key question</td>
+            <td>Ask: <strong>“Where do Computer Science and IT meet?”</strong>  
+              Summarise: CS builds it, IT uses it.  
+              Both rely on logical thinking and creativity.</td>
+            <td>Can describe one main difference between CS and IT.</td>
           </tr>
           <tr>
-            <td>10–18</td>
+            <td>≈ 10 – 20 min</td>
             <td>Knowledge Recap</td>
-            <td>
-              Use your two Knowledge boxes from the lesson page:<br>
-              • <strong>CS – Algorithms</strong> (robot chef / recipe analogy).<br>
-              • <strong>IT – Workflows</strong> (school play analogy).<br>
-              Quick questions: “What is an algorithm?”, “What breaks a workflow?”
-            </td>
-            <td>Shared understanding of algorithm vs workflow.</td>
+            <td>Use the two knowledge boxes:  
+              • <strong>CS – Algorithms</strong> (robot chef / recipe analogy).  
+              • <strong>IT – Workflows</strong> (school play analogy).  
+              Ask: “What happens if a step is missing?”</td>
+            <td>Understand algorithm vs workflow with examples.</td>
           </tr>
           <tr>
-            <td>18–23</td>
-            <td><strong>Model CS activity</strong></td>
-            <td>
-              Project <a href="https://www.mazegenerator.net" target="_blank" rel="noopener">MazeGenerator.net</a>.<br>
-              Generate a <em>small</em> maze. On the board, write a demo path (e.g. <code>N E E S E N</code>).<br>
-              Narrate testing step-by-step; when it fails, say “debug → fix one step”. Show a shorter, cleaner sequence.
-            </td>
-            <td>Students see what “good” looks like; understand debugging.</td>
+            <td>≈ 20 – 30 min</td>
+            <td>Computer Science Activity – Maze Navigator</td>
+            <td>If helpful, briefly model on <a href="https://www.mazegenerator.net" target="_blank">MazeGenerator.net</a>: show a short path and debugging.  
+              Encourage students to test, fix, and shorten their own sequences.</td>
+            <td>Students write and improve a step sequence (N/E/S/W). Practise debugging.</td>
           </tr>
           <tr>
-            <td>23–33</td>
-            <td>CS activity – Maze Navigator</td>
-            <td>
-              Let them work. Circulate with two prompts: “Read your steps aloud.” “Where did it go wrong? Fix just that.”
-            </td>
-            <td>Algorithm written, tested, and improved.</td>
+            <td>≈ 30 – 40 min</td>
+            <td>Information Technology Activity – Online Safety Slide</td>
+            <td>Show the IT Activity tab.  
+              Remind success criteria: Title + 3 tips + 1 image.  
+              If needed, model a slide for clarity.</td>
+            <td>One slide titled ‘Stay Safe Online’ with clear design and 3–4 tips.</td>
           </tr>
           <tr>
-            <td>33–36</td>
-            <td><strong>Model IT activity</strong></td>
-            <td>
-              Open a blank Slide/PowerPoint. Type title <strong>Stay Safe Online</strong> + add one lock icon + 3 bullets.<br>
-              Model accessibility: 32–40pt headings, high contrast, few words.
-            </td>
-            <td>Students know layout and success criteria.</td>
+            <td>≈ 40 – 50 min</td>
+            <td>Key Vocabulary (reinforcement)</td>
+            <td>After both activities, revisit the vocab tab (Algorithm, Program, Hardware…).  
+              Keep it brisk – ask pupils to link each term to what they just did.</td>
+            <td>Terms understood through recent use.</td>
           </tr>
           <tr>
-            <td>36–46</td>
-            <td>IT activity – Online safety slide</td>
-            <td>
-              Direct to IT Activity tab. If needed, click “Show Sample Answers”. Remind positive tone and readability.
-            </td>
-            <td>One slide with title, 3–4 tips, simple visual.</td>
+            <td>≈ 50 – 58 min</td>
+            <td>Exit Ticket / Reflection</td>
+            <td>Display the 3 questions (Identify / Explain / Reflect).  
+              Allow short written answers in books or OneNote.</td>
+            <td>Clear written explanation of difference + personal preference.</td>
           </tr>
           <tr>
-            <td>46–52</td>
-            <td><em>Key Vocabulary (later for pace)</em></td>
-            <td>
-              Now formalise terms <em>after</em> usage. Read/quiz the vocab tab (Algorithm, Program, Hardware, Software, Data).<br>
-              Tip: “Point to where you used each term today.”
-            </td>
-            <td>Terms anchored to concrete experience.</td>
-          </tr>
-          <tr>
-            <td>52–58</td>
-            <td>Exit Ticket</td>
-            <td>
-              Display 3Qs. Ask for full-sentence answers. Optional: collect via Forms or OneNote page.
-            </td>
-            <td>Identify (CS + IT), Explain difference, Reflect preference.</td>
-          </tr>
-          <tr>
-            <td>58–60</td>
+            <td>Final minutes</td>
             <td>Plenary</td>
-            <td>
-              Reinforce: <strong>“CS builds it. IT uses it. Both make tech work.”</strong> Invite 2–3 share-outs.
-            </td>
-            <td>Students articulate which path interests them and why.</td>
+            <td>Reinforce: <strong>“CS builds it. IT uses it. Both make technology work.”</strong> Invite a few reflections.</td>
+            <td>Verbal share-outs; sense of both pathways’ value.</td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <section>
-      <h2>Resources</h2>
+      <h2>Resources and Preparation</h2>
       <ul>
-        <li><code>lesson1.html</code> (projected) + <code>lesson1.png</code> (Do Now image)</li>
-        <li><a class="btn-link" href="https://www.mazegenerator.net" target="_blank" rel="noopener">Open MazeGenerator.net</a></li>
+        <li><code>lesson1.html</code> (open on projector or student devices)</li>
+        <li><code>lesson1.png</code> for Do Now image</li>
+        <li>Access to <a href="https://www.mazegenerator.net" target="_blank">MazeGenerator.net</a></li>
         <li>PowerPoint / Google Slides for IT task</li>
-        <li>Exit Ticket (on page or Forms)</li>
+        <li>Exit Ticket template or digital form</li>
       </ul>
     </section>
 
     <section>
-      <h2>Support, Stretch & SEND</h2>
+      <h2>Support and Extension</h2>
       <ul>
-        <li><strong>Support:</strong> Provide a tiny move bank (N/E/S/W). Offer a scaffolded slide with title box + 3 bullet placeholders.</li>
-        <li><strong>Stretch:</strong> Ask for a <em>shorter</em> maze algorithm (optimise) or a slide variant for a different audience (parents/KS2).</li>
-        <li><strong>SEND:</strong> Read instructions aloud; model one of each task; allow paired work; keep fonts large (≥24pt) and high contrast.</li>
+        <li><strong>Support:</strong> Provide example commands (N/E/S/W) or a slide template with placeholders.</li>
+        <li><strong>Extension:</strong> Ask students to shorten their maze algorithm or redesign the slide for a different audience.</li>
+        <li><strong>SEND:</strong> Model one example if helpful; allow pairs; keep fonts large and contrast high.</li>
       </ul>
     </section>
 
-    <section class="teacher-note">
-      <strong>Implementation note:</strong> In the student page, consider moving the <em>Key Vocabulary</em> section beneath the IT activity to keep lesson energy high. (No JS changes required.)
-    </section>
-
-    <footer style="margin-top:1.2rem; text-align:center; color:var(--muted);">
-      © <span id="y"></span> RHSC Computing — Teacher Guidance (Lesson 1)
+    <footer style="margin-top:1rem;text-align:center;color:var(--muted);">
+      © <span id="y"></span> RHSC Computing – Teacher Guidance (Lesson 1)
     </footer>
   </main>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
