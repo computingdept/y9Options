@@ -57,32 +57,35 @@ body{
   box-shadow:none;
   z-index:10;
 }*/
+/* === Left Sidebar (centred navigation buttons) === */
+nav.tabs.left {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: #fffef4;               /* pale yellow to match SEN theme */
+  padding: 10px 6px;
+  border-right: 2px solid #f2da7a;
+  border-radius: 0 12px 12px 0;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  z-index: 10;
+}
 /* === Left Sidebar (centred navigation buttons) === 
 
 
 
 .tabs.left .tab-button{
-  flex:0 0 auto;
-  font: inherit;
-  font-weight:700;
-  padding:12px 16px;
-  border:0;
-  border-radius:999px;
-  background:rgba(255,255,255,0.14);
-  color:#fff;
-  cursor:pointer;
-  text-align:left;
-  transition:background .2s ease, transform .05s ease;
-}
-.tabs.left .tab-button:hover{ background:rgba(255,255,255,0.22) }
-.tabs.left .tab-button:active{ transform:translateY(1px) }
-.tabs.left .tab-button.active{
+@@ -95,200 +80,253 @@
   background:#fff;
   color:var(--accent);
   box-shadow:0 0 0 3px rgba(255,255,255,.35) inset;
 }*/
 
-/* === Left Sidebar (centred navigation buttons, high contrast) === 
+/* === Left Sidebar (centred navigation buttons, high contrast) === */
 nav.tabs.left {
   position: fixed;
   left: 0;
@@ -92,42 +95,13 @@ nav.tabs.left {
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  background: #f9f9f9;               
+  background: #f9f9f9;                /* soft neutral background for visibility */
   padding: 14px 10px;
   border-right: 2px solid #ccc;
   border-radius: 0 14px 14px 0;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
   z-index: 10;
-}*/
-/* --- Sidebar + content spacing fix (apply to all lessons) --- */
-:root{
-  /* set a real width for the fixed sidebar */
-  --sidebar-w: 240px; /* adjust if your buttons/padding change */
 }
-
-/* Fixed left sidebar: full height, no vertical centering */
-nav.tabs.left{
-  position: fixed;
-  left: 0;
-  top: 0;
-  transform: none;          /* remove translateY(-50%) */
-  width: var(--sidebar-w);  /* reserve a consistent width */
-  height: 100dvh;           /* full viewport height */
-  overflow:auto;            /* scroll if buttons exceed height */
-  z-index: 10;
-
-  /* keep your current visual styles */
-  display:flex; flex-direction:column; align-items:center; gap:10px;
-  background:#f9f9f9; padding:14px 10px;
-  border-right:2px solid #ccc; border-radius:0 14px 14px 0;
-  box-shadow:2px 2px 10px rgba(0,0,0,.15);
-}
-
-/* Push main content to the right of the fixed sidebar */
-main.container{
-  margin-left: var(--sidebar-w);
-}
-
 
 /* === Navigation Buttons === */
 .tab-button {
@@ -358,4 +332,3 @@ main.container{
   background:var(--accent);
   color:#fff;
 }
-
