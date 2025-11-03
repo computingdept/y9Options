@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teacher Guidance – Lesson 4 (Images & Colour vs Slide Design)</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    main.container{
+      margin-left: var(--sidebar-w,240px);
+      max-width:980px;
+      background:#fffef4;
+      border:1px solid #f2da7a;
+      border-radius:14px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    h1,h2{color:var(--accent)}
+    .silent-box{
+      background:#fff4b2;border:1px solid #f2da7a;color:#4b4b00;
+      border-radius:12px;padding:10px 14px;font-weight:700;
+    }
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    th,td{border:1px solid #f2da7a;padding:10px 12px;vertical-align:top}
+    th{background:#fff4b2;text-align:left;color:#4b4b00}
+    tr:nth-child(even){background:#fff}
+    .mini{color:var(--muted);font-size:.95rem}
+    .btn-link{
+      display:inline-block;padding:8px 12px;border-radius:10px;
+      border:2px solid var(--accent);color:var(--accent);background:#fff;
+      text-decoration:none;font-weight:700;
+    }
+    .btn-link:hover{background:#f6fff8}
+  </style>
+</head>
+<body>
+
+  <nav class="tabs left" role="navigation">
+    <a href="index.html" class="tab-button">⬅ Back to Index</a>
+    <a href="lesson4.html" class="tab-button">Open Lesson 4</a>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Teacher Guidance – Lesson 4<br>
+        <span class="mini">Images & Colour (CS) vs Slide Design (IT)</span>
+      </h1>
+    </header>
+
+    <section>
+      <h2>Overview</h2>
+      <p><strong>Approx. length:</strong> 60 minutes <strong>Year group:</strong> 9 Options Taster</p>
+      <p><strong>Focus:</strong> CS — how bitmaps store pixels/colour and how to estimate file size. IT — improve slide readability using clear design choices.</p>
+    </section>
+
+    <section>
+      <h2>Learning Objectives</h2>
+      <ul>
+        <li>Explain pixels, resolution, colour depth.</li>
+        <li>Estimate file size with <em>w × h × bpp ÷ 8</em>.</li>
+        <li>Redesign slides for clarity (contrast, alignment, consistency).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Lesson Flow (approx.)</h2>
+
+      <div class="silent-box">
+        Students complete the <strong>Do Now</strong> silently in <strong>Microsoft OneNote (Class Notebook)</strong> under “Lesson 4 – Do Now”.  
+        Use the <strong>Snipping Tool</strong> (Win + Shift + S) later to evidence CS and IT work in OneNote.
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Approx. Time</th>
+            <th>Stage</th>
+            <th>Teacher Guidance (modelling optional)</th>
+            <th>Student Outcome / Evidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Start (≈ 5 min)</td>
+            <td>Do Now – Silent recap</td>
+            <td>Display the Do Now (pixels/binary recap). Remind: quiet answers in OneNote; reveal briefly.</td>
+            <td>Answers saved in OneNote under “Lesson 4 – Do Now”.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 5 – 12 min</td>
+            <td>Knowledge Recap</td>
+            <td>Use Knowledge boxes: pixel/resolution/colour depth; file-size formula; slide design checklist.  
+                Analogy: mosaic tiles for pixels; shop window for slides.</td>
+            <td>Class can state what changes file size and what makes slides readable.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 12 – 28 min</td>
+            <td>CS – Bitmap size & table task</td>
+            <td><em>If helpful:</em> Model one row: compute bits (w×h×bpp) then bytes (÷8).  
+                Clarify units (bits vs bytes). Point students to the 101Computing page.</td>
+            <td>Table completed with correct sizes + two short notes (resolution ↑ or depth ↑ → size ↑).  
+                <strong>Evidence:</strong> Snip the completed table and paste in OneNote under “Lesson 4 – CS Activity”.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 28 – 45 min</td>
+            <td>IT – 3–4 slide deck from article</td>
+            <td><em>If helpful:</em> Model one slide title + one clear visual + 3 bullets; emphasise contrast and 24pt+.  
+                Keep text minimal; one message per slide.</td>
+            <td>Short, readable deck explaining pixels/resolution/colour depth + one worked size example.  
+                <strong>Evidence:</strong> Snip slides (or export to PDF and snip first page) into OneNote under “Lesson 4 – IT Activity”.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 45 – 53 min</td>
+            <td>Key Vocabulary (after practice)</td>
+            <td>Reinforce: Pixel, Resolution, Colour Depth, File Size, Contrast. Ask pupils to point to where each appears in their work.</td>
+            <td>Verbal recall; optional brief note in OneNote.</td>
+          </tr>
+
+          <tr>
+            <td>≈ 53 – 60 min</td>
+            <td>Exit Ticket / Reflection</td>
+            <td>Use the four questions from the student page (pixel, formula, readability tip, reducing size). Responses in OneNote.</td>
+            <td>Saved under “Lesson 4 – Exit Ticket” in Class Notebook.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Links & Resources</h2>
+      <ul>
+        <li><a class="btn-link" href="https://www.101computing.net/understanding-bitmap-pictures/" target="_blank" rel="noopener">101Computing – Understanding Bitmap Pictures</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Support & Extension</h2>
+      <ul>
+        <li><strong>Support:</strong> Provide a mini file-size formula card; pre-fill a table template; allow paired reading of the article.</li>
+        <li><strong>Extension:</strong> Compare BMP vs PNG vs JPEG (lossless/lossy); ask students to compress an image and report before/after sizes.</li>
+        <li><strong>SEND:</strong> Keep fonts large/high-contrast; chunk instructions; model only if helpful; ensure independent use of Snipping Tool for evidence.</li>
+      </ul>
+    </section>
+
+    <footer style="margin-top:1rem;text-align:center;color:var(--muted);">
+      © <span id="y"></span> RHSC Computing – Teacher Guidance (Lesson 4)
+    </footer>
+  </main>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
