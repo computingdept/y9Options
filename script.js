@@ -128,6 +128,42 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   })();
+// ==== Hamburger sidebar toggle (shared) ====
+const menuBtn = document.getElementById('menu-toggle');
+const sidebar = document.querySelector('nav.tabs.left');
+const main = document.querySelector('main.container');
+
+function closeSidebar(){
+  sidebar?.classList.remove('open');
+  main?.classList.remove('shift');
+}
+function toggleSidebar(){
+  sidebar?.classList.toggle('open');
+  main?.classList.toggle('shift');
+}
+
+if (menuBtn && sidebar && main) {
+  // Open/close on button
+  menuBtn.addEventListener('click', toggleSidebar);
+
+  // Close when clicking outside the sidebar
+  document.addEventListener('click', (e) => {
+    if (!sidebar.classList.contains('open')) return;
+    const clickedInside = sidebar.contains(e.target);
+    const clickedBtn = menuBtn.contains(e.target);
+    if (!clickedInside && !clickedBtn) closeSidebar();
+  });
+
+  // Close with Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSidebar();
+  });
+
+  // Close after choosing a tab
+  document.querySelectorAll('nav.tabs.left .tab-button').forEach((b) => {
+    b.addEventListener('click', closeSidebar);
+  });
+}
 
   // ===== Force scroll-to-top on load (after layout stabilises) =====
   window.addEventListener('load', () => {
