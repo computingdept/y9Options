@@ -4,10 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Teacher Guidance – Lesson 1 (CS vs IT)</title>
+
+  <!-- Shared styles + behaviour (brings in the slide-out sidebar + toggles) -->
   <link rel="stylesheet" href="style.css"/>
+  <script defer src="script.js"></script>
+
+  <!-- Page-specific light styles; mobile-first and sidebar-safe -->
   <style>
+    /* Main card look without forcing a left margin (sidebar class handles shifts) */
     main.container{
-      margin-left: var(--sidebar-w, 240px);
       max-width: 980px;
       background:#fffef4;
       border:1px solid #f2da7a;
@@ -15,7 +20,8 @@
       padding:24px;
       box-shadow: var(--shadow);
     }
-    h1,h2{ color: var(--accent) }
+    header h1, h2 { color: var(--accent) }
+
     .teacher-note{
       background:#f6fff5; border:2px solid #a4d4a4;
       border-radius:12px; padding:12px 14px; margin:12px 0;
@@ -24,21 +30,34 @@
       background:#fff4b2; border:1px solid #f2da7a; color:#4b4b00;
       border-radius:12px; padding:10px 14px; font-weight:700;
     }
-    table{ width:100%; border-collapse:collapse; margin-top:10px }
+
+    /* Responsive table: wrap to allow horizontal scrolling on mobile */
+    .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; border-radius:12px; }
+    table{ width:100%; min-width:720px; border-collapse:collapse; margin-top:10px; background:#fff }
     th,td{ border:1px solid #f2da7a; padding:10px 12px; vertical-align:top }
     th{ background:#fff4b2; text-align:left; color:#4b4b00 }
     tr:nth-child(even){ background:#fff }
+
     .mini{ color: var(--muted); font-size:.95rem }
+
+    /* Space the page content away from the fixed hamburger on small screens */
+    @media (max-width:1023px){
+      body { padding-top:56px; }  /* keeps content clear of the top-left button */
+    }
   </style>
 </head>
 <body>
 
-  <nav class="tabs left" role="navigation">
+  <!-- Hamburger (uses the same CSS/JS you already have) -->
+  <button id="menuToggle" class="menu-toggle" aria-label="Toggle navigation" aria-controls="teacherNav" aria-expanded="false">☰</button>
+
+  <!-- Slide-out sidebar; reuses your nav styles -->
+  <nav id="teacherNav" class="tabs left" role="navigation" aria-label="Teacher navigation">
     <a href="index.html" class="tab-button">⬅ Back to Index</a>
     <a href="lesson1.html" class="tab-button">Open Lesson 1</a>
   </nav>
 
-  <main class="container">
+  <main class="container" id="main">
     <header>
       <h1>Teacher Guidance – Lesson 1<br>
         <span class="mini">The Digital World: Where Do Computer Science and IT Meet?</span>
@@ -70,66 +89,68 @@
         under <strong>“Lesson 1 – Do Now”</strong>. No discussion until you say “Reveal answers”.
       </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Approx. Time</th>
-            <th>Stage</th>
-            <th>Teacher Guidance (modelling optional)</th>
-            <th>Student Outcome / Evidence</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Start (5 min)</td>
-            <td>Do Now – Silent task</td>
-            <td>Display the Do Now image and statements. Remind: “Work silently in OneNote.” After a few minutes, click Reveal and discuss briefly.</td>
-            <td>Typed answers in OneNote under “Lesson 1 – Do Now”.</td>
-          </tr>
-          <tr>
-            <td>≈ 5 – 10 min</td>
-            <td>Introduce the key question</td>
-            <td>Ask: <strong>“Where do Computer Science and IT meet?”</strong><br>Summarise: CS builds it, IT uses it. Both involve problem-solving and creativity.</td>
-            <td>Students can state one main difference between CS and IT.</td>
-          </tr>
-          <tr>
-            <td>≈ 10 – 20 min</td>
-            <td>Knowledge Recap</td>
-            <td>Use the two knowledge boxes:<br>• <strong>CS – Algorithms</strong> (robot chef / recipe analogy).<br>• <strong>IT – Workflows</strong> (school play analogy).<br>Ask: “What happens if a step is missing?”</td>
-            <td>Understands algorithm vs workflow through examples.</td>
-          </tr>
-          <tr>
-            <td>≈ 20 – 30 min</td>
-            <td>Computer Science Activity – Maze Navigator</td>
-            <td>If helpful, demonstrate a short example on <a href="https://www.mazegenerator.net" target="_blank">MazeGenerator.net</a>. Model debugging briefly then release students to try their own.</td>
-            <td>Students create and improve a sequence (N/E/S/W).<br><strong>Evidence in OneNote:</strong> Use Snipping Tool (Windows + Shift + S) to capture their algorithm and paste it under “Lesson 1 – CS Activity”.</td>
-          </tr>
-          <tr>
-            <td>≈ 30 – 40 min</td>
-            <td>Information Technology Activity – Online Safety Slide</td>
-            <td>Show the IT Activity tab. Remind success criteria: Title + 3 tips + 1 image. Model a slide if needed for layout and clarity.</td>
-            <td>Slide created titled “Stay Safe Online” with 3–4 tips and a clear visual.<br><strong>Evidence in OneNote:</strong> Use Snipping Tool to capture their finished slide and paste under “Lesson 1 – IT Activity”.</td>
-          </tr>
-          <tr>
-            <td>≈ 40 – 50 min</td>
-            <td>Key Vocabulary (reinforcement)</td>
-            <td>Revisit the vocab tab after activities (Algorithm, Program, Hardware…). Ask students to link each term to what they did today.</td>
-            <td>Terms understood and recorded contextually in discussion notes if desired.</td>
-          </tr>
-          <tr>
-            <td>≈ 50 – 58 min</td>
-            <td>Exit Ticket / Reflection</td>
-            <td>Display the three questions (Identify / Explain / Reflect). Students answer in OneNote under “Lesson 1 – Exit Ticket”.</td>
-            <td>Short written responses saved in Class Notebook.</td>
-          </tr>
-          <tr>
-            <td>Final minutes</td>
-            <td>Plenary</td>
-            <td>Summarise: <strong>“CS builds it. IT uses it. Both make technology work.”</strong> Invite a few pupil reflections to close lesson positively.</td>
-            <td>Students share which path interests them most and why.</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Approx. Time</th>
+              <th>Stage</th>
+              <th>Teacher Guidance (modelling optional)</th>
+              <th>Student Outcome / Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Start (5 min)</td>
+              <td>Do Now – Silent task</td>
+              <td>Display the Do Now image and statements. Remind: “Work silently in OneNote.” After a few minutes, click Reveal and discuss briefly.</td>
+              <td>Typed answers in OneNote under “Lesson 1 – Do Now”.</td>
+            </tr>
+            <tr>
+              <td>≈ 5 – 10 min</td>
+              <td>Introduce the key question</td>
+              <td>Ask: <strong>“Where do Computer Science and IT meet?”</strong><br>Summarise: CS builds it, IT uses it. Both involve problem-solving and creativity.</td>
+              <td>Students can state one main difference between CS and IT.</td>
+            </tr>
+            <tr>
+              <td>≈ 10 – 20 min</td>
+              <td>Knowledge Recap</td>
+              <td>Use the two knowledge boxes:<br>• <strong>CS – Algorithms</strong> (robot chef / recipe analogy).<br>• <strong>IT – Workflows</strong> (school play analogy).<br>Ask: “What happens if a step is missing?”</td>
+              <td>Understands algorithm vs workflow through examples.</td>
+            </tr>
+            <tr>
+              <td>≈ 20 – 30 min</td>
+              <td>Computer Science Activity – Maze Navigator</td>
+              <td>If helpful, demonstrate a short example on <a href="https://www.mazegenerator.net" target="_blank" rel="noopener">MazeGenerator.net</a>. Model debugging briefly then release students to try their own.</td>
+              <td>Students create and improve a sequence (N/E/S/W).<br><strong>Evidence in OneNote:</strong> Use Snipping Tool (Windows + Shift + S) to capture their algorithm and paste it under “Lesson 1 – CS Activity”.</td>
+            </tr>
+            <tr>
+              <td>≈ 30 – 40 min</td>
+              <td>Information Technology Activity – Online Safety Slide</td>
+              <td>Show the IT Activity tab. Remind success criteria: Title + 3 tips + 1 image. Model a slide if needed for layout and clarity.</td>
+              <td>Slide created titled “Stay Safe Online” with 3–4 tips and a clear visual.<br><strong>Evidence in OneNote:</strong> Use Snipping Tool to capture their finished slide and paste under “Lesson 1 – IT Activity”.</td>
+            </tr>
+            <tr>
+              <td>≈ 40 – 50 min</td>
+              <td>Key Vocabulary (reinforcement)</td>
+              <td>Revisit the vocab tab after activities (Algorithm, Program, Hardware…). Ask students to link each term to what they did today.</td>
+              <td>Terms understood and recorded contextually in discussion notes if desired.</td>
+            </tr>
+            <tr>
+              <td>≈ 50 – 58 min</td>
+              <td>Exit Ticket / Reflection</td>
+              <td>Display the three questions (Identify / Explain / Reflect). Students answer in OneNote under “Lesson 1 – Exit Ticket”.</td>
+              <td>Short written responses saved in Class Notebook.</td>
+            </tr>
+            <tr>
+              <td>Final minutes</td>
+              <td>Plenary</td>
+              <td>Summarise: <strong>“CS builds it. IT uses it. Both make technology work.”</strong> Invite a few pupil reflections to close lesson positively.</td>
+              <td>Students share which path interests them most and why.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section>
@@ -137,7 +158,7 @@
       <ul>
         <li><code>lesson1.html</code> (projected or on student devices)</li>
         <li><code>lesson1.png</code> Do Now image</li>
-        <li>Access to <a href="https://www.mazegenerator.net" target="_blank">MazeGenerator.net</a></li>
+        <li>Access to <a href="https://www.mazegenerator.net" target="_blank" rel="noopener">MazeGenerator.net</a></li>
         <li>PowerPoint / Google Slides for IT task</li>
         <li>Class Notebook structure set up for CS and IT sections</li>
       </ul>
@@ -157,6 +178,39 @@
     </footer>
   </main>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // If your global script.js is present, this is redundant, but it’s a safe fallback
+    (function(){
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('teacherNav');
+      const main = document.getElementById('main');
+      if(!toggle || !nav || !main) return;
+      function isDesktop(){ return window.matchMedia('(min-width:1024px)').matches; }
+      function setState(open){
+        nav.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        if(isDesktop()){
+          main.classList.toggle('shift', open);
+        }else{
+          main.classList.remove('shift');
+        }
+      }
+      toggle.addEventListener('click', () => setState(!nav.classList.contains('open')));
+      window.addEventListener('resize', () => {
+        if(isDesktop()){
+          // keep it open on desktop
+          setState(true);
+        }else{
+          // keep it closed on mobile until tapped
+          setState(false);
+        }
+      });
+      // initial state
+      if(isDesktop()) setState(true);
+    })();
+  </script>
 </body>
 </html>
