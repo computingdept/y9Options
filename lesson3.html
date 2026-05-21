@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lesson 3 – Binary (CS) vs Excel (IT)</title>
+  <title>Lesson 3 – Using Numbers</title>
 
   <!-- Shared theme & behaviour -->
   <link rel="stylesheet" href="style.css" />
@@ -26,7 +26,7 @@
 
   <main class="container">
     <header>
-      <h1>Lesson 3 – Binary (CS) vs Excel (IT)</h1>
+      <h1>Lesson 3 – Using Numbers</h1>
     </header>
 
 <!-- Do Now -->
@@ -100,31 +100,30 @@ D) Circle<br>
   <h2>Knowledge Recap</h2>
 
   <div class="knowledge-box">
-    <h3>🧠 Computer Science – Binary and Hex</h3>
+    <h3>🧠 Computer Science – Binary</h3>
     <p>
       Computers don’t understand normal numbers like we do — they use <strong>binary</strong> (only 0s and 1s).
       Each binary digit (bit) stands for a place value that doubles each time.
-      We can also shorten binary using <strong>hexadecimal</strong> (0–9 and A–F).
     </p>
     <ul>
-      <li>Each 8 bits = 1 byte → can count from 0 to 255.</li>
-      <li>Binary is base-2; Hex is base-16.</li>
-      <li>Easy way to convert: group 4 bits → 1 hex digit.</li>
+      <li>Each 8 bits = 1 byte</li>
+      <li>In one byte computers can count from 0 to 255.</li>
+      <li>Each column is worth a different amount: 128, 64, 32, 16, 8, 4, 2, 1 </li>
     </ul>
-    <p><em>Analogy:</em> Eight light switches in a row. When some are on, they add up to a number.</p>
+    <p><em>Analogy:</em> Imagine binary numbers as switches in the computer - if they are a 1 electricity can flow through.</p>
   </div>
 
   <div class="knowledge-box">
-    <h3>📊 IT – Converting Numbers in Excel</h3>
+    <h3>📊 IT – Using Spreadsheets to Complete Calculations </h3>
     <p>
-      Excel can do the conversions for you using <strong>formulas</strong>.
+      Spreadsheets are large grids that are using to store and complete calculations with numbers. <br>
+      Excel can do calculations for us, we just have to write the <strong>formulas</strong>.
     </p>
     <ul>
-      <li><code>=DEC2BIN(A2,8)</code> turns a number into 8-bit binary.</li>
-      <li><code>=DEC2HEX(A2)</code> turns it into hexadecimal.</li>
-      <li>Or build your own 0–15 → 0–F table with <strong>VLOOKUP</strong>.</li>
+      <li>Each row in a spreadsheet is labelled with a number. </li>
+      <li>Each column in a spreadsheet is labelled with a letter. </li>
+      <li><code>=A4+A5</code> will add the values in the cells A4 and A5 together.  </li>
     </ul>
-    <p><em>Analogy:</em> Excel is a helper that knows which switches to flip.</p>
   </div>
 </section>
 
@@ -135,16 +134,16 @@ D) Circle<br>
         <dt>Binary</dt><dd>Base-2 number system using 0 and 1 only.</dd>
         <dt>Bit</dt><dd>A single binary digit (0 or 1).</dd>
         <dt>Byte</dt><dd>8 bits. Can store numbers 0–255.</dd>
-        <dt>Hex (Hexadecimal)</dt><dd>Base-16 number system (0–9 then A–F).</dd>
+        <dt>Spreadsheet</dt><dd>A grid that allows numbers to be stored, and caclulations to be completed.</dd>
       </dl>
     </section>
 
    <!-- CS Activity -->
 <section id="cs-activity" class="tab-content">
-  <h2>CS Activity – Convert Decimal to 8-bit Binary and Hex</h2>
+  <h2>CS Activity – Convert Decimal to 8-bit Binary</h2>
   <p>
     Work with numbers from <strong>0 to 255</strong>. Convert each to
-    <strong>8-bit binary</strong> and to <strong>hex</strong>.  
+    <strong>8-bit binary</strong>.  
     Watch the video tutorials first, then try the online quizzes.
   </p>
 
@@ -152,49 +151,20 @@ D) Circle<br>
     🎥 <strong>Video Tutorials:</strong><br>
     • <a href="https://www.bbc.co.uk/bitesize/guides/z26rcdm/revision/3"
          target="_blank" rel="noopener noreferrer">BBC Bitesize – Binary Whole Numbers</a><br>
-    • <a href="https://www.bbc.co.uk/bitesize/guides/zd88jty/revision/4"
-         target="_blank" rel="noopener noreferrer">BBC Bitesize – Hexadecimal and Denary</a>
   </div>
 
   <ol>
-    <li>Pick 5 numbers (e.g. 7, 13, 25, 128, 255).</li>
-    <li>Write their binary using place values:
-        <code>128 64 32 16 8 4 2 1</code>.</li>
-    <li>Write their hex (two digits 00 to FF).</li>
-    <li>Check your answers with a calculator or Excel.</li>
+    <li>Get a whiteboard, pen and rubber.</li>
+    <li>You have 5.5 minutes to complete as many questions as you can here: <a href="https://www.jetpunk.com/user-quizzes/300682/binary-to-decimal-quiz">Binary to Denary Quiz</a></li>
+    <li>Add a screenshot to your Class Notebook - under <b>CS Activity</b>.</li>
   </ol>
 
   <div class="resource-links" style="margin:10px 0;">
-    🧮 <strong>Practise Online:</strong><br>
+    🧮 <strong>Finished?</strong><br>
     • <a href="https://bagofcows.com/binary/?topic=binary"
          target="_blank" rel="noopener noreferrer">Bag of Cows – Binary Whole Numbers Quiz (try 5 questions)</a><br>
-    • <a href="https://bagofcows.com/binary/?topic=hexadecimal"
-         target="_blank" rel="noopener noreferrer">Bag of Cows – Hexadecimal & Denary Quiz (try 5 questions)</a>
   </div>
 
-  <button class="button-outline" data-toggle="samples" data-target="#cs-samples">
-    Show Sample Answers
-  </button>
-
-  <div id="cs-samples" class="samples">
-    <table class="samples-table">
-      <thead>
-        <tr>
-          <th>Decimal</th>
-          <th>8-bit Binary (128 64 32 16 8 4 2 1)</th>
-          <th>Hex</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>7</td><td>0000 0111</td><td>07</td><td>4 + 2 + 1 = 7</td></tr>
-        <tr><td>13</td><td>0000 1101</td><td>0D</td><td>8 + 4 + 1 = 13</td></tr>
-        <tr><td>25</td><td>0001 1001</td><td>19</td><td>16 + 8 + 1 = 25</td></tr>
-        <tr><td>128</td><td>1000 0000</td><td>80</td><td>Just the 128 bit set</td></tr>
-        <tr><td>255</td><td>1111 1111</td><td>FF</td><td>All bits set (max for a byte)</td></tr>
-      </tbody>
-    </table>
-  </div>
 </section>
 
 
