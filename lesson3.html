@@ -114,15 +114,15 @@ D) Circle<br>
   </div>
 
   <div class="knowledge-box">
-    <h3>📊 IT – Using Spreadsheets to Complete Calculations </h3>
+    <h3>📊 IT – Using Spreadsheets to Visually Represent Data </h3>
     <p>
       Spreadsheets are large grids that are using to store and complete calculations with numbers. <br>
-      Excel can do calculations for us, we just have to write the <strong>formulas</strong>.
+      Spreasheets can then visualisally represent the data using <strong>charts</strong>.
     </p>
     <ul>
-      <li>Each row in a spreadsheet is labelled with a number. </li>
-      <li>Each column in a spreadsheet is labelled with a letter. </li>
-      <li><code>=A4+A5</code> will add the values in the cells A4 and A5 together.  </li>
+      <li>When you set up a spreadsheet to represent data it automatically update when changes are made. </li>
+      <li>Charts are brilliant at showing data in a way that is easy to read. </li>
+      <li>Spreadsheets store the data in an organised manner in rows and columns.  </li>
     </ul>
   </div>
 </section>
@@ -170,57 +170,10 @@ D) Circle<br>
 
     <!-- IT Activity -->
 <section id="it-activity" class="tab-content">
-  <h2>IT Activity – Build an Excel Sheet: 0–255 → 8-bit Binary (Extension: Hex)</h2>
-  <p>Create a spreadsheet that converts a decimal number to an 8-bit binary string.  
-     Then add an <strong>extension</strong> using <strong>VLOOKUP</strong> to show the hex value.</p>
+  <h2>IT Activity – Creating Charts</h2>
+  <p>Using the spreadsheet posted on your <b>Teams</b> complete the tables using information gathered from your classmates. 
+     The charts will update automatically!</p>
 
-  <div class="resource-links" style="margin:10px 0;">
-    📘 <strong>Follow this Excel guide:</strong><br>
-    <a href="https://www.exceldemy.com/excel-decimal-to-binary/"
-       target="_blank" rel="noopener noreferrer">
-       ExcelDemy – How to Convert Decimal to Binary in Excel
-    </a><br>
-    <em>Try at least one method from the guide before completing your spreadsheet.</em>
-  </div>
-
-  <ol>
-    <li>In cell <strong>A2</strong>, type a number from <strong>0 to 255</strong> (try lots!).</li>
-    <li>In cells <strong>B2:I2</strong>, show each bit (MSB → LSB) using formulas such as:<br>
-      <code>=INT(MOD($A2/128,2))</code>, <code>=INT(MOD($A2/64,2))</code>, etc.</li>
-    <li>Join the bits into one 8-bit string in <strong>J2</strong>:  
-      <code>=TEXTJOIN("",TRUE,B2:I2)</code></li>
-    <li><em>(Alternative built-in)</em> In <strong>K2</strong>:  
-      <code>=DEC2BIN($A2,8)</code></li>
-    <li><strong>Extension – Hex with VLOOKUP:</strong>
-      <ol>
-        <li>Create a small table (e.g. M2:N17) mapping 0–15 → 0–F.</li>
-        <li>Compute nibbles:<br>
-          <code>=INT($A2/16)</code> and <code>=MOD($A2,16)</code></li>
-        <li>Lookup hex digits:<br>
-          <code>=VLOOKUP(L2,$M$2:$N$17,2,TRUE)</code></li>
-        <li>Combine: <code>=N2 &amp; O2</code></li>
-      </ol>
-    </li>
-  </ol>
-
-  <button class="button-outline" data-toggle="samples" data-target="#it-samples">
-    Show Example Layout & Formulas
-  </button>
-
-  <div id="it-samples" class="samples">
-    <table class="samples-table">
-      <thead>
-        <tr><th>Cell</th><th>Example for A2 = 25</th><th>Why</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>B2:I2</td><td>0 0 0 1 1 0 0 1</td><td>16 + 8 + 1 = 25</td></tr>
-        <tr><td>J2 (TEXTJOIN)</td><td>00011001</td><td>Joined bits</td></tr>
-        <tr><td>L2/M2</td><td>L2 = 1  M2 = 9</td><td>High/low nibbles</td></tr>
-        <tr><td>N2/O2 (VLOOKUP)</td><td>N2 = “1”  O2 = “9”</td><td>Hex digits found</td></tr>
-        <tr><td>P2 (Hex)</td><td>“19”</td><td>Final hex output</td></tr>
-      </tbody>
-    </table>
-  </div>
 </section>
 
 
